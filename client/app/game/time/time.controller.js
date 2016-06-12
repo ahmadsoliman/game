@@ -9,7 +9,13 @@ class TimeController {
     // this.Auth = Auth;
     // this.$state = $state;
     var vm = this;
-    vm.ranges = [{'name': 'house', 'min': 0, 'max': 10, 'start': 8, 'value': 8}];
+    vm.ranges = [
+      {'name': 'house', 'min': 0, 'max': 10, 'start': 8},
+      {'name': 'travel', 'min': 0, 'max': 10, 'start': 5},
+      {'name': 'wedding', 'min': 0, 'max': 10, 'start': 3},
+      {'name': 'save', 'min': 0, 'max': 10, 'start': 0},
+      {'name': 'buy', 'min': 0, 'max': 10, 'start': 0}
+    ];
 
     angular.forEach(vm.ranges, (r, i) => {
       $('#' + r.name + '-range').range({

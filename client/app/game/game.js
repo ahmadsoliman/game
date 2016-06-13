@@ -7,6 +7,12 @@ angular.module('gameApp')
         templateUrl: 'app/game/time/time.html',
         controller: 'TimeController',
         controllerAs: 'vm'
+      })
+      .state('budget', {
+        url: '/budget',
+        templateUrl: 'app/game/budget/budget.html',
+        controller: 'BudgetController',
+        controllerAs: 'vm'
       });
       // .state('logout', {
       //   url: '/logout?referrer',

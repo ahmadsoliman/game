@@ -4,11 +4,12 @@
 
   class MainController {
 
-    constructor($http) {
+    constructor($http, gameData) {
       this.vm = this;
       this.$http = $http;
       // this.awesomeThings = [];
-      
+
+      console.log(gameData);
     }
 
     $onInit() {

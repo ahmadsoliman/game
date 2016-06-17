@@ -13,6 +13,24 @@ angular.module('gameApp')
         templateUrl: 'app/game/budget/budget.html',
         controller: 'BudgetController',
         controllerAs: 'vm'
+      })
+      .state('ready', {
+        url: '/ready',
+        templateUrl: 'app/game/ready/ready.html',
+        controller: 'BudgetController',
+        controllerAs: 'vm'
+      })
+      .state('suspense', {
+        url: '/suspense',
+        templateUrl: 'app/game/suspense/suspense.html',
+        controller: 'BudgetController',
+        controllerAs: 'vm'
+      })
+      .state('discretion', {
+        url: '/discretion',
+        templateUrl: 'app/game/discretion/discretion.html',
+        controller: 'BudgetController',
+        controllerAs: 'vm'
       });
       // .state('logout', {
       //   url: '/logout?referrer',

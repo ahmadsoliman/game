@@ -12,11 +12,11 @@ class TimeController {
     vm.gameData = gameData;
 
     vm.ranges = [
-      {name: 'house', min: 0, max: 10, start: 8},
-      {name: 'travel', min: 0, max: 10, start: 5},
-      {name: 'wedding', min: 0, max: 10, start: 3},
-      {name: 'save', min: 0, max: 10, start: 0},
-      {name: 'buy', min: 0, max: 10, start: 0}
+      {name: 'house', min: 0, max: 10*52, start: 8*52},
+      {name: 'travel', min: 0, max: 10*52, start: 5*52},
+      {name: 'wedding', min: 0, max: 10*52, start: 3*52},
+      {name: 'save', min: 0, max: 10*52, start: 0},
+      {name: 'buy', min: 0, max: 10*52, start: 0}
     ];
 
     angular.forEach(vm.ranges, (r, i) => {
@@ -24,6 +24,7 @@ class TimeController {
           min: r.min,
           max: r.max,
           start: r.start,
+          step: 13,
           onChange: (val) => { $timeout(() => vm.ranges[i].value = val); }
       });
     });

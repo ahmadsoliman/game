@@ -9,7 +9,7 @@
 
       <div class="ui center aligned vertical segment">
         <div class="ui range" id="house-range"  ng-class="{disabled: vm.targetDisabled(0)}"></div>
-        <div ng-if="vm.ranges[0].value > 0"> {{vm.ranges[0].value}} Years </div>
+        <div ng-if="vm.ranges[0].value > 0"> {{vm.ranges[0].value / 52}} Years </div>
       </div>
     </div>
     <div class="item">
@@ -17,7 +17,7 @@
 
       <div class="ui center aligned vertical segment">
         <div class="ui range" id="travel-range" ng-class="{disabled: vm.targetDisabled(1)}"></div>
-        <div ng-if="vm.ranges[1].value > 0"> {{vm.ranges[1].value}} Years </div>
+        <div ng-if="vm.ranges[1].value > 0"> {{vm.ranges[1].value / 52}} Years </div>
       </div>
     </div>
     <div class="item">
@@ -25,7 +25,7 @@
 
       <div class="ui center aligned vertical segment">
           <div class="ui range" id="wedding-range" ng-class="{disabled: vm.targetDisabled(2)}"></div>
-          <div ng-if="vm.ranges[2].value > 0"> {{vm.ranges[2].value}} Years </div>
+          <div ng-if="vm.ranges[2].value > 0"> {{vm.ranges[2].value / 52}} Years </div>
       </div>
     </div>
     <div class="item">
@@ -33,7 +33,7 @@
 
       <div class="ui center aligned vertical segment">
         <div class="ui range" id="save-range" ng-class="{disabled: vm.targetDisabled(3)}"></div>
-        <div ng-if="vm.ranges[3].value > 0"> {{vm.ranges[3].value}} Years </div>
+        <div ng-if="vm.ranges[3].value > 0"> {{vm.ranges[3].value / 52}} Years </div>
       </div>
     </div>
     <div class="item">
@@ -41,7 +41,7 @@
 
       <div class="ui center aligned vertical segment">
         <div class="ui range" id="buy-range"  ng-class="{disabled: vm.targetDisabled(4)}"></div>
-        <div ng-if="vm.ranges[4].value > 0"> {{vm.ranges[4].value}} Years </div>
+        <div ng-if="vm.ranges[4].value > 0"> {{vm.ranges[4].value / 52}} Years </div>
       </div>
     </div>
   </div>

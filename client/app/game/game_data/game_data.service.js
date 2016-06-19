@@ -7,16 +7,19 @@ angular.module('gameApp')
     var user = {};
     // default values for targets
     var targets = [
-      { code: 0, name: 'house', time: 8 },
-      { code: 1, name: 'travel', time: 5 },
-      { code: 2, name: 'wedding', time: 3 }
+      { code: 0, name: 'house', time: 8, budget: 40000},
+      { code: 1, name: 'travel', time: 5, budget: 2500},
+      { code: 2, name: 'wedding', time: 3, budget: 40000}
     ];
 
 
     return {
       user: user,
-      targets: targets
+      targets: targets,
+      graph: graph
     };
 
-
+    function graph() {
+      console.log('GRAPH!');
+    }
   });

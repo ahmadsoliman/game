@@ -1,8 +1,10 @@
 'use strict';
 
 class ReadyController {
-  constructor() {
-
+  constructor(gameData) {
+    var vm = this;
+    vm.gameData = gameData;
+    
   }
 }
 

@@ -17,19 +17,19 @@ angular.module('gameApp')
       .state('ready', {
         url: '/ready',
         templateUrl: 'app/game/ready/ready.html',
-        controller: 'BudgetController',
+        controller: 'ReadyController',
         controllerAs: 'vm'
       })
       .state('suspense', {
         url: '/suspense',
         templateUrl: 'app/game/suspense/suspense.html',
-        controller: 'BudgetController',
+        controller: 'SuspenseController',
         controllerAs: 'vm'
       })
       .state('discretion', {
         url: '/discretion',
         templateUrl: 'app/game/discretion/discretion.html',
-        controller: 'BudgetController',
+        controller: 'DiscretionController',
         controllerAs: 'vm'
       });
       // .state('logout', {

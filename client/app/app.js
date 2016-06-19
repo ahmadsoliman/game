@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('gameApp', ['gameApp.auth', 'gameApp.admin', 'gameApp.constants',
-    'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'validation.match'
+    'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'validation.match',
+    'chart.js'
   ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');

@@ -43,7 +43,7 @@ class TimeController {
   }
 
   targetDisabled(i) {
-    return (this.ranges[i].value==0) && this.fulfilled();
+    return (this.ranges[i].value===0) && this.fulfilled();
   }
 
   submit() {

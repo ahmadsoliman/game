@@ -6,11 +6,21 @@
   <h3> Select your character </h3>
 
   <div class ="ui grid padded center aligned">
-    <div class="ui eight wide column">Male</div>
-    <div class="ui eight wide column">Female</div>
+    <div class="ui eight wide column">
+      <button class="ui button" ng-click="vm.setGender('m')">
+        Male
+      </button>
+    </div>
+    <div class="ui eight wide column">
+      <button class="ui button" ng-click="vm.setGender('f')">
+        Female
+      </button>
+    </div>
   </div>
 </div>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="time" class="ui button"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
+  <button ui-sref="time" class="ui button" ng-disabled="!vm.validData">
+    <i class="fa fa-check fa-2x" aria-hidden="true"></i>
+  </button>
 </div>

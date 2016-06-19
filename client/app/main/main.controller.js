@@ -9,7 +9,15 @@
       this.$http = $http;
       // this.awesomeThings = [];
 
-      console.log(gameData);
+      this.gameData = gameData;
+
+      this.validData = false;
+
+    }
+
+    setGender(g) {
+      this.validData = true;
+      this.gameData.user.gender = g;
     }
 
     $onInit() {

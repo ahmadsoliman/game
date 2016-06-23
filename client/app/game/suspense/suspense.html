@@ -2,6 +2,153 @@
 
 <p class="ui center aligned segment"> COPY </p>
 
+<div class="ui segment">
+  <div class="ui divided list">
+    <div class="item" ng-repeat="r in vm.ranges">
+      <div class="ui header"> {{r.text}} </div>
+
+      <div class="ui center aligned vertical segment">
+
+        <div class="ui range" id="{{r.name}}-range"></div>
+        <br>
+        
+        <div class="ui selection dropdown" id="{{r.name}}-freq">
+          <input type="hidden">
+          <div class="default text"> Weekly </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="1"> Weekly </div>
+            <div class="item" data-value="2"> Fortnightly </div>
+            <div class="item" data-value="4"> Monthly </div>
+            <div class="item" data-value="13"> Quarterly </div>
+            <div class="item" data-value="52"> Yearly </div>
+          </div>
+        </div>
+        ${{vm.ranges[$index].value * vm.ranges[$index].freq}}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="ui segment">
+  <div class="ui divided list">
+    <div class="item">
+      <div class="ui header"> Rent or Mortgage Repayments </div>
+
+      <div class="ui center aligned vertical segment">
+
+        <div class="ui range" id="rent-range"></div>
+
+        <div class="ui selection dropdown" id="rent-freq">
+          <input type="hidden">
+          <div class="default text"> Weekly </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="1"> Weekly </div>
+            <div class="item" data-value="2"> Fortnightly </div>
+            <div class="item" data-value="4"> Monthly </div>
+            <div class="item" data-value="13"> Quarterly </div>
+            <div class="item" data-value="52"> Yearly </div>
+          </div>
+        </div>
+        ${{vm.ranges[0].value * vm.ranges[0].freq}}
+
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui header"> Mobile and Internet </div>
+
+      <div class="ui center aligned vertical segment">
+        <div class="ui range" id="mobile-range"></div>
+
+        <div class="ui selection dropdown" id="mobile-freq">
+          <input type="hidden">
+          <div class="default text"> Weekly </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="1"> Weekly </div>
+            <div class="item" data-value="2"> Fortnightly </div>
+            <div class="item" data-value="4"> Monthly </div>
+            <div class="item" data-value="13"> Quarterly </div>
+            <div class="item" data-value="52"> Yearly </div>
+          </div>
+        </div>
+        ${{vm.ranges[1].value * vm.ranges[1].freq}}
+
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui header"> Utilities </div>
+
+      <div class="ui center aligned vertical segment">
+        <div class="ui range" id="utilities-range"></div>
+
+        <div class="ui selection dropdown" id="utilities-freq">
+          <input type="hidden">
+          <div class="default text"> Weekly </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="1"> Weekly </div>
+            <div class="item" data-value="2"> Fortnightly </div>
+            <div class="item" data-value="4"> Monthly </div>
+            <div class="item" data-value="13"> Quarterly </div>
+            <div class="item" data-value="52"> Yearly </div>
+          </div>
+        </div>
+        ${{vm.ranges[2].value * vm.ranges[2].freq}}
+
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui header"> Health and Other Insurance </div>
+
+      <div class="ui center aligned vertical segment">
+        <div class="ui range" id="health-range"></div>
+
+        <div class="ui selection dropdown" id="health-freq">
+          <input type="hidden">
+          <div class="default text"> Weekly </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="1"> Weekly </div>
+            <div class="item" data-value="2"> Fortnightly </div>
+            <div class="item" data-value="4"> Monthly </div>
+            <div class="item" data-value="13"> Quarterly </div>
+            <div class="item" data-value="52"> Yearly </div>
+          </div>
+        </div>
+        ${{vm.ranges[3].value * vm.ranges[3].freq}}
+
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui header"> Other Regular Commitments </div>
+
+      <div class="ui center aligned vertical segment">
+        <div class="ui range" id="commitments-range"></div>
+
+        <div class="ui selection dropdown" id="commitments-freq">
+          <input type="hidden">
+          <div class="default text"> Weekly </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="1"> Weekly </div>
+            <div class="item" data-value="2"> Fortnightly </div>
+            <div class="item" data-value="4"> Monthly </div>
+            <div class="item" data-value="13"> Quarterly </div>
+            <div class="item" data-value="52"> Yearly </div>
+          </div>
+        </div>
+        ${{vm.ranges[4].value * vm.ranges[4].freq}}
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<p class="ui center aligned segment"> COPY </p>
+
 <div class="ui center aligned vertical segment">
   <button ui-sref="discretion" class="ui button"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
 </div>

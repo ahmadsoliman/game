@@ -1,5 +1,6 @@
 # game
-# Bl./nk gamified survey.
+Bl./nk gamified survey.
+
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.7.5.
 
 ## Getting Started

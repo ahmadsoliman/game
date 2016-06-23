@@ -11,23 +11,19 @@ class TimeController {
     var vm = this;
     vm.gameData = gameData;
 
-    vm.ranges = [
-      {name: 'house', min: 0, max: 10*52, start: 8*52},
-      {name: 'travel', min: 0, max: 10*52, start: 5*52},
-      {name: 'wedding', min: 0, max: 10*52, start: 3*52},
-      {name: 'save', min: 0, max: 10*52, start: 0},
-      {name: 'buy', min: 0, max: 10*52, start: 0}
-    ];
+    vm.ranges = vm.gameData.timeRanges;
 
-    angular.forEach(vm.ranges, (r, i) => {
-      $('#' + r.name + '-range').range({
-          min: r.min,
-          max: r.max,
-          start: r.start,
-          step: 13,
-          onChange: (val) => { $timeout(() => vm.ranges[i].value = val); }
-      });
-    });
+    $timeout(() =>
+      angular.forEach(vm.ranges, (r, i) => {
+        $('#' + r.name + '-range').range({
+            min: r.min,
+            max: r.max,
+            start: r.value,
+            step: 13,
+            onChange: (val) => { $timeout(() => vm.ranges[i].value = val); }
+        });
+      })
+    );
   }
 
   countSelected() {
@@ -52,7 +48,8 @@ class TimeController {
         this.gameData.targets[j++] = {
           code: i,
           name: this.ranges[i].name,
-          time: this.ranges[i].value
+          time: this.ranges[i].value,
+          budget: this.gameData.budgetDefaults[i].value
         };
       }
     }

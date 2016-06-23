@@ -5,6 +5,23 @@ angular.module('gameApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     var user = {};
+
+    var timeRanges = [
+      {name: 'house', text: 'Buy a House', min: 0, max: 10*52, value: 8*52},
+      {name: 'travel', text: 'Travel Overseas', min: 0, max: 10*52, value: 5*52},
+      {name: 'wedding', text: 'Pay for a Wedding', min: 0, max: 10*52, value: 3*52},
+      {name: 'save', text: 'Save for a Rainy Day', min: 0, max: 10*52, value: 0},
+      {name: 'buy', text: 'Buy Something Else', min: 0, max: 10*52, value: 0}
+    ];
+
+    var budgetDefaults = [
+      {value: 40000, increment: 5000},
+      {value: 2500, increment: 500},
+      {value: 40000, increment: 5000},
+      {value: 3000, increment: 1000},
+      {value: 5000, increment: 2500}
+    ];
+
     // default values for targets
     var targets = [
       { code: 0, name: 'house', time: 8*52, budget: 40000},
@@ -22,6 +39,8 @@ angular.module('gameApp')
 
     return {
       user: user,
+      timeRanges: timeRanges,
+      budgetDefaults: budgetDefaults,
       targets: targets,
       suspenseRanges: suspenseRanges
     };

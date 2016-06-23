@@ -7,8 +7,8 @@ class SuspenseController {
 
     vm.ranges = vm.gameData.suspenseRanges;
 
-    angular.forEach(vm.ranges, (r, i) => {
-      $timeout(() => {
+    $timeout(() =>
+      angular.forEach(vm.ranges, (r, i) => {
         $('#' + r.name + '-range').range({
             min: r.min,
             max: r.max,
@@ -24,8 +24,7 @@ class SuspenseController {
           }
         });
       })
-
-    });
+    );
   }
 }
 

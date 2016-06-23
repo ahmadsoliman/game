@@ -4,44 +4,12 @@
 
 <div class="ui segment">
   <div class="ui divided list">
-    <div class="item">
-      <h3> Buy a House </h3>
+    <div class="item" ng-repeat="r in vm.ranges">
+      <div class="ui header"> {{r.text}} </div>
 
       <div class="ui center aligned vertical segment">
-        <div class="ui range" id="house-range"  ng-class="{disabled: vm.targetDisabled(0)}"></div>
-        <div ng-if="vm.ranges[0].value > 0"> {{vm.ranges[0].value / 52}} Years </div>
-      </div>
-    </div>
-    <div class="item">
-      <h3> Travel Overseas </h3>
-
-      <div class="ui center aligned vertical segment">
-        <div class="ui range" id="travel-range" ng-class="{disabled: vm.targetDisabled(1)}"></div>
-        <div ng-if="vm.ranges[1].value > 0"> {{vm.ranges[1].value / 52}} Years </div>
-      </div>
-    </div>
-    <div class="item">
-      <h3> Pay for a Wedding </h3>
-
-      <div class="ui center aligned vertical segment">
-          <div class="ui range" id="wedding-range" ng-class="{disabled: vm.targetDisabled(2)}"></div>
-          <div ng-if="vm.ranges[2].value > 0"> {{vm.ranges[2].value / 52}} Years </div>
-      </div>
-    </div>
-    <div class="item">
-      <h3> Save for a Rainy Day </h3>
-
-      <div class="ui center aligned vertical segment">
-        <div class="ui range" id="save-range" ng-class="{disabled: vm.targetDisabled(3)}"></div>
-        <div ng-if="vm.ranges[3].value > 0"> {{vm.ranges[3].value / 52}} Years </div>
-      </div>
-    </div>
-    <div class="item">
-      <h3> Buy Something Else </h3>
-
-      <div class="ui center aligned vertical segment">
-        <div class="ui range" id="buy-range"  ng-class="{disabled: vm.targetDisabled(4)}"></div>
-        <div ng-if="vm.ranges[4].value > 0"> {{vm.ranges[4].value / 52}} Years </div>
+        <div class="ui range" id="{{r.name}}-range"  ng-class="{disabled: vm.targetDisabled($index)}"></div>
+        <div ng-if="vm.ranges[$index].value > 0"> {{vm.ranges[$index].value / 52}} Years </div>
       </div>
     </div>
   </div>

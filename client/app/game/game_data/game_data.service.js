@@ -37,13 +37,28 @@ angular.module('gameApp')
       {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 10, max: 200, value: 50, freq: 1}
     ];
 
+    var SSum = 90;
+
     return {
       user: user,
       timeRanges: timeRanges,
       budgetDefaults: budgetDefaults,
       targets: targets,
-      suspenseRanges: suspenseRanges
+      suspenseRanges: suspenseRanges,
+      calcSSum: calcSSum,
+      getSSum: getSSum,
     };
 
+    function calcSSum() {
+      let sum = 0;
+      angular.forEach(suspenseRanges, function(r){
+        sum += r.value;
+      });
+      return SSum = sum;
+    }
+
+    function getSSum() {
+      return SSum;
+    }
 
   });

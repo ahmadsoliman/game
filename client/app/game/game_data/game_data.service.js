@@ -39,6 +39,18 @@ angular.module('gameApp')
 
     var SSum = 90;
 
+    var discretionRanges = [
+        {name: 'entertainment', text: 'Entertainment', code: 'D1', value: 250},
+        {name: 'groceries', text: 'Groceries', code: 'D2', value: 250},
+        {name: 'transport', text: 'Transport', code: 'D3', value: 250},
+        {name: 'personal', text: 'Personal', code: 'D4', value: 250},
+        {name: 'household', text: 'Household', code: 'D5', value: 250},
+        {name: 'clothing', text: 'Clothing and Accessories', code: 'D6', value: 250},
+        {name: 'work', text: 'Work or Study', code: 'D7', value: 250}
+    ]
+
+    var DSum = 1750;
+
     return {
       user: user,
       timeRanges: timeRanges,
@@ -47,6 +59,9 @@ angular.module('gameApp')
       suspenseRanges: suspenseRanges,
       calcSSum: calcSSum,
       getSSum: getSSum,
+      discretionRanges: discretionRanges,
+      calcDSum: calcDSum,
+      getDSum: getDSum,
     };
 
     function calcSSum() {
@@ -59,6 +74,18 @@ angular.module('gameApp')
 
     function getSSum() {
       return SSum;
+    }
+
+    function calcDSum() {
+      let sum = 0;
+      angular.forEach(discretionRanges, function(r){
+        sum += r.value;
+      });
+      return DSum = sum;
+    }
+
+    function getDSum() {
+      return DSum;
     }
 
   });

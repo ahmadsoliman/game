@@ -31,6 +31,18 @@ angular.module('gameApp')
         templateUrl: 'app/game/discretion/discretion.html',
         controller: 'DiscretionController',
         controllerAs: 'vm'
+      })
+      .state('boss', {
+        url: '/boss',
+        templateUrl: 'app/game/boss/boss.html',
+        controller: 'BossController',
+        controllerAs: 'vm'
+      })
+      .state('battle', {
+        url: '/battle',
+        templateUrl: 'app/game/battle/battle.html',
+        controller: 'BattleController',
+        controllerAs: 'vm'
       });
       // .state('logout', {
       //   url: '/logout?referrer',

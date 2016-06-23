@@ -2,6 +2,49 @@
 
 <p class="ui center aligned segment"> COPY </p>
 
+<div class="ui segment">
+  <div class="ui divided list">
+    <div class="item">
+      <div class="ui header"> Loan </div>
+
+      <div class="ui center aligned vertical segment">
+        <div class="ui range" id="loan-range"></div>
+        <br>
+
+        ${{vm.gameData.bossValues.BPV}}
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui header"> Interest </div>
+
+      <div class="ui center aligned vertical segment">
+        <div class="ui range" id="interest-range"></div>
+        <br>
+
+        {{vm.gameData.bossValues.BRATE}} %
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui header"> Armory </div>
+<div class="ui segment">
+  <div class="ui divided list">
+    <div class="item" ng-repeat="r in vm.ranges">
+      <div class="ui header"> {{r.text}} </div>
+
+      <div class="ui center aligned vertical segment">
+
+        <div class="ui range" id="{{r.name}}-range"></div>
+        <br>
+
+        ${{vm.ranges[$index].value}}
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="ui center aligned vertical segment">
-  <button ui-sref="battle" class="ui button"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
+  <button ui-sref="battle" class="ui button" ng-click="vm.gameData.calcBoss()"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
 </div>

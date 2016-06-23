@@ -51,6 +51,24 @@ angular.module('gameApp')
 
     var DSum = 1750;
 
+    var bossValues = {
+      BPV: 20000,
+      BRATE: 12,
+      BNPER: 260, // TODO admin setting
+    };
+
+    var BP = 20000;
+
+    var armoryRanges = [
+      {name: 'cash', text: 'Cash Savings', code: 'A1', min:0, max: 40000, value: 10000},
+      {name: 'assets', text: 'Other Financial Assets', code: 'A2', min:0, max: 50000, value: 15000},
+      {name: 'earning', text: 'Earning Capacity per Week', code: 'A3', min:0, max: 3000, value: 1000},
+      {name: 'other', text: 'Other Earnings per year', code: 'A4', min:0, max: 20000, value: 5000},
+    ];
+
+    var AA = 25000;
+    var AB = 1100;
+
     return {
       user: user,
       timeRanges: timeRanges,
@@ -58,10 +76,11 @@ angular.module('gameApp')
       targets: targets,
       suspenseRanges: suspenseRanges,
       calcSSum: calcSSum,
-      getSSum: getSSum,
       discretionRanges: discretionRanges,
       calcDSum: calcDSum,
-      getDSum: getDSum,
+      bossValues: bossValues,
+      armoryRanges: armoryRanges,
+      calcBoss: calcBoss,
     };
 
     function calcSSum() {
@@ -72,10 +91,6 @@ angular.module('gameApp')
       return SSum = sum;
     }
 
-    function getSSum() {
-      return SSum;
-    }
-
     function calcDSum() {
       let sum = 0;
       angular.forEach(discretionRanges, function(r){
@@ -84,8 +99,18 @@ angular.module('gameApp')
       return DSum = sum;
     }
 
-    function getDSum() {
-      return DSum;
+    function calcBP() {
+      // TODO Implement me
     }
 
+    function calcArmory() {
+      AA = armoryRanges[0] + armoryRanges[1];
+      AB = armoryRanges[1] + (armoryRanges[2] / 52);
+      return {AA: AA, AB: AB};
+    }
+
+    function calcBoss() {
+      calcBP();
+      calcArmory();
+    }
   });

@@ -69,6 +69,8 @@ angular.module('gameApp')
     var AA = 25000;
     var AB = 1100;
 
+    var R = 0;
+
     return {
       user: user,
       timeRanges: timeRanges,
@@ -100,7 +102,7 @@ angular.module('gameApp')
     }
 
     function calcBP() {
-      // TODO Implement me
+      return BP = (R * bossValues.BPV) / (1 - Math.pow(1+R, -1 * bossValues.BNPER));
     }
 
     function calcArmory() {
@@ -109,8 +111,42 @@ angular.module('gameApp')
       return {AA: AA, AB: AB};
     }
 
+    function calcR() {
+      return R = AB - DSum - SSum - BP;
+    }
+
     function calcBoss() {
       calcBP();
       calcArmory();
+      calcR();
     }
+
+    function calcCR(y) {
+      return AA + (y * R);
+    }
+
+    function testTarget(t, subtractedVal) {
+      return calcCR(t.time) - subtractedVal - t.budget >= 0;
+    }
+
+    function testAllTargets() {
+      var subtractedVal = 0;
+      var results = {alive: true};
+
+      for(var i=0; i<targets.length; i++) {
+        if(!testTarget(targets[i], subtractedVal)) {
+          results.alive = false;
+          return results;
+        }
+        subtractedVal += targets[i].budget;
+      }
+
+      results.finalCR = AA + (260*R) - subtractedVal;
+      results.DSum = DSum;
+      results.SSum = SSum;
+      results.R = R;
+
+      return results;
+    }
+
   });

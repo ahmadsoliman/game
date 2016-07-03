@@ -1,7 +1,39 @@
-<h1 class="ui center aligned segment"> Battle </h1>
+<h1 class="ui center aligned segment"> Report </h1>
 
 <p class="ui center aligned segment"> COPY </p>
 
+<div class="ui segment">
+  <div class="ui divided list">
+    <div class="item" ng-repeat="r in vm.results">
+      <div class="ui header"> {{r.text}} </div>
+      <p class="ui center aligned basic segment"> ${{r.value}} </p>
+    </div>
+  </div>
+</div>
+
+<div class="ui segments">
+  <div class="item">
+    <div class="ui input">
+      <input type="text" placeholder="Email">
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui input">
+      <input type="text" placeholder="Username">
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui input">
+      <input type="text" placeholder="Password">
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui input">
+      <input type="text" placeholder="Mobile">
+    </div>
+  </div>
+</div>
+
 <div class="ui center aligned vertical segment">
-  <button ui-sref="results" class="ui button"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
+  <button ui-sref="end" class="ui button"> SIGN UP </button>
 </div>

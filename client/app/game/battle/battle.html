@@ -1,7 +1,20 @@
-<h1 class="ui center aligned segment"> Boss </h1>
+<h1 class="ui center aligned segment"> Battle </h1>
 
 <p class="ui center aligned segment"> COPY </p>
 
+<p class="ui center aligned segment"> <br><br><br> {{vm.gameResults.alive}} <br><br><br> </p>
+
+<div class="ui header"> Results </div>
+<div class="ui segment">
+  <div class="ui divided list">
+    <div class="item" ng-repeat="r in vm.results">
+      <div class="ui header"> {{r.text}} </div>
+      <p class="ui center aligned basic segment"> ${{r.value}} </p>
+    </div>
+  </div>
+</div>
+
 <div class="ui center aligned vertical segment">
-  <button ui-sref="report" class="ui button"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
+  <button ui-sref="results" class="ui button"> Try Again </i> </button>
+  <button ui-sref="results" class="ui button"> <i class="fa fa-check fa-1x" aria-hidden="true"></i> </button>
 </div>

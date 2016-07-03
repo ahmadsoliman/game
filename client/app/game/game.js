@@ -43,6 +43,12 @@ angular.module('gameApp')
         templateUrl: 'app/game/battle/battle.html',
         controller: 'BattleController',
         controllerAs: 'vm'
+      })
+      .state('results', {
+        url: '/results',
+        templateUrl: 'app/game/results/results.html',
+        controller: 'ResultsController',
+        controllerAs: 'vm'
       });
       // .state('logout', {
       //   url: '/logout?referrer',

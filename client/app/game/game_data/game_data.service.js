@@ -78,11 +78,15 @@ angular.module('gameApp')
       targets: targets,
       suspenseRanges: suspenseRanges,
       calcSSum: calcSSum,
+      getSSum: getSSum,
       discretionRanges: discretionRanges,
       calcDSum: calcDSum,
+      getDSum: getDSum,
+      getR: getR,
       bossValues: bossValues,
       armoryRanges: armoryRanges,
       calcBoss: calcBoss,
+      testAllTargets: testAllTargets,
     };
 
     function calcSSum() {
@@ -93,6 +97,10 @@ angular.module('gameApp')
       return SSum = sum;
     }
 
+    function getSSum() {
+        return SSum;
+    }
+
     function calcDSum() {
       let sum = 0;
       angular.forEach(discretionRanges, function(r){
@@ -101,23 +109,33 @@ angular.module('gameApp')
       return DSum = sum;
     }
 
+    function getDSum() {
+        return DSum;
+    }
+
     function calcBP() {
-      return BP = (R * bossValues.BPV) / (1 - Math.pow(1+R, -1 * bossValues.BNPER));
+      BP = (bossValues.BRATE/5200.0 * bossValues.BPV) / (1 - Math.pow(1+bossValues.BRATE/5200.0, -1 * (bossValues.BNPER)));
+      return BP;
     }
 
     function calcArmory() {
-      AA = armoryRanges[0] + armoryRanges[1];
-      AB = armoryRanges[1] + (armoryRanges[2] / 52);
+      AA = armoryRanges[0].value + armoryRanges[1].value;
+      AB = armoryRanges[2].value + (armoryRanges[3].value / 52);
       return {AA: AA, AB: AB};
     }
 
     function calcR() {
-      return R = AB - DSum - SSum - BP;
+      R = AB - DSum - SSum - BP;
+      return R;
+    }
+
+    function getR() {
+        return R;
     }
 
     function calcBoss() {
-      calcBP();
       calcArmory();
+      calcBP();
       calcR();
     }
 

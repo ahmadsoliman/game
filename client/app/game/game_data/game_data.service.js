@@ -70,11 +70,9 @@ angular.module('gameApp')
       targets: $localStorage.targets,
       suspenseRanges: $localStorage.suspenseRanges,
       calcSSum: calcSSum,
-      getSSum: getSSum,
       discretionRanges: $localStorage.discretionRanges,
       calcDSum: calcDSum,
-      getDSum: getDSum,
-      getR: getR,
+      calcR: calcR,
       bossValues: $localStorage.bossValues,
       armoryRanges: $localStorage.armoryRanges,
       calcBoss: calcBoss,
@@ -90,20 +88,12 @@ angular.module('gameApp')
       return $localStorage.SSum = sum;
     }
 
-    function getSSum() {
-        return $localStorage.SSum;
-    }
-
     function calcDSum() {
       let sum = 0;
       angular.forEach($localStorage.discretionRanges, function(r){
         sum += r.value;
       });
       return $localStorage.DSum = sum;
-    }
-
-    function getDSum() {
-        return $localStorage.DSum;
     }
 
     function calcBP() {
@@ -122,10 +112,6 @@ angular.module('gameApp')
       return $localStorage.R = $localStorage.AB - $localStorage.DSum - $localStorage.SSum - $localStorage.BP;
     }
 
-    function getR() {
-        return $localStorage.R;
-    }
-
     function calcBoss() {
       calcArmory();
       calcBP();
@@ -142,7 +128,12 @@ angular.module('gameApp')
 
     function testAllTargets() {
       var subtractedVal = 0;
-      var results = $localStorage.results = {alive: true};
+      var results = $localStorage.results = {
+        alive: true,
+        DSum: $localStorage.DSum,
+        SSum:$localStorage.SSum,
+        R: $localStorage.R,
+      };
 
       for(var i=0; i<$localStorage.targets.length; i++) {
         if(!testTarget($localStorage.targets[i], subtractedVal)) {
@@ -153,9 +144,6 @@ angular.module('gameApp')
       }
 
       results.finalCR = $localStorage.AA + (260*$localStorage.R) - subtractedVal;
-      results.DSum = $localStorage.DSum;
-      results.SSum = $localStorage.SSum;
-      results.R = $localStorage.R;
 
       return results;
     }

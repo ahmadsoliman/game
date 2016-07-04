@@ -5,7 +5,7 @@
   class MainController {
 
     constructor(gameData) {
-      this.vm = this;
+      var vm = this;
       vm.gameData = gameData;
 
       vm.validData = false;
@@ -13,8 +13,8 @@
     }
 
     setGender(g) {
-      vm.validData = true;
-      vm.gameData.user.gender = g;
+      this.validData = true;
+      this.gameData.user.gender = g;
     }
   }
 

@@ -13,6 +13,14 @@ class BudgetController {
     // }
   }
 
+  getSum() {
+    var sum = 0;
+    this.targets.forEach(function(t){
+      sum += t.budget;
+    });
+    return sum;
+  }
+
   increment(ind) {
     this.targets[ind].budget += this.defaults[this.targets[ind].code].increment;
   }

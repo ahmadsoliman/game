@@ -1,25 +1,44 @@
 'use strict';
 
-class NavbarController {
-  //end-non-standard
+(function() {
 
-  //start-non-standard
-  constructor(Auth, gameData) {
-    var vm = this;
+  class NavbarController {
+    constructor(Auth, $state, gameData) {
+      var vm = this;
 
-    vm.isLoggedIn = Auth.isLoggedIn;
-    vm.isAdmin = Auth.isAdmin;
-    vm.getCurrentUser = Auth.getCurrentUser;
+      vm.isLoggedIn = Auth.isLoggedIn;
+      vm.isAdmin = Auth.isAdmin;
+      vm.getCurrentUser = Auth.getCurrentUser;
 
-    vm.gameData = gameData;
+      vm.gameData = gameData;
 
+      vm.$state = $state;
+      vm.states = ['main','time','budget','ready','suspense','discretion','boss','battle','results'];
+    }
+
+    restart() {
+      this.gameData.reset();
+    }
+
+    curState() {
+      var ind = this.states.indexOf(this.$state.current.name);
+      if(ind === -1) ind = 0;
+      return ind;
+    }
+
+    navBack() {
+      var ind = this.curState();
+      if(ind <= 0) return;
+      this.$state.go(this.states[ind-1]);
+    }
+
+    navForward() {
+      var ind = this.curState();
+      if(ind >= this.states.length-1) return;
+      this.$state.go(this.states[ind+1]);
+    }
   }
 
-  restart() {
-    this.gameData.reset();
-  }
-
-}
-
-angular.module('gameApp')
-  .controller('NavbarController', NavbarController);
+  angular.module('gameApp')
+    .controller('NavbarController', NavbarController);
+})();

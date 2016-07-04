@@ -28,4 +28,30 @@
   </div>
 </div> -->
 
-<button class="ui button" ng-click="vm.restart()" ui-sref="main"> <i class="repeat icon"></i> </button>
+
+<div class="ui six item menu">
+  <div class="item" ui-sref-active="{'disabled': 'main'}">
+    <i class="big arrow left icon" ng-click="vm.navBack()"></i>
+  </div>
+  <div class="item" ui-sref-active="active">
+    <i class="big truck icon" ui-sref="main"></i>
+    <div class="hidden" ui-sref="time"></div>
+    <div class="hidden" ui-sref="budget"></div>
+    <div class="hidden" ui-sref="ready"></div>
+  </div>
+  <div class="item" ui-sref-active="active">
+    <i class="big payment icon" ui-sref="suspense"></i>
+    <div class="hidden" ui-sref="discretion"></div>
+    <div class="hidden" ui-sref="boss"></div>
+  </div>
+  <div class="item"  ui-sref-active="active">
+    <i class="big info icon" ui-sref="battle"></i>
+    <div class="hidden" ui-sref="results"></div>
+  </div>
+  <div class="item" ui-sref-active="{'disabled': 'results'}">
+    <i class="big arrow right icon" ng-click="vm.navForward()"></i>
+  </div>
+  <div class="item">
+    <i class="big repeat icon" ng-click="vm.restart()" ui-sref="main"></i>
+  </div>
+</div>

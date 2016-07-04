@@ -45,11 +45,12 @@ class TimeController {
   submit() {
     for(let i=0, j=0; i<this.ranges.length; i++){
       if(this.ranges[i].value>0) {
+        var budget = (this.gameData.targets[j].code === i)? this.gameData.targets[j].budget : this.gameData.budgetDefaults[i].value;
         this.gameData.targets[j++] = {
           code: i,
           name: this.ranges[i].name,
           time: this.ranges[i].value,
-          budget: this.gameData.budgetDefaults[i].value
+          budget: budget
         };
       }
     }

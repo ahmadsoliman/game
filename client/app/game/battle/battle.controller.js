@@ -9,8 +9,8 @@ class BattleController {
 
     vm.results = [
       { name: 'discretion', text: 'Discretion', value: vm.gameResults.DSum },
-      { name: 'suspense', text: 'Suspense', value: vm.gameData.SSum },
-      { name: 'reserve', text: 'Reserve', value: vm.gameData.R }
+      { name: 'suspense', text: 'Suspense', value: vm.gameResults.SSum },
+      { name: 'reserve', text: 'Reserve', value: vm.gameResults.R }
     ];
   }
 }

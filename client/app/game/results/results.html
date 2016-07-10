@@ -6,12 +6,12 @@
   <div class="ui divided list">
     <div class="item" ng-repeat="r in vm.results">
       <div class="ui header"> {{r.text}} </div>
-      <p class="ui center aligned basic segment"> ${{r.value}} </p>
+      <p class="ui center aligned basic segment"> ${{r.value.toFixed(2)}} </p>
     </div>
   </div>
 </div>
 
-<div class="ui segments">
+<div class="ui center aligned segment">
   <div class="item">
     <div class="ui input">
       <input type="text" placeholder="Email">

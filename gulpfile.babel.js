@@ -16,6 +16,8 @@ import {Server as KarmaServer} from 'karma';
 import runSequence from 'run-sequence';
 import {protractor, webdriver_update} from 'gulp-protractor';
 import {Instrumenter} from 'isparta';
+import ftp from 'gulp-ftp';
+
 
 var plugins = gulpLoadPlugins();
 var config;
@@ -509,7 +511,13 @@ gulp.task('build:client', ['styles', 'html', 'constant', 'build:images'], () => 
                 .pipe(plugins.rev())
             .pipe(htmlBlock.restore)
         .pipe(plugins.revReplace({manifest}))
-        .pipe(gulp.dest(`${paths.dist}/${clientPath}`));
+        .pipe(gulp.dest(`${paths.dist}/${clientPath}`))
+        .pipe(ftp({
+      		host: 'ftp.insiderfoundry.com',
+      		user: 'insiderf',
+      		pass: 'GA3Gl1f5npdhvfge',
+          remotePath: '/public_html/blankft/'
+      	}));
 });
 
 gulp.task('html', function() {

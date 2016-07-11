@@ -19,7 +19,7 @@ class SuspenseController {
 
         $('#' + r.name + '-freq').dropdown({
           action: 'activate',
-          onChange: function(value, text, $selectedItem) {
+          onChange: function(value) { //, text, $selectedItem
             $timeout(() => vm.ranges[i].freq = value);
           }
         });

@@ -22,19 +22,25 @@
 
     curState() {
       var ind = this.states.indexOf(this.$state.current.name);
-      if(ind === -1) ind = 0;
+      if(ind === -1) {
+        ind = 0;
+      }
       return ind;
     }
 
     navBack() {
       var ind = this.curState();
-      if(ind <= 0) return;
+      if(ind <= 0) {
+        return;
+      }
       this.$state.go(this.states[ind-1]);
     }
 
     navForward() {
       var ind = this.curState();
-      if(ind >= this.states.length-1) return;
+      if(ind >= this.states.length-1) {
+        return;
+      }
       this.$state.go(this.states[ind+1]);
     }
   }

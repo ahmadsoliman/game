@@ -12,10 +12,12 @@ class ReadyController {
     vm.sortedTargets = angular.copy(vm.gameData.targets);
 
     function compareTargets(a,b) {
-      if (a.time < b.time)
+      if (a.time < b.time) {
         return -1;
-      if (a.time > b.time)
+      }
+      if (a.time > b.time) {
         return 1;
+      }
       return 0;
     }
 

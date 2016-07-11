@@ -4,7 +4,6 @@ angular.module('gameApp')
   .service('gameData', function ($localStorage) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
-    window.lol = $localStorage;
     var defaults = {
       user: {},
       timeRanges: [
@@ -60,7 +59,7 @@ angular.module('gameApp')
       AA: 25000,
       AB: 1100,
       R: 0,
-    }
+    };
     $localStorage.$default(defaults);
 
     return {
@@ -85,7 +84,8 @@ angular.module('gameApp')
       angular.forEach($localStorage.suspenseRanges, function(r){
         sum += r.value;
       });
-      return $localStorage.SSum = sum;
+      $localStorage.SSum = sum;
+      return sum;
     }
 
     function calcDSum() {
@@ -93,7 +93,8 @@ angular.module('gameApp')
       angular.forEach($localStorage.discretionRanges, function(r){
         sum += r.value;
       });
-      return $localStorage.DSum = sum;
+      $localStorage.DSum = sum;
+      return sum;
     }
 
     function calcBP() {
@@ -109,7 +110,8 @@ angular.module('gameApp')
     }
 
     function calcR() {
-      return $localStorage.R = $localStorage.AB - $localStorage.DSum - $localStorage.SSum - $localStorage.BP;
+      $localStorage.R = $localStorage.AB - $localStorage.DSum - $localStorage.SSum - $localStorage.BP;
+      return $localStorage.R;
     }
 
     function calcBoss() {

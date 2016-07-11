@@ -26,8 +26,9 @@ class BudgetController {
   }
 
   decrement(ind) {
-    if(this.targets[ind].budget <= this.defaults[this.targets[ind].code].increment)
+    if(this.targets[ind].budget <= this.defaults[this.targets[ind].code].increment) {
       return;
+    }
     this.targets[ind].budget -= this.defaults[this.targets[ind].code].increment;
   }
 }

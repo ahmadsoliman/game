@@ -3,14 +3,20 @@
 <p class="ui center aligned segment"> COPY </p>
 
 <div class="ui segment">
-  <div class="ui divided list">
+  <div class="ui divided items">
     <div class="item" ng-repeat="r in vm.ranges">
       <div class="ui header"> {{r.text}} </div>
 
-      <div class="ui center aligned vertical segment">
-        <div class="ui range" id="{{r.name}}-range"></div>
-        ${{vm.ranges[$index].value}}
+      <div class="ui grid rgrid">
+        <div class="ui four wide center aligned column rvalue"> ${{vm.ranges[$index].value}} </div>
+        <div class="ui twelve wide column rbox">
+          <div class="ui range game" id="{{r.name}}-range"></div>
+        </div>
       </div>
+
+    </div>
+    <div class="ui center aligned vertical segment item">
+      <p class="ui header">Total: ${{vm.getSum()}}</p>
     </div>
   </div>
 </div>

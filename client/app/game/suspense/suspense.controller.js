@@ -26,6 +26,14 @@ class SuspenseController {
       })
     );
   }
+
+  getSum(){
+    var sum = 0;
+    this.ranges.forEach(function(t){
+      sum += t.value;
+    });
+    return sum;
+  }
 }
 
 angular.module('gameApp')

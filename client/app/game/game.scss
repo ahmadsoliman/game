@@ -1,0 +1,62 @@
+// UI Semantic Range
+
+.ui.rgrid {
+  margin: 0;
+  height: 49px;
+}
+
+.ui.rvalue {
+  background: black;
+  color: white;
+  font-size: medium;
+  line-height: 30px;
+  padding-top: 9px!important;
+}
+
+.ui.rbox {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  border-left: 0;
+  padding-left: 0!important;
+  padding-right: 0!important;
+  padding-top: 9px!important;
+}
+
+.ui.range {
+  height: 30px;
+}
+
+.ui.range.game .inner {
+  margin: 0;
+  height: 30px;
+}
+
+.ui.range.game .inner .track {
+  height: 10px;
+  border-radius: 0;
+  background-color: white;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-left: 0;
+  border-right: 0;
+}
+
+.ui.range.game .inner .track-fill {
+  height: 10px;
+  border-radius: 0px;
+  background-color: black;
+}
+
+.ui.range.game .inner .thumb {
+  top: 2px;
+  height: 25px;
+  width: 25px;
+  border-radius: 2px;
+  box-shadow: None;
+  border-style: solid;
+  border-width: 1px;
+}
+
+// ---------------------------------------------------------------------------------- //

@@ -13,7 +13,7 @@ class DiscretionController {
             min: 0,
             max: 1000,
             start: r.value,
-            step: 10,
+            step: 5,
             onChange: (val) => { $timeout(() => vm.ranges[i].value = val); }
         });
       })

@@ -6,8 +6,19 @@ class ReadyController {
     vm.gameData = gameData;
 
     vm.labels = [];
-    vm.series = [''];
+    vm.series = [""];
     vm.data = [[]];
+    vm.options = {
+      label: 'Targets',
+      scales: {
+        xAxes: [{
+          stacked: true,
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
+    };
 
     vm.sortedTargets = angular.copy(vm.gameData.targets);
 
@@ -24,7 +35,7 @@ class ReadyController {
     vm.sortedTargets.sort(compareTargets);
 
     for(let i=0; i<vm.sortedTargets.length; i++){
-      vm.labels[i] = (vm.sortedTargets[i].time / 52) + ' years ' + vm.sortedTargets[i].name;
+      vm.labels[i] = (vm.sortedTargets[i].time / 52) + ' Y ' + vm.sortedTargets[i].name;
       vm.data[0][i] = vm.sortedTargets[i].budget;
     }
   }
@@ -32,12 +43,22 @@ class ReadyController {
 }
 
 angular.module('gameApp')
-  .config(['ChartJsProvider', function (ChartJsProvider) {
-    // Configure all charts
-    ChartJsProvider.setOptions({
-      colours: [],
-      responsive: true,
-      label: 'Targets'
-    });
-  }])
   .controller('ReadyController', ReadyController);
+
+// angular.module('gameApp')
+  // .config(['ChartJsProvider', function (ChartJsProvider) {
+  //   // Configure all charts
+  //   ChartJsProvider.setOptions({
+  //     colours: [],
+  //     responsive: true,
+  //     label: 'Targets',
+  //     scales: {
+  //         xAxes: [{
+  //             stacked: true,
+  //         }],
+  //         yAxes: [{
+  //             stacked: true
+  //         }]
+  //     }
+  //   });
+  // }])

@@ -10,6 +10,7 @@ class ResultsController {
     vm.results = [
       { name: 'discretion', text: 'Discretion', value: vm.gameResults.DSum },
       { name: 'suspense', text: 'Suspense', value: vm.gameResults.SSum },
+      { name: 'finalcr', text: 'Final CR', value: vm.gameResults.finalCR },
       { name: 'reserve', text: 'Reserve', value: vm.gameResults.R }
     ];
   }

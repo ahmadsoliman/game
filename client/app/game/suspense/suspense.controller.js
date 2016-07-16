@@ -13,7 +13,7 @@ class SuspenseController {
             min: r.min,
             max: r.max,
             start: r.value,
-            step: 10,
+            step: 5,
             onChange: (val) => { $timeout(() => vm.ranges[i].value = val); }
         });
 

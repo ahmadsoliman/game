@@ -28,7 +28,7 @@ class BossController {
             min: r.min,
             max: r.max,
             start: r.value,
-            step: 100,
+            step: 50,
             onChange: (val) => { $timeout(() => vm.ranges[i].value = val); }
         });
       });

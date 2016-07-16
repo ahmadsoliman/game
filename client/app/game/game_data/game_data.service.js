@@ -27,11 +27,11 @@ angular.module('gameApp')
         { code: 2, name: 'wedding', time: 3*52, budget: 40000}
       ],
       suspenseRanges: [
-        {name: 'rent', text: 'Rent or Mortgage Repayments', code: 'S1',  min: 50, max: 2000, value: 500, freq: 1},
-        {name: 'mobile', text: 'Mobile and Internet', code: 'S2', min: 10, max: 200, value: 50, freq: 1},
-        {name: 'utilities', text: 'Utilities', code: 'S3', min: 10, max: 200, value: 50, freq: 1},
-        {name: 'health', text: 'Health and Other Insurance', code: 'S4', min: 10, max: 200, value: 50, freq: 1},
-        {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 10, max: 200, value: 50, freq: 1}
+        {name: 'rent', text: 'Rent or Mortgage Repayments', code: 'S1',  min: 0, max: 2000, value: 500, freq: 1},
+        {name: 'mobile', text: 'Mobile and Internet', code: 'S2', min: 0, max: 200, value: 50, freq: 1},
+        {name: 'utilities', text: 'Utilities', code: 'S3', min: 0, max: 200, value: 50, freq: 1},
+        {name: 'health', text: 'Health and Other Insurance', code: 'S4', min: 0, max: 200, value: 50, freq: 1},
+        {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 0, max: 200, value: 50, freq: 1}
       ],
       SSum: 90,
       discretionRanges: [
@@ -125,7 +125,7 @@ angular.module('gameApp')
     }
 
     function testTarget(t, subtractedVal) {
-      return calcCR(t.time) - subtractedVal - t.budget >= 0;
+      return (calcCR(t.time) - subtractedVal - t.budget >= 0);
     }
 
     function testAllTargets() {

@@ -1,21 +1,44 @@
-<h1 class="ui center aligned segment"> Time Selection </h1>
+<h1 class="ui center aligned segment"> Goals Selection </h1>
 
 <p class="ui center aligned segment"> COPY </p>
 
 <div class="ui segment">
   <div class="ui divided items">
-    <div class="item" ng-repeat="r in vm.ranges">
-      <div class="ui header"> {{r.text}} </div>
+    <div class="item" ng-repeat="t in vm.targets">
 
-      <div class="ui grid rgrid">
-        <div class="ui four wide center aligned column rvalue"> {{vm.ranges[$index].value / 52}} Y </div>
-        <div class="ui twelve wide column rbox">
-          <div class="ui range game" id="{{r.name}}-range" ng-class="{disabled: vm.targetDisabled($index)}"></div>
+      <div class="ui selection dropdown" id="target-{{$index}}">
+        <input type="hidden" name="target-{{$index}}">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select a Goal</div>
+        <div class="menu">
+          <div class="item" ng-repeat="g in vm.ranges" data-value="{{$index}}">{{g.text}}</div>
         </div>
       </div>
+
+      <div class="ui center aligned segment">
+        <div class="ui grid rgrid">
+          <div class="ui four wide center aligned column rvalue"> {{t.time / 52}} Y </div>
+          <div class="ui twelve wide column rbox">
+            <div class="ui range game" id="{{t.name}}-trange"></div>
+          </div>
+        </div>
+
+        <div class="ui grid rgrid">
+          <div class="ui four wide center aligned column rvalue"> ${{t.budget}} </div>
+          <div class="ui twelve wide column rbox">
+            <div class="ui range game" id="{{t.name}}-brange"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
+
+<div class="ui center aligned vertical segment">
+  <button class="ui button" ng-if="!vm.fulfilled()" ng-click="vm.addGoal()"> Add another goal </button>
+</div>
+
 
 <p class="ui center aligned segment"> COPY </p>
 

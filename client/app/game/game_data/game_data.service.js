@@ -24,7 +24,7 @@ angular.module('gameApp')
       targets: [
         { code: 0, name: 'house', time: 8*52, budget: 40000},
         { code: 1, name: 'travel', time: 5*52, budget: 2500},
-        { code: 2, name: 'wedding', time: 3*52, budget: 40000}
+        // { code: 2, name: 'wedding', time: 3*52, budget: 40000}
       ],
       suspenseRanges: [
         {name: 'rent', text: 'Rent or Mortgage Repayments', code: 'S1',  min: 0, max: 2000, value: 500, freq: 1},

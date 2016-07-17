@@ -5,7 +5,6 @@ class BudgetController {
     var vm = this;
     vm.gameData = gameData;
     vm.targets = gameData.targets;
-
     vm.defaults = gameData.budgetDefaults;
 
     // for(let i=0; i<vm.targets.length; i++) {

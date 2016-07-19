@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('gameApp')
-  .service('gameData', function ($localStorage) {
+  .service('gameData', function ($localStorage, $location, $window) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     var defaults = {
@@ -149,7 +149,13 @@ angular.module('gameApp')
     }
 
     function reset() {
+      console.log($localStorage.targets);
       $localStorage.$reset();
+      console.log($localStorage);
       $localStorage.$default(defaults);
+      console.log($localStorage.targets);
+      $location.path('/main');
+      $window.location.reload();
+
     }
   });

@@ -43,10 +43,6 @@ class GoalsController {
           action: 'activate',
           onChange: function(ind, text, $selectedItem) { //
             if(ind === t.code) return;
-            console.log('target? ' + t.code +' ' + t.name);
-            console.log('a7a? ' + ind);
-            console.log(text);
-            console.log($selectedItem);
 
             t.code = ind;
             t.name = vm.ranges[ind].name;

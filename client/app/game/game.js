@@ -2,10 +2,10 @@
 
 angular.module('gameApp')
   .config(function($stateProvider) {
-    $stateProvider.state('time', {
-        url: '/time',
-        templateUrl: 'app/game/time/time.html',
-        controller: 'TimeController',
+    $stateProvider.state('goals', {
+        url: '/goals',
+        templateUrl: 'app/game/goals/goals.html',
+        controller: 'GoalsController',
         controllerAs: 'vm'
       })
       .state('budget', {

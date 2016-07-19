@@ -10,8 +10,8 @@ angular.module('gameApp')
         {name: 'house', text: 'Buy a House', min: 0, max: 10*52, value: 8*52},
         {name: 'travel', text: 'Travel Overseas', min: 0, max: 10*52, value: 5*52},
         {name: 'wedding', text: 'Pay for a Wedding', min: 0, max: 10*52, value: 3*52},
-        {name: 'save', text: 'Save for a Rainy Day', min: 0, max: 10*52, value: 0},
-        {name: 'buy', text: 'Buy Something Else', min: 0, max: 10*52, value: 0}
+        {name: 'save', text: 'Save for a Rainy Day', min: 0, max: 10*52, value: 3*52},
+        {name: 'buy', text: 'Buy Something Else', min: 0, max: 10*52, value: 3*52}
       ],
       budgetDefaults: [
         {value: 40000, increment: 5000},
@@ -22,9 +22,7 @@ angular.module('gameApp')
       ],
       // default values for targets
       targets: [
-        { code: 0, name: 'house', time: 8*52, budget: 40000},
-        { code: 1, name: 'travel', time: 5*52, budget: 2500},
-        // { code: 2, name: 'wedding', time: 3*52, budget: 40000}
+        { code: 0, name: 'house', time: 8*52, budget: 40000}
       ],
       suspenseRanges: [
         {name: 'rent', text: 'Rent or Mortgage Repayments', code: 'S1',  min: 0, max: 2000, value: 500, freq: 1},

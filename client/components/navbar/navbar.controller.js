@@ -13,7 +13,7 @@
       vm.gameData = gameData;
 
       vm.$state = $state;
-      vm.states = ['main','time','budget','ready','suspense','discretion','boss','battle','results'];
+      vm.states = ['main','goals','ready','suspense','discretion','boss','battle','results'];
     }
 
     restart() {

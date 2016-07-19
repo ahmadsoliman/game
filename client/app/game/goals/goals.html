@@ -15,18 +15,18 @@
         </div>
       </div>
 
-      <div class="ui center aligned segment">
+      <div class="ui center aligned vertical segment">
         <div class="ui grid rgrid">
           <div class="ui four wide center aligned column rvalue"> {{t.time / 52}} Y </div>
           <div class="ui twelve wide column rbox">
-            <div class="ui range game" id="{{t.name}}-trange"></div>
+            <div class="ui range game" id="trange-{{$index}}"></div>
           </div>
         </div>
 
         <div class="ui grid rgrid">
           <div class="ui four wide center aligned column rvalue"> ${{t.budget}} </div>
           <div class="ui twelve wide column rbox">
-            <div class="ui range game" id="{{t.name}}-brange"></div>
+            <div class="ui range game" id="brange-{{$index}}"></div>
           </div>
         </div>
       </div>
@@ -43,5 +43,5 @@
 <p class="ui center aligned segment"> COPY </p>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="budget" class="ui button"  ng-disabled="!vm.fulfilled()" ng-click="vm.submit()"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
+  <button ui-sref="ready" class="ui button"  ng-disabled="!vm.fulfilled()" ng-click="vm.submit()"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
 </div>

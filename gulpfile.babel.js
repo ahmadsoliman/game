@@ -17,7 +17,7 @@ import runSequence from 'run-sequence';
 import {protractor, webdriver_update} from 'gulp-protractor';
 import {Instrumenter} from 'isparta';
 import ftp from 'gulp-ftp';
-
+import replace from 'gulp-replace';
 
 var plugins = gulpLoadPlugins();
 var config;
@@ -493,6 +493,7 @@ gulp.task('build:client', ['styles', 'html', 'constant', 'build:images'], () => 
     var htmlBlock = plugins.filter(['**/*.!(html)'], {restore: true});
 
     return gulp.src(paths.client.mainView)
+        .pipe(replace('<base href="/">', '<base href="/blankft/">'))
         .pipe(plugins.useref())
             .pipe(appFilter)
                 .pipe(plugins.addSrc.append('.tmp/templates.js'))
@@ -518,6 +519,16 @@ gulp.task('build:client', ['styles', 'html', 'constant', 'build:images'], () => 
       		pass: 'GA3Gl1f5npdhvfge',
           remotePath: '/public_html/blankft/'
       	}));
+});
+
+gulp.task('build:ftp', () => {
+    return gulp.src(`${paths.dist}/${clientPath}/**/*`)
+      .pipe(ftp({
+    		host: 'ftp.insiderfoundry.com',
+    		user: 'insiderf',
+    		pass: 'GA3Gl1f5npdhvfge',
+        remotePath: '/public_html/blankft/'
+    	}));
 });
 
 gulp.task('html', function() {
@@ -569,7 +580,7 @@ gulp.task('copy:extras', () => {
 });
 
 gulp.task('copy:fonts', () => {
-    return gulp.src(`${clientPath}/bower_components/font-awesome/fonts/**/*`, { dot: true })
+    return gulp.src(`${clientPath}/bower_components/font-awesome/fonts/**/*`, { dot: true, base: `${clientPath}/bower_components`})
         .pipe(gulp.dest(`${paths.dist}/${clientPath}/bower_components`));
 });
 

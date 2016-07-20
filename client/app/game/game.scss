@@ -11,6 +11,7 @@
   font-size: medium;
   line-height: 30px;
   padding-top: 9px!important;
+  padding-left: 6px!important;
 }
 
 .ui.rbox {
@@ -21,6 +22,10 @@
   padding-left: 0!important;
   padding-right: 0!important;
   padding-top: 9px!important;
+}
+
+.ui.column.dropbox {
+  padding: 0!important;
 }
 
 .ui.range {
@@ -43,6 +48,10 @@
   border-right: 0;
 }
 
+.ui.range.game.alone .inner .track {
+  border: black solid 1px;
+}
+
 .ui.range.game .inner .track-fill {
   height: 10px;
   border-radius: 0px;
@@ -61,6 +70,24 @@
 
 // ---------------------------------------------------------------------------------- //
 
-.ui.selection.dropdown {
+// UI Semantic Dropdown
+.ui.selection.dropdown.basic {
+  border-color: black;
+  border-radius: 0;
+  text-align: center;
   font-size: large;
+  min-width: 6em;
+  width: 100%;
 }
+
+.ui.selection.dropdown.basic>.dropdown.icon {
+  color: black;
+}
+
+.ui.selection.active.dropdown:hover, .ui.selection.active.dropdown:hover .menu {
+  border-color: #BCBDBD;
+  box-shadow: 0 2px 3px 0 rgba(34,36,38,.15);
+  border-radius: 0;
+}
+
+// ---------------------------------------------------------------------------------- //

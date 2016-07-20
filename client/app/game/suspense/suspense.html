@@ -9,22 +9,26 @@
 
       <div class="ui center aligned vertical segment">
 
-        <div class="ui range" id="{{r.name}}-range"></div>
+        <div class="ui range game alone" id="{{r.name}}-range"></div>
         <br>
 
-        <div class="ui selection dropdown" id="{{r.name}}-freq">
-          <input type="hidden">
-          <div class="default text"> Weekly </div>
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <div class="item" data-value="1"> Weekly </div>
-            <div class="item" data-value="2"> Fortnightly </div>
-            <div class="item" data-value="4"> Monthly </div>
-            <div class="item" data-value="13"> Quarterly </div>
-            <div class="item" data-value="52"> Yearly </div>
+        <div class="ui grid rgrid">
+          <div class="ui twelve wide column dropbox">
+            <div class="ui selection dropdown basic" id="{{r.name}}-freq">
+              <input type="hidden">
+              <div class="default text"> Weekly </div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="1"> Weekly </div>
+                <div class="item" data-value="2"> Fortnightly </div>
+                <div class="item" data-value="4"> Monthly </div>
+                <div class="item" data-value="13"> Quarterly </div>
+                <div class="item" data-value="52"> Yearly </div>
+              </div>
+            </div>
           </div>
+          <div class="ui four wide center aligned column rvalue"> ${{vm.ranges[$index].value * vm.ranges[$index].freq}} </div>
         </div>
-        ${{vm.ranges[$index].value * vm.ranges[$index].freq}}
 
       </div>
     </div>

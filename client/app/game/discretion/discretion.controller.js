@@ -10,10 +10,10 @@ class DiscretionController {
     $timeout(() =>
       angular.forEach(vm.ranges, (r, i) => {
         $('#' + r.name + '-range').range({
-            min: 0,
-            max: 1000,
+            min: r.min,
+            max: r.max,
             start: r.value,
-            step: 5,
+            step: r.step,
             onChange: (val) => { $timeout(() => vm.ranges[i].value = val); }
         });
       })

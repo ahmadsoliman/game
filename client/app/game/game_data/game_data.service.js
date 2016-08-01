@@ -3,43 +3,43 @@
 angular.module('gameApp')
   .service('gameData', function ($localStorage, $location, $window) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-
+    
     var defaults = {
       user: {},
       timeRanges: [
-        {name: 'house', text: 'Buy a House', min: 0, max: 10*52, value: 8*52},
-        {name: 'travel', text: 'Travel Overseas', min: 0, max: 10*52, value: 5*52},
-        {name: 'wedding', text: 'Pay for a Wedding', min: 0, max: 10*52, value: 3*52},
-        {name: 'save', text: 'Save for a Rainy Day', min: 0, max: 10*52, value: 3*52},
-        {name: 'buy', text: 'Buy Something Else', min: 0, max: 10*52, value: 3*52}
+        {name: 'house', text: 'Buy a House', min: 26, max: 5*52, value: 4*52},
+        {name: 'travel', text: 'Travel Overseas', min: 26, max: 5*52, value: 4*52},
+        {name: 'wedding', text: 'Pay for a Wedding', min: 26, max: 5*52, value: 3*52},
+        {name: 'save', text: 'Save for a Rainy Day', min: 26, max: 5*52, value: 3*52},
+        {name: 'buy', text: 'Buy Something Else', min: 26, max: 5*52, value: 3*52}
       ],
       budgetDefaults: [
-        {value: 40000, increment: 5000},
-        {value: 2500, increment: 500},
-        {value: 40000, increment: 5000},
-        {value: 3000, increment: 1000},
-        {value: 5000, increment: 2500}
+        {min: 5000, max: 50000, step: 2500, value: 15000},
+        {min: 1000, max: 20000, step: 1000, value: 5000},
+        {min: 5000, max: 50000, step: 2500, value: 15000},
+        {min: 2500, max: 50000, step: 2500, value: 15000},
+        {min: 2500, max: 50000, step: 2500, value: 15000},
       ],
       // default values for targets
       targets: [
-        { code: 0, name: 'house', time: 8*52, budget: 40000}
+        { code: 0, name: 'house', time: 4*52, budget: 15000}
       ],
       suspenseRanges: [
-        {name: 'rent', text: 'Rent or Mortgage Repayments', code: 'S1',  min: 0, max: 2000, value: 500, freq: 1},
-        {name: 'mobile', text: 'Mobile and Internet', code: 'S2', min: 0, max: 200, value: 50, freq: 1},
-        {name: 'utilities', text: 'Utilities', code: 'S3', min: 0, max: 200, value: 50, freq: 1},
-        {name: 'health', text: 'Health and Other Insurance', code: 'S4', min: 0, max: 200, value: 50, freq: 1},
-        {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 0, max: 200, value: 50, freq: 1}
+        {name: 'rent', text: 'Rent or Mortgage Repayments', code: 'S1', min: 0, max: 1000, value: 500, step: 50, freq: 1},
+        {name: 'mobile', text: 'Mobile and Internet', code: 'S2', min: 0, max: 100, value: 30, step: 5, freq: 1},
+        {name: 'utilities', text: 'Utilities', code: 'S3', min: 0, max: 100, value: 50, step: 5, freq: 1},
+        {name: 'health', text: 'Health and Other Insurance', code: 'S4', min: 0, max: 100, value: 50, step: 5, freq: 1},
+        {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 0, max: 200, value: 50, step: 10, freq: 1}
       ],
       SSum: 90,
       discretionRanges: [
-        {name: 'entertainment', text: 'Entertainment', code: 'D1', value: 250},
-        {name: 'groceries', text: 'Groceries', code: 'D2', value: 250},
-        {name: 'transport', text: 'Transport', code: 'D3', value: 250},
-        {name: 'personal', text: 'Personal', code: 'D4', value: 250},
-        {name: 'household', text: 'Household', code: 'D5', value: 250},
-        {name: 'clothing', text: 'Clothing and Accessories', code: 'D6', value: 250},
-        {name: 'work', text: 'Work or Study', code: 'D7', value: 250}
+        {name: 'entertainment', text: 'Entertainment', code: 'D1', min: 0, max: 400, value: 200, step: 25},
+        {name: 'groceries', text: 'Groceries', code: 'D2', min: 0, max: 300, value: 100, step: 25},
+        {name: 'transport', text: 'Transport', code: 'D3', min: 0, max: 200, value: 100, step: 10},
+        {name: 'personal', text: 'Personal', code: 'D4', min: 0, max: 200, value: 50, step: 10},
+        {name: 'household', text: 'Household', code: 'D5', min: 0, max: 200, value: 50, step: 10},
+        {name: 'clothing', text: 'Clothing and Accessories', code: 'D6', min: 0, max: 200, value: 50, step: 10},
+        {name: 'work', text: 'Work or Study', code: 'D7', min: 0, max: 200, value: 50, step: 10}
       ],
       DSum: 1750,
       bossValues: {
@@ -49,10 +49,10 @@ angular.module('gameApp')
       },
       BP: 20000,
       armoryRanges: [
-        {name: 'cash', text: 'Cash Savings', code: 'A1', min:0, max: 40000, value: 10000},
-        {name: 'assets', text: 'Other Financial Assets', code: 'A2', min:0, max: 50000, value: 15000},
-        {name: 'earning', text: 'Earning Capacity per Week', code: 'A3', min:0, max: 3000, value: 1000},
-        {name: 'other', text: 'Other Earnings per year', code: 'A4', min:0, max: 20000, value: 5000},
+        {name: 'cash', text: 'Cash Savings', code: 'A1', min:0, max: 40000, step: 500, value: 10000},
+        {name: 'assets', text: 'Other Financial Assets', code: 'A2', min:0, max: 40000, step: 500, value: 15000},
+        {name: 'earning', text: 'Earning Capacity per Week', code: 'A3', min:0, max: 2000, step: 100, value: 1000},
+        {name: 'other', text: 'Other Earnings per year', code: 'A4', min:0, max: 40000, step: 500, value: 5000},
       ],
       AA: 25000,
       AB: 1100,

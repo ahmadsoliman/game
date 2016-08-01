@@ -21,18 +21,18 @@ class GoalsController {
       let r = vm.ranges[t.code];
 
       $('#trange-' + i).range({
-          min: r.min,
-          max: r.max,
+          min: 26,
+          max: 260,
           start: t.time,
-          step: 13,
+          step: 26,
           onChange: (val) => { $timeout(() => t.time = val); }
       });
 
       $('#brange-' + i).range({
-          min: 0,
-          max: vm.budgetDefaults[t.code].value * 3, // TODO ask abt this 4
+          min: vm.budgetDefaults[t.code].min,
+          max: vm.budgetDefaults[t.code].max,
           start: t.budget,
-          step: vm.budgetDefaults[t.code].increment / 2, // TODO this 2 also
+          step: vm.budgetDefaults[t.code].step,
           onChange: (val) => { $timeout(() => t.budget = val); }
       });
     }

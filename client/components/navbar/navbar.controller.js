@@ -6,6 +6,9 @@
     constructor(Auth, $state, gameData) {
       var vm = this;
 
+      // TODO Remove from production
+      window.reset = vm.restart;
+
       vm.isLoggedIn = Auth.isLoggedIn;
       vm.isAdmin = Auth.isAdmin;
       vm.getCurrentUser = Auth.getCurrentUser;

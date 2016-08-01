@@ -2,7 +2,8 @@
 
 <p class="ui center aligned segment"> COPY </p>
 
-<p class="ui center aligned segment"> <br><br><br> {{vm.gameResults.alive}} <br><br><br> </p>
+<p class="ui center aligned segment" ng-if="vm.gameResults.alive"> You Win! </p>
+<p class="ui center aligned segment" ng-if="!vm.gameResults.alive"> You lost.. </p>
 
 <div class="ui header"> Results </div>
 <div class="ui segment">
@@ -15,6 +16,6 @@
 </div>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="main" class="ui button"> Try Again </i> </button>
+  <button ui-sref="suspense" class="ui button"> Try Again </i> </button>
   <button ui-sref="results" class="ui button"> <i class="fa fa-check fa-1x" aria-hidden="true"></i> </button>
 </div>

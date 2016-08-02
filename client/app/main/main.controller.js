@@ -4,12 +4,12 @@
 
   class MainController {
 
-    constructor(gameData) {
+    constructor(gameData, $state) {
       var vm = this;
       vm.gameData = gameData;
 
       vm.validData = false;
-
+      $state.go('goals');
     }
 
     setGender(g) {

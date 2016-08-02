@@ -7,17 +7,27 @@ class ReadyController {
 
     vm.labels = [];
     vm.series = [""];
-    vm.data = [[]];
-    vm.options = {
-      label: 'Targets',
-      scales: {
-        xAxes: [{
-          stacked: true,
-        }],
-        yAxes: [{
-          stacked: true
-        }]
-      }
+    vm.data = {
+      labels: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5],
+      datasets: [{
+        type: 'bar',
+        label: 'dataset 1',
+        backgroundColor: "grey",
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        // borderColor: 'white'
+      }, {
+        type: 'bar',
+        label: 'dataset 2',
+        // backgroundColor: "grey",
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        // borderColor: 'white'
+      }, {
+        type: 'bar',
+        label: 'dataset 3',
+        backgroundColor: "black",
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        // borderColor: 'white'
+      }]
     };
 
     vm.sortedTargets = angular.copy(vm.gameData.targets);
@@ -34,31 +44,50 @@ class ReadyController {
 
     vm.sortedTargets.sort(compareTargets);
 
-    for(let i=0; i<vm.sortedTargets.length; i++){
-      vm.labels[i] = (vm.sortedTargets[i].time / 52) + ' Y ' + vm.sortedTargets[i].name;
-      vm.data[0][i] = vm.sortedTargets[i].budget;
+    for(let i=0, j=0; i<vm.sortedTargets.length; i++){
+      while(vm.data.datasets[j].data[vm.sortedTargets[i].time/26] != 0) j++;
+      vm.data.datasets[j].data[vm.sortedTargets[i].time/26] = vm.sortedTargets[i].budget;
+      j=0;
     }
+    window.labels = vm.labels;
+    window.data = vm.data;
+
+    var ctx = document.getElementById("canvas").getContext("2d");
+    vm.chart = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: {
+        legend: {
+          display: false
+        },
+        tooltips: {
+          mode: 'label',
+          enabled: false
+        },
+        responsive: true,
+        scales: {
+          xAxes: [{
+            stacked: true,
+            ticks: {
+              beginAtZero: true
+            },
+            gridLines: {
+              offsetGridLines: true
+            }
+          }],
+          yAxes: [{
+            stacked: true,
+    				ticks: {
+              beginAtZero: true,
+            }
+          }]
+        }
+      }
+    });
+
   }
 
 }
 
 angular.module('gameApp')
   .controller('ReadyController', ReadyController);
-
-// angular.module('gameApp')
-  // .config(['ChartJsProvider', function (ChartJsProvider) {
-  //   // Configure all charts
-  //   ChartJsProvider.setOptions({
-  //     colours: [],
-  //     responsive: true,
-  //     label: 'Targets',
-  //     scales: {
-  //         xAxes: [{
-  //             stacked: true,
-  //         }],
-  //         yAxes: [{
-  //             stacked: true
-  //         }]
-  //     }
-  //   });
-  // }])

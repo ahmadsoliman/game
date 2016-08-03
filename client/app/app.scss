@@ -6,8 +6,17 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
  */
 
 .uiview {
-  max-width: 600px;
+  max-width: 375px;
   margin: auto;
+}
+
+.navbar {
+  max-width: 375px;
+  margin: auto;
+}
+
+.full {
+  width: 100%
 }
 
 .browserupgrade {

@@ -3,7 +3,7 @@
 angular.module('gameApp')
   .service('gameData', function ($localStorage, $location, $window) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-    
+
     var defaults = {
       user: {},
       timeRanges: [
@@ -128,11 +128,16 @@ angular.module('gameApp')
 
     function testAllTargets() {
       var subtractedVal = 0;
+      var totalBudget = 0;
+      $localStorage.targets.forEach(function(t) {
+        totalBudget += t.budget;
+      });
       var results = $localStorage.results = {
         alive: true,
         DSum: $localStorage.DSum,
-        SSum:$localStorage.SSum,
+        SSum: $localStorage.SSum,
         R: $localStorage.R,
+        finalCR: calcCR(260) - totalBudget,
       };
 
       for(var i=0; i<$localStorage.targets.length; i++) {
@@ -142,8 +147,6 @@ angular.module('gameApp')
         }
         subtractedVal += $localStorage.targets[i].budget;
       }
-
-      results.finalCR = $localStorage.AA + (260*$localStorage.R) - subtractedVal;
 
       return results;
     }

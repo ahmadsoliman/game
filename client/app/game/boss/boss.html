@@ -5,23 +5,27 @@
 <div class="ui segment">
   <div class="ui divided items">
     <div class="item">
-      <div class="ui header"> Loan </div>
+      <div class="ui vertical segment full">
+        <div class="ui header"> Loan </div>
 
-      <div class="ui grid rgrid">
-        <div class="ui four wide center aligned column rvalue"> ${{vm.gameData.bossValues.BPV}} </div>
-        <div class="ui twelve wide column rbox">
-          <div class="ui range game" id="loan-range"></div>
+        <div class="ui grid rgrid">
+          <div class="ui four wide center aligned column rvalue"> ${{vm.gameData.bossValues.BPV}} </div>
+          <div class="ui twelve wide column rbox">
+            <div class="ui range game" id="loan-range"></div>
+          </div>
         </div>
       </div>
 
     </div>
     <div class="item">
-      <div class="ui header"> Interest </div>
+      <div class="ui vertical segment full">
+        <div class="ui header"> Interest </div>
 
-      <div class="ui grid rgrid">
-        <div class="ui four wide center aligned column rvalue"> {{vm.gameData.bossValues.BRATE}} % </div>
-        <div class="ui twelve wide column rbox">
-          <div class="ui range game" id="interest-range"></div>
+        <div class="ui grid rgrid">
+          <div class="ui four wide center aligned column rvalue"> {{vm.gameData.bossValues.BRATE}} % </div>
+          <div class="ui twelve wide column rbox">
+            <div class="ui range game" id="interest-range"></div>
+          </div>
         </div>
       </div>
 
@@ -33,9 +37,8 @@
 <div class="ui segment">
   <div class="ui divided items">
     <div class="item" ng-repeat="r in vm.ranges">
-      <div class="ui header"> {{r.text}} </div>
-
-      <div class="ui center aligned vertical segment">
+      <div class="ui vertical segment full">
+        <div class="ui header"> {{r.text}} </div>
 
         <div class="ui grid rgrid">
           <div class="ui four wide center aligned column rvalue"> ${{vm.ranges[$index].value}} </div>
@@ -43,8 +46,8 @@
             <div class="ui range game" id="{{r.name}}-range"></div>
           </div>
         </div>
-
       </div>
+
     </div>
   </div>
 </div>

@@ -77,11 +77,17 @@
   font-size: large;
   min-width: 6em;
   width: 100%;
+}
+
+.ui.selection.dropdown.basic.iconed  {
   padding: 0px;
 }
 
 .ui.selection.dropdown.basic>.dropdown.icon {
   color: black;
+}
+
+.ui.selection.dropdown.basic.iconed>.dropdown.icon {
   margin-top: 0px;
 }
 

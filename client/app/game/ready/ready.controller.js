@@ -49,13 +49,11 @@ class ReadyController {
       vm.data.datasets[j].data[vm.sortedTargets[i].time/26] = vm.sortedTargets[i].budget;
       j=0;
     }
-    window.labels = vm.labels;
-    window.data = vm.data;
 
     var ctx = document.getElementById("canvas").getContext("2d");
     vm.chart = new Chart(ctx, {
       type: 'bar',
-      data: data,
+      data: vm.data,
       options: {
         legend: {
           display: false

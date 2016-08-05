@@ -73,6 +73,7 @@ angular.module('gameApp')
       bossValues: $localStorage.bossValues,
       armoryRanges: $localStorage.armoryRanges,
       calcBoss: calcBoss,
+      calcCR: calcCR,
       testAllTargets: testAllTargets,
       reset: reset,
     };

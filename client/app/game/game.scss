@@ -74,14 +74,15 @@
 .ui.selection.dropdown.basic {
   border-color: black;
   border-radius: 0;
-  text-align: center;
   font-size: large;
   min-width: 6em;
   width: 100%;
+  padding: 0px;
 }
 
 .ui.selection.dropdown.basic>.dropdown.icon {
   color: black;
+  margin-top: 0px;
 }
 
 .ui.selection.active.dropdown:hover, .ui.selection.active.dropdown:hover .menu {
@@ -91,3 +92,8 @@
 }
 
 // ---------------------------------------------------------------------------------- //
+
+.ui.goal {
+  background-color: black;
+  max-height: 2.6em!important;
+}

@@ -3,11 +3,19 @@
 }
 
 .navbar {
-  width: 90%;
+  width: 100%;
+  padding: 0!important;
+  border: 0!important;
 }
 
-.uiview {
-  width: 90%;
-  padding-left: 0!important;
-  padding-right: 0!important;
+.ui.menu.four.item .item {
+  background-color: rgba(0,0,0,.05);
+  color: rgba(0,0,0,.95);
+  width: 25%;
+  padding: 8px;
+}
+
+.ui.menu .active.item {
+  background-color: rgba(0,0,0,0)!important;
+  border-bottom: black solid 2px;
 }

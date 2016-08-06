@@ -1,27 +1,33 @@
-<h1 class="ui center aligned segment"> Battle </h1>
-
-<p class="ui center aligned segment"> COPY </p>
+<div class="ui center aligned segment">
+  <h1 class="ui header"> Battle </h1>
+  <p>COPY</p>
+</div>
 
 <p class="ui center aligned segment" ng-if="vm.gameResults.alive"> You Win! </p>
 <p class="ui center aligned segment" ng-if="!vm.gameResults.alive"> You lost.. </p>
 
-
-<div class="ui segment">
+<div class="ui segment full">
   <canvas id="canvas" height="450" width="600">
   </canvas>
+
+  <div class="ui header center aligned"> Results </div>
 </div>
 
-<div class="ui header"> Results </div>
-<div class="ui segment">
-  <div class="ui divided list">
+
+<div class="ui segment nopadding">
+  <div class="ui items">
     <div class="item" ng-repeat="r in vm.results">
-      <div class="ui header"> {{r.text}} </div>
-      <p class="ui center aligned basic segment"> ${{r.value.toFixed(2)}} </p>
+      <div class="ui vertical segment full">
+        <div class="ui header"> {{r.text}} </div>
+        <p class="ui center aligned basic segment"> ${{r.value.toFixed(2)}} </p>
+      </div>
     </div>
   </div>
 </div>
 
+<p class="ui center aligned segment"> COPY </p>
+
 <div class="ui center aligned vertical segment">
-  <button ui-sref="suspense" class="ui button"> Try Again </i> </button>
-  <button ui-sref="results" class="ui button"> <i class="fa fa-check fa-1x" aria-hidden="true"></i> </button>
+  <button ui-sref="suspense" class="ui button submit"> Do Over </i> </button>
+  <button ui-sref="results" class="ui button submit"> Submit</button>
 </div>

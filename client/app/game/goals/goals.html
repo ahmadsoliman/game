@@ -1,9 +1,10 @@
-<h1 class="ui center aligned segment"> Goals Selection </h1>
+<div class="ui center aligned segment">
+  <h1 class="ui header"> Goals Selection </h1>
+  <p>COPY</p>
+</div>
 
-<p class="ui center aligned segment"> COPY </p>
-
-<div class="ui segment">
-  <div class="ui divided items">
+<div class="ui segment nopadding">
+  <div class="ui items">
     <div class="item" ng-repeat="t in vm.targets">
 
       <div class="ui center aligned vertical segment full">
@@ -15,7 +16,7 @@
           <div class="menu">
             <div class="item" ng-repeat="g in vm.ranges" data-value="{{$index}}">
               <!-- <div class="ui header"> -->
-                <img class="ui goal" src="assets/icons/goals/{{g.name}}.svg" alt="Goals Selection">
+                <img class="ui goal" ng-src="assets/icons/goals/{{g.name}}.svg" alt="Goals Selection">
               <!-- </div> -->
               {{g.text}}
             </div>
@@ -41,13 +42,13 @@
   </div>
 </div>
 
-<div class="ui center aligned vertical segment">
-  <button class="ui button" ng-if="!vm.fulfilled()" ng-click="vm.addGoal()"> Add another goal </button>
+<div class="ui center aligned vertical segment" ng-if="!vm.fulfilled()">
+  <button class="ui button" ng-click="vm.addGoal()"> Add another goal </button>
 </div>
 
 
 <p class="ui center aligned segment"> COPY </p>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="ready" class="ui button"  ng-disabled="!vm.fulfilled()" ng-click="vm.submit()"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
+  <button ui-sref="ready" class="ui button submit"  ng-disabled="!vm.fulfilled()" ng-click="vm.submit()"> Submit </button>
 </div>

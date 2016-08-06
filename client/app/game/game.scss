@@ -99,7 +99,40 @@
 
 // ---------------------------------------------------------------------------------- //
 
+// UI semantic button
+
+.ui.button.submit {
+  border-radius: 0;
+  font-size: 1.3em;
+  width: 70%;
+  background: black;
+  color: white;
+  border: white solid 1px;
+  box-shadow: 2px 2px #1b1c1d;
+}
+
+// ---------------------------------------------------------------------------------- //
+
 .ui.goal {
   background-color: black;
   max-height: 2.6em!important;
+}
+
+.ui.segment {
+  border: None;
+  box-shadow: None;
+}
+
+.ui.vertical.segment {
+  border: None;
+  box-shadow: None;
+}
+
+.ui.segment.full {
+  padding: 20px 25px;
+  background-color: rgba(0,0,0,0.05);
+}
+
+.ui.items>.item {
+  margin: 1em 0;
 }

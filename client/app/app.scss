@@ -8,6 +8,9 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 .uiview {
   max-width: 375px;
   margin: auto;
+  width: 100%;
+  padding-left: 0!important;
+  padding-right: 0!important;
 }
 
 .navbar {
@@ -17,6 +20,14 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 
 .full {
   width: 100%
+}
+
+.nopadding {
+  padding: 0!important;
+}
+
+.nomargin {
+  margin: 0!important;
 }
 
 .browserupgrade {

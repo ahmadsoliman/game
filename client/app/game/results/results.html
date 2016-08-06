@@ -1,12 +1,15 @@
-<h1 class="ui center aligned segment"> Report </h1>
+<div class="ui center aligned segment">
+  <h1 class="ui header"> Report </h1>
+  <p>COPY</p>
+</div>
 
-<p class="ui center aligned segment"> COPY </p>
-
-<div class="ui segment">
-  <div class="ui divided list">
+<div class="ui segment nopadding">
+  <div class="ui items">
     <div class="item" ng-repeat="r in vm.results">
-      <div class="ui header"> {{r.text}} </div>
-      <p class="ui center aligned basic segment"> ${{r.value.toFixed(2)}} </p>
+      <div class="ui vertical segment full">
+        <div class="ui header"> {{r.text}} </div>
+        <p class="ui center aligned basic segment"> ${{r.value.toFixed(2)}} </p>
+      </div>
     </div>
   </div>
 </div>
@@ -35,5 +38,5 @@
 </div>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="end" class="ui button"> SIGN UP </button>
+  <button ui-sref="end" class="ui button submit"> SIGN UP </button>
 </div>

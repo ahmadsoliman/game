@@ -1,9 +1,10 @@
-<h1 class="ui center aligned segment"> Discretion </h1>
+<div class="ui center aligned segment">
+  <h1 class="ui header"> Discretion </h1>
+  <p>COPY</p>
+</div>
 
-<p class="ui center aligned segment"> COPY </p>
-
-<div class="ui segment">
-  <div class="ui divided items">
+<div class="ui segment nopadding">
+  <div class="ui items">
     <div class="item" ng-repeat="r in vm.ranges">
       <div class="ui vertical segment full">
         <div class="ui header"> {{r.text}} </div>
@@ -17,12 +18,14 @@
       </div>
 
     </div>
-    <div class="ui center aligned vertical segment item">
-      <p class="ui header">Total: ${{vm.getSum()}}</p>
+    <div class="ui item">
+      <div class="ui center aligned vertical segment full">
+        <p class="ui header">Total: &nbsp; ${{vm.getSum()}}</p>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="boss" class="ui button" ng-click="vm.gameData.calcDSum()"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
+  <button ui-sref="boss" class="ui button submit" ng-click="vm.gameData.calcDSum()"> Submit </button>
 </div>

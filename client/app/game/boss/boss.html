@@ -1,9 +1,10 @@
-<h1 class="ui center aligned segment"> Boss </h1>
+<div class="ui center aligned segment">
+  <h1 class="ui header"> Boss </h1>
+  <p>COPY</p>
+</div>
 
-<p class="ui center aligned segment"> COPY </p>
-
-<div class="ui segment">
-  <div class="ui divided items">
+<div class="ui segment nopadding">
+  <div class="ui items">
     <div class="item">
       <div class="ui vertical segment full">
         <div class="ui header"> Loan </div>
@@ -33,9 +34,9 @@
   </div>
 </div>
 
-<div class="ui header"> Armory </div>
-<div class="ui segment">
-  <div class="ui divided items">
+<div class="ui header center aligned"> Armory </div>
+<div class="ui segment nopadding">
+  <div class="ui items">
     <div class="item" ng-repeat="r in vm.ranges">
       <div class="ui vertical segment full">
         <div class="ui header"> {{r.text}} </div>
@@ -53,5 +54,5 @@
 </div>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="battle" class="ui button" ng-click="vm.gameData.calcBoss()"> <i class="fa fa-check fa-2x" aria-hidden="true"></i> </button>
+  <button ui-sref="battle" class="ui button submit" ng-click="vm.gameData.calcBoss()"> Submit </button>
 </div>

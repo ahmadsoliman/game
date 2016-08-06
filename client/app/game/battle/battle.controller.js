@@ -58,6 +58,7 @@ class BattleController {
     }
 
     vm.sortedTargets.sort(compareTargets);
+    window.lol = vm.sortedTargets;
 
     // set bar chart data, change datasets to include more targets if needed
     for(let i=0, j=0; i<vm.sortedTargets.length; i++) {
@@ -69,8 +70,12 @@ class BattleController {
     }
 
     // set line chart data
-    for(let i=0; i<=10; i++) {
-      vm.data.datasets[3].data[i] = vm.gameData.calcCR(260 * i/2)/10;
+    for(let i=0, j=0, subtractedVal=0; i<=10; i++) {
+      if(j<vm.sortedTargets.length && i*26 == vm.sortedTargets[j].time) {
+        subtractedVal += vm.sortedTargets[j].budget;
+        j++;
+      }
+      vm.data.datasets[3].data[i] = vm.gameData.calcCR(26 * i) - subtractedVal;
     }
 
     var ctx = document.getElementById("canvas").getContext("2d");

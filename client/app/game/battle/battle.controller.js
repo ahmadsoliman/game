@@ -5,6 +5,7 @@ class BattleController {
     var vm = this;
     vm.gameData = gameData;
 
+    vm.gameData.calcAll();
     vm.gameResults = vm.gameData.testAllTargets();
 
     vm.results = [

@@ -72,7 +72,7 @@ angular.module('gameApp')
       calcR: calcR,
       bossValues: $localStorage.bossValues,
       armoryRanges: $localStorage.armoryRanges,
-      calcBoss: calcBoss,
+      calcAll: calcAll,
       calcCR: calcCR,
       testAllTargets: testAllTargets,
       reset: reset,
@@ -113,9 +113,11 @@ angular.module('gameApp')
       return $localStorage.R;
     }
 
-    function calcBoss() {
-      calcArmory();
+    function calcAll() {
+      calcSSum();
+      calcDSum();
       calcBP();
+      calcArmory();
       calcR();
     }
 

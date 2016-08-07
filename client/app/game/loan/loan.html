@@ -1,5 +1,5 @@
 <div class="ui center aligned segment">
-  <h1 class="ui header"> Boss </h1>
+  <h1 class="ui header"> Loan </h1>
   <p>Any personal loans or credit card debt?</p>
 </div>
 
@@ -34,29 +34,6 @@
   </div>
 </div>
 
-<div class="ui center aligned segment">
-  <p class="ui header">Armory</p>
-  <p>Three hurdles. No big deal, right?</p>
-</div>
-
-<div class="ui segment nopadding">
-  <div class="ui items">
-    <div class="item" ng-repeat="r in vm.ranges">
-      <div class="ui vertical segment full">
-        <div class="ui header"> {{r.text}} </div>
-
-        <div class="ui grid rgrid">
-          <div class="ui four wide center aligned column rvalue"> ${{vm.ranges[$index].value}} </div>
-          <div class="ui twelve wide column rbox">
-            <div class="ui range game" id="{{r.name}}-range"></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
 <div class="ui center aligned vertical segment">
-  <button ui-sref="suspense" class="ui button submit"> Submit </button>
+  <button ui-sref="ready" class="ui button submit"> Submit </button>
 </div>

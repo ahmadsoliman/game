@@ -68,12 +68,12 @@
 </div>
 
 <div class="ui center aligned vertical segment" ng-if="!vm.fulfilled()">
-  <button class="ui button" ng-click="vm.addGoal()"> Add another goal </button>
+  <button class="ui button submit" ng-click="vm.addGoal()"> Add another goal </button>
 </div>
 
 
 <p class="ui center aligned segment"> COPY </p>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="ready" class="ui button submit"  ng-disabled="!vm.fulfilled()" ng-click="vm.submit()"> Submit </button>
+  <button ui-sref="loan" class="ui button submit"  ng-disabled="!vm.fulfilled()" ng-click="vm.submit()"> Submit </button>
 </div>

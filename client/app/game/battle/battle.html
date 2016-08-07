@@ -1,18 +1,13 @@
 <div class="ui center aligned segment">
   <h1 class="ui header"> Battle </h1>
-  <p>COPY</p>
+  <p>
+    In double-entry there are two sides to every story. Every action has a cause and an effect, so there’s always balance.
+    You can balance your income is as follows:
+  </p>
 </div>
 
-<p class="ui center aligned segment" ng-if="vm.gameResults.alive"> You Win! </p>
-<p class="ui center aligned segment" ng-if="!vm.gameResults.alive"> You lost.. </p>
-
-<div class="ui segment full">
-  <canvas id="canvas" height="450" width="600">
-  </canvas>
-
-  <div class="ui header center aligned"> Results </div>
-</div>
-
+<!-- <p class="ui center aligned segment" ng-if="vm.gameResults.alive"> You Win! </p>
+<p class="ui center aligned segment" ng-if="!vm.gameResults.alive"> You lost.. </p> -->
 
 <div class="ui segment nopadding">
   <div class="ui items">
@@ -25,9 +20,27 @@
   </div>
 </div>
 
-<p class="ui center aligned segment"> COPY </p>
+<p class="ui center aligned segment"> Finally, you must enter your starting position: </p>
+
+<div class="ui segment nopadding">
+  <div class="ui items">
+    <div class="item">
+      <div class="ui vertical segment full">
+        <div class="ui header"> Savings </div>
+
+        <div class="ui grid rgrid">
+          <div class="ui four wide center aligned column rvalue"> ${{vm.gameData.armoryRanges[0].value}} </div>
+          <div class="ui twelve wide column rbox">
+            <div class="ui range game" id="savings-range"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="suspense" class="ui button submit"> Do Over </i> </button>
-  <button ui-sref="results" class="ui button submit"> Submit</button>
+  <button ui-sref="results" class="ui button submit"> Submit </button>
 </div>

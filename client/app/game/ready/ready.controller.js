@@ -1,9 +1,19 @@
 'use strict';
 
 class ReadyController {
-  constructor(gameData) {
+  constructor(gameData, $timeout) {
     var vm = this;
     vm.gameData = gameData;
+
+    $timeout(() => {
+      $('#earning-range').range({
+          min: vm.gameData.armoryRanges[2].min,
+          max: vm.gameData.armoryRanges[2].max,
+          start: vm.gameData.armoryRanges[2].value,
+          step: vm.gameData.armoryRanges[2].step,
+          onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[2].value = val); }
+      });
+    });
 
     vm.labels = [];
     vm.series = [""];

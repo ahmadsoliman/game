@@ -8,10 +8,10 @@ angular.module('gameApp')
         controller: 'GoalsController',
         controllerAs: 'vm'
       })
-      .state('budget', {
-        url: '/budget',
-        templateUrl: 'app/game/budget/budget.html',
-        controller: 'BudgetController',
+      .state('loan', {
+        url: '/loan',
+        templateUrl: 'app/game/loan/loan.html',
+        controller: 'LoanController',
         controllerAs: 'vm'
       })
       .state('ready', {
@@ -30,12 +30,6 @@ angular.module('gameApp')
         url: '/discretion',
         templateUrl: 'app/game/discretion/discretion.html',
         controller: 'DiscretionController',
-        controllerAs: 'vm'
-      })
-      .state('boss', {
-        url: '/boss',
-        templateUrl: 'app/game/boss/boss.html',
-        controller: 'BossController',
         controllerAs: 'vm'
       })
       .state('battle', {

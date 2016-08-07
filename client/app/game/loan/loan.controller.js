@@ -1,11 +1,9 @@
 'use strict';
 
-class BossController {
+class LoanController {
   constructor($timeout, gameData) {
     var vm = this;
     vm.gameData = gameData;
-
-    vm.ranges = vm.gameData.armoryRanges;
 
     $timeout(() => {
       $('#loan-range').range({
@@ -23,19 +21,10 @@ class BossController {
           onChange: (val) => { $timeout(() => vm.gameData.bossValues.BRATE = val); }
       });
 
-      angular.forEach(vm.ranges, (r, i) => {
-        $('#' + r.name + '-range').range({
-            min: r.min,
-            max: r.max,
-            start: r.value,
-            step: r.step,
-            onChange: (val) => { $timeout(() => vm.ranges[i].value = val); }
-        });
-      });
     });
 
   }
 }
 
 angular.module('gameApp')
-  .controller('BossController', BossController);
+  .controller('LoanController', LoanController);

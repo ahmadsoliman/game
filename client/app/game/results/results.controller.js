@@ -22,13 +22,6 @@ class ResultsController {
           step: vm.gameData.armoryRanges[1].step,
           onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[1].value = val); }
       });
-      $('#other-range').range({
-          min: vm.gameData.armoryRanges[3].min,
-          max: vm.gameData.armoryRanges[3].max,
-          start: vm.gameData.armoryRanges[3].value,
-          step: vm.gameData.armoryRanges[3].step,
-          onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[3].value = val); }
-      });
     });
 
     // graph

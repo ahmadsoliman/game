@@ -1,5 +1,10 @@
 <div class="ui center aligned segment">
+  <img class="ui intro" ng-src="assets/icons/titles/reserve_intro.svg">
+
   <h1 class="ui header"> Ready? </h1>
+  <p>
+    Can you achieve these goals?
+  </p>
 </div>
 
 <div class="ui segment full">
@@ -7,13 +12,14 @@
   </canvas>
 </div>
 
-<div class="ui segment nopadding">
-  <p class="ui center aligned segment">Three hurdles. No big deal, right?</p>
+<div class="ui center aligned segment nopadding">
+  <p>Let’s find out.</p>
+  <p class="ui header">What’s your take-home pay per week?</p>
 
   <div class="ui items">
     <div class="item">
       <div class="ui vertical segment full">
-        <div class="ui header"> Earning Capacity per Week </div>
+        <div class="ui header"> Weekly Take-Home Pay </div>
 
         <div class="ui grid rgrid">
           <div class="ui four wide center aligned column rvalue"> ${{vm.gameData.armoryRanges[2].value}} </div>
@@ -27,6 +33,28 @@
   </div>
 </div>
 
+<div class="ui center aligned segment nopadding">
+  <p class="ui header">Any other regular cash receipts?</p>
+  <p>
+    This annual amount includes items such as your yearly tax refund, cash gifts from family, and any other take-home earnings.
+  </p>
+
+  <div class="ui items">
+    <div class="item">
+      <div class="ui vertical segment full">
+        <div class="ui header"> Other Earnings per year </div>
+
+        <div class="ui grid rgrid">
+          <div class="ui four wide center aligned column rvalue"> ${{vm.gameData.armoryRanges[3].value}} </div>
+          <div class="ui twelve wide column rbox">
+            <div class="ui range game" id="other-range"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="ui center aligned vertical segment">
-  <button ui-sref="suspense" class="ui button submit"> Submit </button>
+  <button ui-sref="suspense" class="ui button submit"> NEXT </button>
 </div>

@@ -36,10 +36,10 @@ angular.module('gameApp')
         {name: 'entertainment', text: 'Entertainment', code: 'D1', min: 0, max: 400, value: 200, step: 25},
         {name: 'groceries', text: 'Groceries', code: 'D2', min: 0, max: 300, value: 100, step: 25},
         {name: 'transport', text: 'Transport', code: 'D3', min: 0, max: 200, value: 100, step: 10},
-        {name: 'personal', text: 'Personal', code: 'D4', min: 0, max: 200, value: 50, step: 10},
-        {name: 'household', text: 'Household', code: 'D5', min: 0, max: 200, value: 50, step: 10},
-        {name: 'clothing', text: 'Clothing and Accessories', code: 'D6', min: 0, max: 200, value: 50, step: 10},
-        {name: 'work', text: 'Work or Study', code: 'D7', min: 0, max: 200, value: 50, step: 10}
+        {name: 'personal', text: 'Personal / Sports / Health / Cosmetics', code: 'D4', min: 0, max: 200, value: 50, step: 10},
+        {name: 'household', text: 'Household / Family / Pets', code: 'D5', min: 0, max: 200, value: 50, step: 10},
+        {name: 'clothing', text: 'Clothing / Shoes / Accessories', code: 'D6', min: 0, max: 200, value: 50, step: 10},
+        {name: 'work', text: 'Work / Coffees / Lunches / Study', code: 'D7', min: 0, max: 200, value: 50, step: 10}
       ],
       DSum: 1750,
       bossValues: {

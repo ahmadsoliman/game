@@ -1,8 +1,15 @@
 <div class="ui center aligned segment">
+  <img class="ui intro" ng-src="assets/icons/titles/discretion_intro.svg">
+
   <h1 class="ui header"> Discretion </h1>
   <p>
-    Finally, you must understand what you spend at discretion. <br>
-    Allocate all of your weekly expenditure to the 7 categories below. Don’t overthink it.
+    Finally, you must understand what you spend at <strong> discretion. </strong>
+  </p>
+  <p class="ui header">
+    After regular commitments, how much more do you need per week?
+  </p>
+  <p>
+    Use the 7 categories below to budget your habits and/or amounts to put aside each week (ie: to buy clothing, or household items).
   </p>
 </div>
 
@@ -13,8 +20,8 @@
         <div class="ui header"> {{r.text}} </div>
 
         <div class="ui grid rgrid">
-          <div class="ui four wide center aligned column rvalue"> ${{vm.ranges[$index].value}} </div>
-          <div class="ui twelve wide column rbox">
+          <div class="ui five wide center aligned column rvalue"> $ {{vm.ranges[$index].value.toLocaleString()}} </div>
+          <div class="ui eleven wide column rbox">
             <div class="ui range game" id="{{r.name}}-range"></div>
           </div>
         </div>
@@ -30,5 +37,5 @@
 </div>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="battle" class="ui button submit"> Submit </button>
+  <button ui-sref="battle" class="ui button submit"> BALANCE ME! </button>
 </div>

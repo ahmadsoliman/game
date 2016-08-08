@@ -1,8 +1,12 @@
 <div class="ui center aligned segment">
-  <h1 class="ui header"> Battle </h1>
+  <img class="ui intro" ng-src="assets/icons/titles/balance_intro.svg">
+
+  <h1 class="ui header"> BALANCING YOUR INCOME </h1>
   <p>
-    In double-entry there are two sides to every story. Every action has a cause and an effect, so there’s always balance. <br>
-    You can balance your income is as follows:
+    In double-entry there are two equal sides to every story –everything is always in balance.
+  </p>
+  <p>
+    Your earnings are balanced as follows:
   </p>
 </div>
 
@@ -20,17 +24,36 @@
   </div>
 </div>
 
-<p class="ui center aligned segment"> Finally, you must enter your starting position: </p>
+<div class="ui center aligned segment">
+  <p class="ui header">
+    Discretion is what you spend week-to-week.
+  </p>
+  <p class="ui header">
+    Suspense are weekly contributions towards your regular commitments
+  </p>
+  <p class="ui header">
+    Reserve are weekly contributions towards your goals, savings, and debt.
+  </p>
+  <p>
+    Planning, budgeting, and forecasting is a balancing act between what you need, what you want, and what you can afford. To achieve your objectives you must find the right balance.
+  </p>
+  <p>
+    Which will become your financial performance over time.
+  </p>
+  <p class="ui header">
+    The last piece of the 5 years puzzle is to understand your cash starting position.
+  </p>
+</div>
 
 <div class="ui segment nopadding">
   <div class="ui items">
     <div class="item">
       <div class="ui vertical segment full">
-        <div class="ui header"> Savings </div>
+        <div class="ui header"> Current Cash Savings </div>
 
         <div class="ui grid rgrid">
-          <div class="ui four wide center aligned column rvalue"> ${{vm.gameData.armoryRanges[0].value}} </div>
-          <div class="ui twelve wide column rbox">
+          <div class="ui five wide center aligned column rvalue"> $ {{vm.gameData.armoryRanges[0].value.toLocaleString()}} </div>
+          <div class="ui eleven wide column rbox">
             <div class="ui range game" id="savings-range"></div>
           </div>
         </div>
@@ -40,7 +63,6 @@
   </div>
 </div>
 
-
 <div class="ui center aligned vertical segment">
-  <button ui-sref="results" class="ui button submit"> Submit </button>
+  <button ui-sref="results" class="ui button submit"> THE NEXT FIVE YEARS </button>
 </div>

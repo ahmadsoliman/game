@@ -1,31 +1,14 @@
 <div class="ui center aligned segment">
+  <p>
+    <img class="ui intro" ng-src="assets/icons/titles/reserve_intro.svg">
+  </p>
+
   <h1 class="ui header"> Goals Selection </h1>
   <p>
-    Blank Financial Technology
-    presents: <br>
-
-    YOUR MONEY <br>
-
-    There’s a very old method used by virtually every corporation to understand money: <br>
-
-    Double-entry theory <br>
-
-    This tool uses some of those principles to help you answer 3 questions: <br>
-
-    Can I achieve 3 goals in 5 years? <br>
-
-    Can I be debt free in 5 years? <br>
-
-    How much can I save in 5 years? <br>
-
-    It’s quick and easy (3 minutes), you don’t have to type anything and you can complete it anonymously. <br>
-
-    <br>
-
-    To start, you must choose your objectives, then reserve the money to achieve them. <br>
-
-    Pick 3 goals to complete within 5 years:
-
+    The first step to understand your money is to be clear about how you intend to reserve it.
+  </p>
+  <p class="ui header">
+    What 3 goals would you like to achieve within the next 5 years?
   </p>
 </div>
 
@@ -50,15 +33,15 @@
         </div>
 
         <div class="ui grid rgrid">
-          <div class="ui four wide center aligned column rvalue"> {{t.time / 52}} Y </div>
-          <div class="ui twelve wide column rbox">
+          <div class="ui five wide center aligned column rvalue"> {{t.time / 52}} Y </div>
+          <div class="ui eleven wide column rbox">
             <div class="ui range game" id="trange-{{$index}}"></div>
           </div>
         </div>
 
         <div class="ui grid rgrid">
-          <div class="ui four wide center aligned column rvalue"> ${{t.budget}} </div>
-          <div class="ui twelve wide column rbox">
+          <div class="ui five wide center aligned column rvalue"> $ {{t.budget.toLocaleString()}} </div>
+          <div class="ui eleven wide column rbox">
             <div class="ui range game" id="brange-{{$index}}"></div>
           </div>
         </div>
@@ -72,9 +55,44 @@
   <button class="ui button submit" ng-click="vm.addGoal()"> Add another goal </button>
 </div>
 
+<div class="ui center aligned segment">
+  <p class="ui header">Do you need to pay off any personal loans or credit card debt?</p>
+</div>
 
-<p class="ui center aligned segment"> COPY </p>
+<div class="ui segment nopadding">
+  <div class="ui items">
+    <div class="item">
+      <div class="ui vertical segment full">
+        <div class="ui header"> Loan </div>
+
+        <div class="ui grid rgrid">
+          <div class="ui five wide center aligned column rvalue"> $ {{vm.gameData.bossValues.BPV.toLocaleString()}} </div>
+          <div class="ui eleven wide column rbox">
+            <div class="ui range game" id="loan-range"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="item">
+      <div class="ui vertical segment full">
+        <div class="ui header"> Interest </div>
+
+        <div class="ui grid rgrid">
+          <div class="ui five wide center aligned column rvalue"> {{vm.gameData.bossValues.BRATE}} % </div>
+          <div class="ui eleven wide column rbox">
+            <div class="ui range game" id="interest-range"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="loan" class="ui button submit"  ng-disabled="!vm.fulfilled()" ng-click="vm.submit()"> Submit </button>
+  <p>
+    Once you are clear about your objectives, it is easy to see what it takes to achieve them.
+  </p>
+  <button ui-sref="ready" class="ui button submit" ng-disabled="!vm.fulfilled()"> SHOW ME </button>
 </div>

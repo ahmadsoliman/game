@@ -60,6 +60,21 @@ class GoalsController {
       angular.forEach(vm.targets, (t, i) => {
         vm.initRanges(t, i);
         vm.initDropdown(t, i);
+
+        $('#loan-range').range({
+            min: 0,
+            max: 40000,
+            start: vm.gameData.bossValues.BPV,
+            step: 100,
+            onChange: (val) => { $timeout(() => vm.gameData.bossValues.BPV = val); }
+        });
+        $('#interest-range').range({
+            min: 5,
+            max: 25,
+            start: vm.gameData.bossValues.BRATE,
+            step: 1,
+            onChange: (val) => { $timeout(() => vm.gameData.bossValues.BRATE = val); }
+        });
       });
     });
 
@@ -87,19 +102,6 @@ class GoalsController {
     return sum;
   }
 
-  submit() {
-    // function compareTargets(a,b) {
-    //   if (a.time < b.time) {
-    //     return -1;
-    //   }
-    //   if (a.time > b.time) {
-    //     return 1;
-    //   }
-    //   return 0;
-    // }
-    //
-    // this.targets.sort(compareTargets);
-  }
 }
 
 angular.module('gameApp')

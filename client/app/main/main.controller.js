@@ -9,7 +9,7 @@
       vm.gameData = gameData;
 
       vm.validData = false;
-      $state.go('goals');
+      // $state.go('goals');
     }
 
     setGender(g) {

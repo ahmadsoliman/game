@@ -7,11 +7,11 @@ angular.module('gameApp')
     var defaults = {
       user: {},
       timeRanges: [
-        {name: 'house', text: 'Buy a House', min: 26, max: 5*52, value: 4*52},
-        {name: 'travel', text: 'Travel Overseas', min: 26, max: 5*52, value: 4*52},
-        {name: 'wedding', text: 'Pay for a Wedding', min: 26, max: 5*52, value: 3*52},
-        {name: 'save', text: 'Save for a Rainy Day', min: 26, max: 5*52, value: 3*52},
-        {name: 'buy', text: 'Buy Something Else', min: 26, max: 5*52, value: 3*52}
+        {name: 'house', text: 'House Deposit', min: 26, max: 5*52, value: 4*52},
+        {name: 'travel', text: 'Overseas Trip', min: 26, max: 5*52, value: 4*52},
+        {name: 'wedding', text: 'Wedding', min: 26, max: 5*52, value: 3*52},
+        {name: 'car', text: 'New Car', min: 26, max: 5*52, value: 3*52},
+        {name: 'other', text: 'Something Else', min: 26, max: 5*52, value: 3*52}
       ],
       budgetDefaults: [
         {min: 5000, max: 50000, step: 2500, value: 15000},

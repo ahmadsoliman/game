@@ -1,13 +1,35 @@
 <div class="ui center aligned segment">
-  <h1 class="ui header"> Results </h1>
+  <img class="ui intro" ng-src="assets/icons/titles/balance_intro.svg">
+
+  <div ng-if="vm.gameResults.alive">
+    <h1 class="ui header"> WELL BALANCED!! </h1>
+    <p>
+      If you set this course you will achieve your goals. Well done.
+    </p>
+  </div>
+  <div ng-if="!vm.gameResults.alive">
+    <h1 class="ui header"> YOU FAIL!! </h1>
+    <p>
+      Your earnings, expenses and goals are not in balance. Use the top navigation icons to go back and change a thing or two.
+    </p>
+    <p>
+      Some suggestions:
+    </p>
+    <ol>
+    <li> Delay goals or make them cheaper. </li>
+    <li> Reconsider what you spend at discretion. </li>
+    <li> Consider your regular commitments on suspense. </li>
+    </ol>
+  </div>
 </div>
+
 
 <div class="ui segment full">
   <canvas id="canvas" height="450" width="600">
   </canvas>
-
-  <div class="ui center aligned basic segment"> If you wish, you can refine the model a little further: </div>
 </div>
+
+<div class="ui center aligned basic segment"> If you wish, you can refine the model a little further: </div>
 
 <div class="ui segment nopadding">
   <div class="ui items">
@@ -16,7 +38,7 @@
         <div class="ui header"> Other Financial Assets </div>
 
         <div class="ui grid rgrid">
-          <div class="ui four wide center aligned column rvalue"> ${{vm.gameData.armoryRanges[1].value}} </div>
+          <div class="ui four wide center aligned column rvalue"> $ {{vm.gameData.armoryRanges[1].value.toLocaleString()}} </div>
           <div class="ui twelve wide column rbox">
             <div class="ui range game" id="assets-range"></div>
           </div>

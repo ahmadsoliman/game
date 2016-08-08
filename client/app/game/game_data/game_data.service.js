@@ -25,10 +25,10 @@ angular.module('gameApp')
         { code: 0, name: 'house', time: 4*52, budget: 15000}
       ],
       suspenseRanges: [
-        {name: 'rent', text: 'Rent or Mortgage Repayments', code: 'S1', min: 0, max: 1000, value: 500, step: 50, freq: 1},
-        {name: 'mobile', text: 'Mobile and Internet', code: 'S2', min: 0, max: 100, value: 30, step: 5, freq: 1},
-        {name: 'utilities', text: 'Utilities', code: 'S3', min: 0, max: 100, value: 50, step: 5, freq: 1},
-        {name: 'health', text: 'Health and Other Insurance', code: 'S4', min: 0, max: 100, value: 50, step: 5, freq: 1},
+        {name: 'rent', text: 'Rent / Mortgage', code: 'S1', min: 0, max: 1000, value: 500, step: 50, freq: 1},
+        {name: 'mobile', text: 'Mobile / Internet', code: 'S2', min: 0, max: 100, value: 30, step: 5, freq: 1},
+        {name: 'utilities', text: 'Rates / Power / Other Utilities', code: 'S3', min: 0, max: 100, value: 50, step: 5, freq: 1},
+        {name: 'health', text: 'Car / Health / Other Insurance', code: 'S4', min: 0, max: 100, value: 50, step: 5, freq: 1},
         {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 0, max: 200, value: 50, step: 10, freq: 1}
       ],
       SSum: 90,

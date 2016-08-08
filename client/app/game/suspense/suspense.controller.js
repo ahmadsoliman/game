@@ -23,6 +23,7 @@ class SuspenseController {
             $timeout(() => vm.ranges[i].freq = value);
           }
         });
+        $('#' + r.name + '-freq').dropdown('set selected', '' + vm.ranges[i].freq);
       })
     );
   }

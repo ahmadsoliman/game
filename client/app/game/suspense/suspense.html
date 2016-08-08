@@ -1,9 +1,17 @@
 <div class="ui center aligned segment">
+  <img class="ui intro" ng-src="assets/icons/titles/suspense_intro.svg">
+
   <h1 class="ui header"> Suspense </h1>
   <p>
-    Next, you must put your commitments on suspense. <br>
-    Allocate everything that you pay on a schedule/contract into these 5 categories:
+    The next step is to put all your regular commitments on <strong> suspense. </strong>
   </p>
+  <p class="ui header">
+    What do you pay on a schedule/contract?
+  </p>
+  <p>
+    You must allocate all your recurring payments into the 5 categories below. Do not include personal loans or credit card repayments.
+  </p>
+
 </div>
 
 <div class="ui segment nopadding">
@@ -18,7 +26,7 @@
         <br>
 
         <div class="ui grid rgrid">
-          <div class="ui twelve wide column dropbox">
+          <div class="ui eleven wide column dropbox">
             <div class="ui selection dropdown basic" id="{{r.name}}-freq">
               <input type="hidden">
               <div class="default text"> Weekly </div>
@@ -32,7 +40,7 @@
               </div>
             </div>
           </div>
-          <div class="ui four wide center aligned column rvalue"> ${{vm.ranges[$index].value * vm.ranges[$index].freq}} </div>
+          <div class="ui five wide center aligned column rvalue"> $ {{(vm.ranges[$index].value * vm.ranges[$index].freq).toLocaleString()}} </div>
         </div>
 
       </div>
@@ -48,5 +56,5 @@
 <p class="ui center aligned segment"> COPY </p>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="discretion" class="ui button submit"> Submit </button>
+  <button ui-sref="discretion" class="ui button submit"> Next </button>
 </div>

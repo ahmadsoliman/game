@@ -15,7 +15,7 @@
     <div class="item" ng-repeat="r in vm.results">
       <div class="ui vertical segment full">
         <div class="ui header"> {{r.text}} </div>
-        <p class="ui center aligned basic segment"> ${{r.value.toFixed(2)}} </p>
+        <p class="ui center aligned basic segment"> $ {{r.value.toLocaleString()}} </p>
       </div>
     </div>
   </div>

@@ -114,6 +114,9 @@ class ResultsController {
             stacked: true,
     				ticks: {
               beginAtZero: true,
+              userCallback: function(value, index, values) {
+                  return '$ ' + value.toLocaleString();
+                }
             }
           }]
         }

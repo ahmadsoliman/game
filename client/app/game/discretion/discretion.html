@@ -17,7 +17,10 @@
   <div class="ui items">
     <div class="item" ng-repeat="r in vm.ranges">
       <div class="ui vertical segment full">
-        <div class="ui header"> {{r.text}} </div>
+        <div class="ui header">
+          <img class="ui" ng-src="assets/icons/discretion/{{r.name}}.svg">
+          {{r.text}}
+        </div>
 
         <div class="ui grid rgrid">
           <div class="ui five wide center aligned column rvalue"> $ {{vm.ranges[$index].value.toLocaleString()}} </div>

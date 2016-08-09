@@ -16,10 +16,12 @@
 <div class="ui segment nopadding">
   <div class="ui items">
     <div class="item" ng-repeat="r in vm.ranges">
-
       <div class="ui vertical segment full">
-        <div class="ui header"> {{r.text}} </div>
-        <br>
+
+        <div class="ui header">
+          <img class="ui" ng-src="assets/icons/suspense/{{r.name}}.svg">
+          {{r.text}}
+        </div>
 
         <div class="ui range game alone" id="{{r.name}}-range"></div>
         <br>

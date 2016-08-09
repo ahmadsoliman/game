@@ -14,15 +14,15 @@ class ResultsController {
       { name: 'reserve', text: 'Reserve', value: vm.gameResults.R }
     ];
 
-    $timeout(() => {
-      $('#assets-range').range({
-          min: vm.gameData.armoryRanges[1].min,
-          max: vm.gameData.armoryRanges[1].max,
-          start: vm.gameData.armoryRanges[1].value,
-          step: vm.gameData.armoryRanges[1].step,
-          onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[1].value = val); }
-      });
-    });
+    // $timeout(() => {
+    //   $('#assets-range').range({
+    //       min: vm.gameData.armoryRanges[1].min,
+    //       max: vm.gameData.armoryRanges[1].max,
+    //       start: vm.gameData.armoryRanges[1].value,
+    //       step: vm.gameData.armoryRanges[1].step,
+    //       onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[1].value = val); }
+    //   });
+    // });
 
     // graph
 

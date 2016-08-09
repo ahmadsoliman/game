@@ -10,16 +10,31 @@
   </p>
 </div>
 
-<div class="ui segment nopadding">
-  <div class="ui items">
-    <div class="item" ng-repeat="r in vm.results">
-      <div class="ui vertical segment full">
-        <div class="ui header"> {{r.text}} </div>
-        <p class="ui center aligned basic segment"> $ {{r.value.toLocaleString()}} </p>
-      </div>
-    </div>
-  </div>
-</div>
+
+<table class="ui celled unstackable structured table">
+  <tbody>
+    <tr>
+      <td rowspan="3" class="center aligned">
+        <p> Weekly <br> Earnings </p>
+        <p> $ {{vm.gameResults.AB.toLocaleString()}} </p>
+        <p> 100% </p>
+      </td>
+      <td>Discretion</td>
+      <td>$ {{vm.gameResults.DSum.toLocaleString()}}</td>
+      <td>{{(100 * vm.gameResults.DSum / vm.gameResults.AB).toFixed(2)}}%</td>
+    </tr>
+    <tr>
+      <td>Suspense</td>
+      <td>$ {{vm.gameResults.SSum.toLocaleString()}}</td>
+      <td>{{(100 * vm.gameResults.SSum / vm.gameResults.AB).toFixed(2)}}%</td>
+    </tr>
+    <tr>
+      <td>Reserve</td>
+      <td>$ {{vm.gameResults.R.toLocaleString()}}</td>
+      <td>{{(100 * vm.gameResults.R / vm.gameResults.AB).toFixed(2)}}%</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="ui center aligned segment">
   <p class="ui header">

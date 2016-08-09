@@ -7,6 +7,7 @@ class BattleController {
 
     vm.gameData.calcAll();
     vm.gameResults = vm.gameData.testAllTargets();
+    vm.gameResults.AB = vm.gameResults.DSum + vm.gameResults.SSum + vm.gameResults.R;
 
     vm.results = [
       { name: 'discretion', text: 'Discretion', value: vm.gameResults.DSum },

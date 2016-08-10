@@ -65,7 +65,7 @@ class GoalsController {
             min: 0,
             max: 40000,
             start: vm.gameData.bossValues.BPV,
-            step: 100,
+            step: 500,
             onChange: (val) => { $timeout(() => vm.gameData.bossValues.BPV = val); }
         });
         $('#interest-range').range({

@@ -11,39 +11,39 @@
 </div>
 
 
-<table class="ui celled unstackable structured table">
+<table class="ui celled unstackable structured table results">
   <tbody>
     <tr>
-      <td rowspan="3" class="center aligned">
+      <td rowspan="3" class="center aligned bold">
         <p> Weekly <br> Earnings </p>
-        <p> $ {{vm.gameResults.AB.toLocaleString()}} </p>
+        <p> $ {{vm.gameResults.AB.toFixed(0).toLocaleString()}} </p>
         <p> 100% </p>
       </td>
       <td>Discretion</td>
-      <td>$ {{vm.gameResults.DSum.toLocaleString()}}</td>
-      <td>{{(100 * vm.gameResults.DSum / vm.gameResults.AB).toFixed(2)}}%</td>
+      <td>$ {{vm.gameResults.DSum.toFixed(0).toLocaleString()}}</td>
+      <td>{{(100 * vm.gameResults.DSum / vm.gameResults.AB).toFixed(0)}}%</td>
     </tr>
     <tr>
       <td>Suspense</td>
-      <td>$ {{vm.gameResults.SSum.toLocaleString()}}</td>
-      <td>{{(100 * vm.gameResults.SSum / vm.gameResults.AB).toFixed(2)}}%</td>
+      <td>$ {{vm.gameResults.SSum.toFixed(0).toLocaleString()}}</td>
+      <td>{{(100 * vm.gameResults.SSum / vm.gameResults.AB).toFixed(0)}}%</td>
     </tr>
     <tr>
       <td>Reserve</td>
-      <td>$ {{vm.gameResults.R.toLocaleString()}}</td>
-      <td>{{(100 * vm.gameResults.R / vm.gameResults.AB).toFixed(2)}}%</td>
+      <td>$ {{vm.gameResults.R.toFixed(0).toLocaleString()}}</td>
+      <td>{{(100 * vm.gameResults.R / vm.gameResults.AB).toFixed(0)}}%</td>
     </tr>
   </tbody>
 </table>
 
 <div class="ui center aligned segment">
-  <p class="ui header">
+  <p>
     Discretion is what you spend week-to-week.
   </p>
-  <p class="ui header">
+  <p>
     Suspense are weekly contributions towards your regular commitments
   </p>
-  <p class="ui header">
+  <p>
     Reserve are weekly contributions towards your goals, savings, and debt.
   </p>
   <p>

@@ -71,6 +71,10 @@
 // ---------------------------------------------------------------------------------- //
 
 // UI Semantic Dropdown
+.ui.selection.dropdown .menu {
+  max-height: 22.585714rem;
+}
+
 .ui.selection.dropdown.basic {
   border-color: black;
   border-radius: 0;
@@ -140,4 +144,15 @@
 
 .ui.intro {
   width: 50%;
+}
+
+.ui.table.results {
+  background-color: rgba(0,0,0,0.05);
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.bold {
+  border-color: black!important;
 }

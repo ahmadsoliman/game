@@ -21,17 +21,17 @@
       </td>
       <td>Discretion</td>
       <td>$ {{vm.gameResults.DSum.toFixed(0).toLocaleString()}}</td>
-      <td>{{(100 * vm.gameResults.DSum / vm.gameResults.AB).toFixed(0)}}%</td>
+      <td class="boldr">{{(100 * vm.gameResults.DSum / vm.gameResults.AB).toFixed(0)}}%</td>
     </tr>
     <tr>
       <td>Suspense</td>
       <td>$ {{vm.gameResults.SSum.toFixed(0).toLocaleString()}}</td>
-      <td>{{(100 * vm.gameResults.SSum / vm.gameResults.AB).toFixed(0)}}%</td>
+      <td class="boldr">{{(100 * vm.gameResults.SSum / vm.gameResults.AB).toFixed(0)}}%</td>
     </tr>
     <tr>
       <td>Reserve</td>
       <td>$ {{vm.gameResults.R.toFixed(0).toLocaleString()}}</td>
-      <td>{{(100 * vm.gameResults.R / vm.gameResults.AB).toFixed(0)}}%</td>
+      <td class="boldr">{{(100 * vm.gameResults.R / vm.gameResults.AB).toFixed(0)}}%</td>
     </tr>
   </tbody>
 </table>

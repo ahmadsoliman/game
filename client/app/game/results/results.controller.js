@@ -51,6 +51,11 @@ class ResultsController {
         type: 'line',
         label: 'CR values',
         data: []
+      }, {
+        type: 'line',
+        label: 'Closing balance values',
+        backgroundColor: 'rgba(255,0,0,0.2)',
+        data: []
       }]
     };
 
@@ -85,8 +90,10 @@ class ResultsController {
         j++;
       }
       vm.data.datasets[3].data[i] = vm.gameData.calcCR(26 * i) - subtractedVal;
+      vm.data.datasets[4].data[i] = vm.gameData.closingBalance[i*26];
     }
 
+    // init graph
     var ctx = document.getElementById("canvas").getContext("2d");
     vm.chart = new Chart(ctx, {
       type: 'bar',

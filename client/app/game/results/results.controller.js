@@ -56,6 +56,12 @@ class ResultsController {
         label: 'Closing balance values',
         backgroundColor: 'rgba(255,0,0,0.2)',
         data: []
+      }, {
+        type: 'bar',
+        label: 'loan',
+        backgroundColor: 'rgba(255,0,0,0.5)',
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        // borderColor: 'white'
       }]
     };
 
@@ -84,6 +90,7 @@ class ResultsController {
     }
 
     // set line chart data
+    vm.data.datasets[5].data[0] = -1*vm.gameData.bossValues.BPV;
     for(let i=0, j=0, subtractedVal=0; i<=10; i++) {
       if(j<vm.sortedTargets.length && i*26 == vm.sortedTargets[j].time) {
         subtractedVal += vm.sortedTargets[j].budget;

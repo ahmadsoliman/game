@@ -2,7 +2,13 @@
 
 angular.module('gameApp')
   .config(function($stateProvider) {
-    $stateProvider.state('goals', {
+    $stateProvider.state('central', {
+        url: '/central',
+        templateUrl: 'app/game/central/central.html',
+        controller: 'CentralController',
+        controllerAs: 'vm'
+      })
+      .state('goals', {
         url: '/goals',
         templateUrl: 'app/game/goals/goals.html',
         controller: 'GoalsController',

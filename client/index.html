@@ -109,5 +109,18 @@
       <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
+    <!-- firebase -->
+      <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyAeBRRdG5mw3792k5Ne2_l5nE_3YwI5M2s",
+          authDomain: "blankft-teaser-app.firebaseapp.com",
+          databaseURL: "https://blankft-teaser-app.firebaseio.com",
+          storageBucket: "blankft-teaser-app.appspot.com",
+        };
+        firebase.initializeApp(config);
+      </script>
+    <!-- endfirebase -->
   </body>
 </html>

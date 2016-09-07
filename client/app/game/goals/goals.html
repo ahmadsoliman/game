@@ -90,9 +90,51 @@
   </div>
 </div>
 
+<div class="ui center aligned segment nopadding">
+  <p class="ui header">What’s your take-home pay per week?</p>
+
+  <div class="ui items">
+    <div class="item">
+      <div class="ui vertical segment full">
+        <div class="ui header"> Weekly Take-Home Pay </div>
+
+        <div class="ui grid rgrid">
+          <div class="ui five wide center aligned column rvalue"> $ {{vm.gameData.armoryRanges[2].value.toLocaleString()}} </div>
+          <div class="ui eleven wide column rbox">
+            <div class="ui range game" id="earning-range"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="ui center aligned segment nopadding">
+  <p class="ui header">Any other regular cash receipts?</p>
+  <p>
+    This annual amount includes items such as your yearly tax refund, cash gifts from family, and any other take-home earnings.
+  </p>
+
+  <div class="ui items">
+    <div class="item">
+      <div class="ui vertical segment full">
+        <div class="ui header"> Other Earnings per year </div>
+
+        <div class="ui grid rgrid">
+          <div class="ui five wide center aligned column rvalue"> $ {{vm.gameData.armoryRanges[3].value.toLocaleString()}} </div>
+          <div class="ui eleven wide column rbox">
+            <div class="ui range game" id="other-range"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="ui center aligned vertical segment">
   <p>
     Once you are clear about your objectives, it is easy to see what it takes to achieve them.
   </p>
-  <button ui-sref="ready" class="ui button submit" ng-disabled="!vm.fulfilled()"> SHOW ME </button>
+  <button ui-sref="central" class="ui button submit" ng-disabled="!vm.fulfilled()"> SHOW ME </button>
 </div>

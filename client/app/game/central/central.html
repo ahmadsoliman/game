@@ -1,17 +1,66 @@
-<div class="ui center aligned segment">
-  <p>
-    COPY
+<div class="ui relative padded">
+  <img ng-src="assets/central/bg1.png" class="ui central bg bg1"/>
+  <p class="ui central intro">
+    How does your money flow? <br>
+    Can you achieve 3 goals in 5 years? <br>
+    Can you be debt free in 5 years? <br>
+    How much can you save in 5 years? <br>
+    Find out anonymously and in 2 minutes!
   </p>
 </div>
 
-<div>
-  <img class="ui intro" ng-src="assets/central/pipe_background.svg">
-
+<div class="ui relative">
+  <a ui-sref="goals"><img ng-src="assets/central/bg2.png" class="ui central bg"/></a>
+  <div class="ui central reserve">$ {{vm.gameResults.R.toLocaleString()}}</div>
+  <div class="ui central nreserve">{{100 * vm.gameResults.R / vm.gameResults.total}}%</div>
 </div>
+<div class="ui relative">
+  <a ui-sref="suspense"><img ng-src="assets/central/bg3.png" class="ui central bg"/></a>
+  <div class="ui central suspense">$ {{vm.gameResults.SSum.toLocaleString()}}</div>
+  <div class="ui central nsuspense">{{100 * vm.gameResults.SSum / vm.gameResults.total}}%</div>
+</div>
+<div class="ui relative">
+  <a ui-sref="discretion"><img ng-src="assets/central/bg4.png" class="ui central bg"/></a>
+  <div class="ui central discretion">$ {{vm.gameResults.DSum.toLocaleString()}}</div>
+  <div class="ui central ndiscretion">{{100 * vm.gameResults.DSum / vm.gameResults.total}}%</div>
+</div>
+<div class="ui relative">
+  <img ng-src="assets/central/bg5.png" class="ui central bg"/>
+  <div class="ui central graph">
+    <canvas id="canvas" width="280" height="210"></canvas>
+  </div>
+
+  <div class="ui central range game alone" id="time-range"></div>
+</div>
+
+<!-- <img id="Image-Maps-Com-image-maps-2016-09-05-123904" ng-src="assets/central/background.png" border="0" orgWidth="361" orgHeight="507" usemap="#image-maps-2016-09-05-123904" alt="" />
+<map name="image-maps-2016-09-05-123904" id="ImageMapsCom-image-maps-2016-09-05-123904">
+  <area id="reserve" alt="Reserve" title="Reserve" ui-sref="/goals" shape="rect" coords="4,103,275,164" style="outline:none;" target="_self"     />
+  <area id="suspense" alt="Suspense" title="Suspense" ui-sref="/suspense" shape="rect" coords="5,169,228,226" style="outline:none;" target="_self"     />
+  <area id="disc" alt="Discretion" title="Discretion" ui-sref="/discretion" shape="rect" coords="5,229,229,289" style="outline:none;" target="_self"     />
+  <area shape="rect" coords="359,505,361,507" alt="Image Map" style="outline:none;" title="Image Map" ui-sref="http://www.image-maps.com/index.php?aff=mapped_users_72584" />
+</map> -->
+
+<!-- <div class="ui">
+  <img class="ui central bg" ng-src="assets/central/background.svg">
+  <div style="position: absolute; left: 50%;">
+    <img class="ui central reserve" ng-src="assets/central/goal.svg">
+  </div>
+
+  <img class="ui central disc" ng-src="assets/central/disc.svg">
+  <img class="ui central sus" ng-src="assets/central/sus.svg">
+  <img class="ui central time" ng-src="assets/central/time.svg">
+
+  graph
+  <div class="ui central graph">
+    height should be 225
+    <canvas id="canvas" height="100" width="300"></canvas>
+  </div>
+
+</div> -->
 
 <div class="ui center aligned vertical segment">
   <p>
-    COPY
   </p>
-  <button ui-sref="ready" class="ui button submit"> Done </button>
+  <button ui-sref="signup" class="ui button submit"> Sign Up </button>
 </div>

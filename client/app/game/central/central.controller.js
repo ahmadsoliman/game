@@ -18,15 +18,34 @@ class CentralController {
     ];
 
     vm.timeSelected = 2;
-    window.lol = vm;
-    
+
     $timeout(() => {
       $('#time-range').range({
           min: 0,
           max: 5,
           start: vm.timeSelected,
           step: 0.5,
-          onChange: (val) => { $timeout(() => vm.timeSelected = val); }
+          onChange: (val) => $timeout(() => {
+            vm.timeSelected = val;
+
+            vm.currentSavings = Math.floor(vm.data.datasets[3].data[vm.timeSelected*2]).toLocaleString();
+            vm.currentDebt = Math.floor(-1*vm.data.datasets[4].data[vm.timeSelected*2]).toLocaleString();
+            let width = 0;
+            switch(vm.timeSelected) {
+              case 0: width = '65%'; break;
+              case 0.5: width = '57%'; break;
+              case 1: width = '51%'; break;
+              case 1.5: width = '45%'; break;
+              case 2: width = '39%'; break;
+              case 2.5: width = '32%'; break;
+              case 3: width = '26%'; break;
+              case 3.5: width = '20%'; break;
+              case 4: width = '14%'; break;
+              case 4.5: width = '7%'; break;
+              case 5: width = '0%'; break;
+            }
+            $('#time-hider').width(width);
+          })
       });
     });
 
@@ -38,7 +57,7 @@ class CentralController {
       datasets: [{
         type: 'bar',
         label: 'dataset 1',
-        backgroundColor: "grey",
+        backgroundColor: "#607D8B",
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
         // borderColor: 'white'
       }, {
@@ -56,7 +75,7 @@ class CentralController {
         type: 'line',
         label: 'CR values',
         data: [],
-        backgroundColor: 'rgba(255,255,255,0.8)',
+        backgroundColor: 'rgba(255,255,255,0.5)',
       }, {
         type: 'line',
         label: 'Closing balance values',

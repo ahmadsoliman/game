@@ -3,7 +3,7 @@
 angular.module('gameApp')
   .config(function($stateProvider) {
     $stateProvider.state('central', {
-        url: '/central',
+        url: '/',
         templateUrl: 'app/game/central/central.html',
         controller: 'CentralController',
         controllerAs: 'vm'
@@ -14,10 +14,10 @@ angular.module('gameApp')
         controller: 'GoalsController',
         controllerAs: 'vm'
       })
-      .state('loan', {
-        url: '/loan',
-        templateUrl: 'app/game/loan/loan.html',
-        controller: 'LoanController',
+      .state('income', {
+        url: '/income',
+        templateUrl: 'app/game/income/income.html',
+        controller: 'IncomeController',
         controllerAs: 'vm'
       })
       .state('ready', {

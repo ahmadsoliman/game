@@ -3,7 +3,7 @@
 angular.module('gameApp')
   .config(function($stateProvider) {
     $stateProvider.state('main', {
-      url: '/',
+      url: '/main',
       template: '<main></main>'
     });
   });

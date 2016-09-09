@@ -130,16 +130,23 @@
 }
 
 .ui.central.bg1 {
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 .ui.central.intro {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 65%;
+  width: 95%;
   line-height: 23px;
-  font-size: 13px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+.ui.central.goals {
+  position: absolute;
+  top: 30%;
+  left: 10px;
+  width: 55%;
 }
 
 .ui.central.reserve {
@@ -149,14 +156,14 @@
   font-size: 1.5em;
   font-weight: bold;
 }
-.ui.central.suspense {
+.ui.central.discretion {
   position: absolute;
   top: 8%;
   left: 25%;
   font-size: 1.5em;
   font-weight: bold;
 }
-.ui.central.discretion {
+.ui.central.suspense {
   position: absolute;
   top: 5%;
   left: 25%;
@@ -171,14 +178,14 @@
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.45);
 }
-.ui.central.nsuspense {
+.ui.central.ndiscretion {
   position: absolute;
   top: 48%;
   left: 25%;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.45);
 }
-.ui.central.ndiscretion {
+.ui.central.nsuspense {
   position: absolute;
   top: 46%;
   left: 25%;
@@ -189,14 +196,42 @@
 .ui.central.graph {
   position: absolute;
   bottom: 62px;
-  left: 13px;
+  left: 8%;
   width: 70%;
+}
+
+.ui.central.hider {
+  position: absolute;
+  bottom: 27%;
+  right: 22%;
+  width: 70%;
+  height: 65%;
+  background: black;
+  border-left: white solid 3px;
+}
+
+.ui.central.results {
+  position: absolute;
+  top: 22%;
+  right: 25%;
+  color: white;
+  z-index: 100;
+  text-align: right;
+}
+.ui.central.note {
+  font-size: 19px;
+}
+.ui.central.value {
+  font-size: 26px;
+}
+.ui.central.redt {
+  color: #FF6E6E;
 }
 
 .ui.central.range {
   position: absolute;
   bottom: 3%;
-  left: 14%;
+  left: 12%;
   width: 66%;
 }
 

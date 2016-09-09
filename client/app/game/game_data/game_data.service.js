@@ -73,6 +73,7 @@ angular.module('gameApp')
       calcR: calcR,
       bossValues: $localStorage.bossValues,
       armoryRanges: $localStorage.armoryRanges,
+      getEarnings: getEarnings,
       closingBalance: $localStorage.closingBalance,
       calcAll: calcAll,
       calcCR: calcCR,
@@ -115,6 +116,10 @@ angular.module('gameApp')
       $localStorage.AA = $localStorage.armoryRanges[0].value + $localStorage.armoryRanges[1].value;
       $localStorage.AB = $localStorage.armoryRanges[2].value + ($localStorage.armoryRanges[3].value / 52);
       return {AA: $localStorage.AA, AB: $localStorage.AB};
+    }
+
+    function getEarnings() {
+      return $localStorage.AB;
     }
 
     function calcR() {

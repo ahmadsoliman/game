@@ -33,9 +33,9 @@
   </div>
   <div class="ui central results">
     <p class="ui central note nomargin">Savings</p>
-    <p class="ui central value nomargin">$ {{vm.currentSavings}}</p>
+    <p class="ui central value nomargin">$ {{vm.currentSavings.toLocaleString()}}</p>
     <p class="ui central note redt nomargin">Debt</p>
-    <p class="ui central value redt nomargin">$ {{vm.currentDebt}}</p>
+    <p class="ui central value redt nomargin">$ {{vm.currentDebt.toLocaleString()}}</p>
   </div>
   <div class="ui central hider" id="time-hider"></div>
   <div class="ui central range game alone" id="time-range"></div>

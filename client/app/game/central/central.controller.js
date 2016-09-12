@@ -28,8 +28,14 @@ class CentralController {
           onChange: (val) => $timeout(() => {
             vm.timeSelected = val;
 
-            vm.currentSavings = Math.floor(vm.data.datasets[3].data[vm.timeSelected*2]).toLocaleString();
-            vm.currentDebt = Math.floor(-1*vm.data.datasets[4].data[vm.timeSelected*2]).toLocaleString();
+
+            vm.currentSavings = Math.round(vm.data.datasets[3].data[vm.timeSelected*2]);
+            vm.currentDebt = Math.round(-1*vm.data.datasets[4].data[vm.timeSelected*2]);
+            if(vm.currentSavings < 0) {
+              vm.currentDebt += vm.currentSavings;
+              vm.currentSavings = 0;
+            }
+
             let width = 0;
             switch(vm.timeSelected) {
               case 0: width = '65%'; break;
@@ -109,7 +115,7 @@ class CentralController {
       while(vm.data.datasets[j].data[vm.sortedTargets[i].time/26] != 0) {
         j++;
       }
-      vm.data.datasets[j].data[vm.sortedTargets[i].time/26] = vm.sortedTargets[i].budget;
+      vm.data.datasets[j].data[vm.sortedTargets[i].time/26] = -1*vm.sortedTargets[i].budget;
       j=0;
     }
 

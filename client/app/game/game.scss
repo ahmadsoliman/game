@@ -133,6 +133,12 @@
   margin-top: 0;
 }
 
+.ui.central.title {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
 .ui.central.intro {
   width: 95%;
   line-height: 23px;
@@ -149,26 +155,29 @@
   width: 55%;
 }
 
-.ui.central.reserve {
+.ui.central.value {
   position: absolute;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
+  width: 37%;
+}
+.ui.central.reserve {
   top: 19%;
   left: 25%;
-  font-size: 1.5em;
-  font-weight: bold;
 }
 .ui.central.discretion {
-  position: absolute;
   top: 8%;
   left: 25%;
-  font-size: 1.5em;
-  font-weight: bold;
 }
 .ui.central.suspense {
-  position: absolute;
   top: 5%;
   left: 25%;
-  font-size: 1.5em;
-  font-weight: bold;
+}
+.ui.central.span {
+  float: right;
+  font-size: 0.7em;
+  font-weight: normal;
 }
 
 .ui.central.nreserve {
@@ -218,10 +227,10 @@
   z-index: 100;
   text-align: right;
 }
-.ui.central.note {
+.ui.central.resnote {
   font-size: 19px;
 }
-.ui.central.value {
+.ui.central.resvalue {
   font-size: 26px;
 }
 .ui.central.redt {
@@ -230,7 +239,7 @@
 
 .ui.central.range {
   position: absolute;
-  bottom: 3%;
+  bottom: 3.75%;
   left: 12%;
   width: 66%;
 }

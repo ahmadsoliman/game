@@ -11,11 +11,7 @@ class CentralController {
     vm.gameResults = vm.gameData.testAllTargets();
     vm.gameResults.total = vm.gameResults.R + vm.gameResults.DSum + vm.gameResults.SSum;
 
-    vm.results = [
-      { name: 'discretion', text: 'Discretion', value: vm.gameResults.DSum },
-      { name: 'suspense', text: 'Suspense', value: vm.gameResults.SSum },
-      { name: 'reserve', text: 'Reserve', value: vm.gameResults.R }
-    ];
+    vm.flags = vm.gameData.centralFlags;
 
     vm.timeSelected = 2;
 
@@ -69,12 +65,13 @@ class CentralController {
       }, {
         type: 'bar',
         label: 'dataset 2',
+        backgroundColor: "#607D8B",
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
         // borderColor: 'white'
       }, {
         type: 'bar',
         label: 'dataset 3',
-        backgroundColor: "black",
+        backgroundColor: "#607D8B",
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
         // borderColor: 'white'
       }, {

@@ -58,6 +58,7 @@ angular.module('gameApp')
       AA: 25000,
       AB: 1100,
       R: 0,
+      centralFlags: {},
     };
     $localStorage.$default(defaults);
 
@@ -73,6 +74,7 @@ angular.module('gameApp')
       calcR: calcR,
       bossValues: $localStorage.bossValues,
       armoryRanges: $localStorage.armoryRanges,
+      centralFlags: $localStorage.centralFlags,
       getEarnings: getEarnings,
       closingBalance: $localStorage.closingBalance,
       calcAll: calcAll,

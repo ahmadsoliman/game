@@ -5,6 +5,8 @@ class SuspenseController {
     var vm = this;
     vm.gameData = gameData;
 
+    vm.gameData.centralFlags.suspense = true;
+
     vm.ranges = vm.gameData.suspenseRanges;
 
     $timeout(() =>

@@ -5,6 +5,8 @@ class IncomeController {
     var vm = this;
     vm.gameData = gameData;
 
+    vm.gameData.centralFlags.reserve = true;
+    
     $timeout(() => {
       $('#earning-range').range({
           min: vm.gameData.armoryRanges[2].min,

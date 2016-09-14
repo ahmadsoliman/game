@@ -5,6 +5,8 @@ class DiscretionController {
     var vm = this;
     vm.gameData = gameData;
 
+    vm.gameData.centralFlags.discretion = true;
+
     vm.ranges = vm.gameData.discretionRanges;
 
     $timeout(() =>

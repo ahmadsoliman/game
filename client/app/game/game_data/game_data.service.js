@@ -54,6 +54,7 @@ angular.module('gameApp')
         {name: 'assets', text: 'Other Financial Assets', code: 'A2', min:0, max: 40000, step: 500, value: 0},
         {name: 'earning', text: 'Earning Capacity per Week', code: 'A3', min:0, max: 2000, step: 100, value: 1000},
         {name: 'other', text: 'Other Earnings per year', code: 'A4', min:0, max: 40000, step: 500, value: 0},
+        {name: 'savings-interest', text: 'Cash Savings Interest', code: 'A5', min:0, max: 25, step: 1, value: 0},
       ],
       AA: 25000,
       AB: 1100,

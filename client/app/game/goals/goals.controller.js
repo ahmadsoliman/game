@@ -86,6 +86,13 @@ class GoalsController {
           step: vm.gameData.armoryRanges[0].step,
           onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[0].value = val); }
       });
+      $('#savings-interest-range').range({
+          min: vm.gameData.armoryRanges[4].min,
+          max: vm.gameData.armoryRanges[4].max,
+          start: vm.gameData.armoryRanges[4].value,
+          step: vm.gameData.armoryRanges[4].step,
+          onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[4].value = val); }
+      });
     });
   }
 

@@ -4,59 +4,90 @@ class IncomeController {
   constructor($timeout, gameData) {
     var vm = this;
     vm.gameData = gameData;
+    vm.$timeout = $timeout;
 
     vm.gameData.centralFlags.reserve = true;
 
-    vm.ranges = [
-      {name: 'job', text: 'Other job', min: 0, max: 1000, value: 500, step: 50, freq: 1},
-      {name: 'tax', text: 'Tax refund', min: 0, max: 1000, value: 500, step: 50, freq: 1},
-      {name: 'gifts', text: 'Gifts from family', min: 0, max: 1000, value: 500, step: 50, freq: 1},
-      {name: 'freelance', text: 'Freelance income', min: 0, max: 1000, value: 500, step: 50, freq: 1},
-      {name: 'investments', text: 'Income from investments', min: 0, max: 1000, value: 500, step: 50, freq: 1},
-      {name: 'other', text: 'Other', min: 0, max: 1000, value: 500, step: 50, freq: 1},
-    ];
+    vm.earning = {value: vm.gameData.armoryRanges[2].value, freq: 1};
+    vm.ranges = vm.gameData.incomeRanges;
+    vm.otherEarnings = vm.gameData.otherEarnings;
 
-    vm.otherEarnings = [];
+    $timeout(() => {
+      $('#earning-freq').dropdown({
+        action: 'activate',
+        onChange: function(value) { //, text, $selectedItem
+          $timeout(() => vm.earning.freq = value);
+        }
+      });
+      $('#earning-freq').dropdown('set selected', '' + vm.earning.freq);
 
-    $timeout(() =>
-      angular.forEach(vm.ranges, (r, i) => {
-        $('#' + r.name + '-range').range({
-            min: r.min,
-            max: r.max,
-            start: r.value,
-            step: r.step,
-            onChange: (val) => { $timeout(() => vm.ranges[i].value = val); }
-        });
+      angular.forEach(vm.otherEarnings, (r, i) => {
+        vm.initDropdown(r, i);
 
-        $('#' + r.name + '-freq').dropdown({
-          action: 'activate',
-          onChange: function(value) { //, text, $selectedItem
-            $timeout(() => vm.ranges[i].freq = value);
-          }
-        });
-        $('#' + r.name + '-freq').dropdown('set selected', '' + vm.ranges[i].freq);
+        vm.initRanges(r, i);
+        $('#earnings-' + i + '-freq').dropdown('set selected', '' + vm.otherEarnings[i].freq);
       })
-    );
+    });
     $timeout(() => {
       $('#earning-range').range({
           min: vm.gameData.armoryRanges[2].min,
           max: vm.gameData.armoryRanges[2].max,
           start: vm.gameData.armoryRanges[2].value,
           step: vm.gameData.armoryRanges[2].step,
-          onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[2].value = val); }
+          onChange: (val) => { $timeout(() => vm.earning.value = val); }
       });
-      // $('#other-range').range({
-      //     min: vm.gameData.armoryRanges[3].min,
-      //     max: vm.gameData.armoryRanges[3].max,
-      //     start: vm.gameData.armoryRanges[3].value,
-      //     step: vm.gameData.armoryRanges[3].step,
-      //     onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[3].value = val); }
-      // });
     });
   }
 
   addEarning() {
-    this.otherEarnings.push({code: 0, value: 500, freq: 1});
+    var ind = this.otherEarnings.length;
+    this.otherEarnings.push({code: -1, value: 500, freq: 1});
+
+    this.$timeout(() => {
+      this.initDropdown(this.otherEarnings[ind], ind);
+      this.initRanges(this.otherEarnings[ind], ind);
+    });
+  }
+
+  initDropdown(t, i) {
+    var vm = this;
+    $('#earning-' + i)
+      .dropdown({
+        action: 'activate',
+        onChange: function(ind, text, $selectedItem) {
+          t.code = ind;
+        }
+      })
+    ;
+
+    if(this.otherEarnings[i].code > -1)
+      $('#earning-' + i).dropdown('set selected', '' + t.code);
+  }
+
+  initRanges(r, i) {
+    var vm = this;
+    $('#earnings-' + i + '-range').range({
+        min: 0,
+        max: 1000,
+        start: r.value,
+        step: 50,
+        onChange: (val) => { vm.$timeout(() => vm.otherEarnings[i].value = val); }
+    });
+
+    $('#earnings-' + i + '-freq').dropdown({
+      action: 'activate',
+      onChange: function(value) { //, text, $selectedItem
+        vm.$timeout(() => vm.otherEarnings[i].freq = value);
+      }
+    });
+  }
+
+  done() {
+    var vm = this;
+    vm.gameData.armoryRanges[2].value = vm.earning.value;
+    var total = 0;
+    vm.otherEarnings.forEach((e) => total += e.value);
+    vm.gameData.armoryRanges[2].value += total;
   }
 }
 

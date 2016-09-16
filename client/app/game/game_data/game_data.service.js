@@ -42,6 +42,15 @@ angular.module('gameApp')
         {name: 'work', text: 'Work / Coffees / Lunches / Study', code: 'D7', min: 0, max: 200, value: 50, step: 10}
       ],
       DSum: 1750,
+      incomeRanges: [
+        {name: 'job', text: 'Other job'},
+        {name: 'tax', text: 'Tax refund'},
+        {name: 'gifts', text: 'Gifts from family'},
+        {name: 'freelance', text: 'Freelance income'},
+        {name: 'investments', text: 'Income from investments'},
+        {name: 'other', text: 'Other'},
+      ],
+      otherEarnings: [],
       bossValues: {
         BPV: 20000,
         BRATE: 12,
@@ -77,6 +86,8 @@ angular.module('gameApp')
       armoryRanges: $localStorage.armoryRanges,
       centralFlags: $localStorage.centralFlags,
       getEarnings: getEarnings,
+      incomeRanges: $localStorage.incomeRanges,
+      otherEarnings: $localStorage.otherEarnings,
       closingBalance: $localStorage.closingBalance,
       calcAll: calcAll,
       calcCR: calcCR,

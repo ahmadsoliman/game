@@ -1,5 +1,5 @@
 <div class="ui center aligned segment">
-  <img class="ui intro" ng-src="assets/icons/titles/reserve_intro.svg">
+  <img class="ui intro" ng-src="assets/icons/titles/income_intro.svg">
 </div>
 
 <div class="ui center aligned segment nopadding">
@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-          <div class="ui five wide center aligned column rvalue"> $ {{vm.gameData.armoryRanges[2].value.toLocaleString()}} </div>
+          <div class="ui five wide center aligned column rvalue"> $ {{(vm.earning.value*vm.earning.freq).toLocaleString()}} </div>
         </div>
       </div>
 
@@ -39,19 +39,26 @@
     Any other earnings?
   </p>
   <div class="ui items">
-    <div class="item" ng-repeat="r in vm.otherEarnings">
+    <div class="item" ng-repeat="e in vm.otherEarnings">
       <div class="ui vertical segment full">
 
-        <div class="ui header">
-          {{r.text}}
+        <div class="ui selection segment dropdown basic" id="earning-{{$index}}">
+          <input type="hidden" name="earning-{{$index}}">
+          <i class="dropdown icon"></i>
+          <div class="default text">Select earning type</div>
+          <div class="menu">
+            <div class="item" ng-repeat="g in vm.ranges" data-value="{{$index}}">
+              {{g.text}}
+            </div>
+          </div>
         </div>
 
-        <div class="ui range game alone" id="{{r.name}}-range"></div>
+        <div class="ui range game alone" id="earnings-{{$index}}-range"></div>
         <br>
 
         <div class="ui grid rgrid">
           <div class="ui eleven wide column dropbox">
-            <div class="ui selection dropdown basic" id="{{r.name}}-freq">
+            <div class="ui selection dropdown basic" id="earnings-{{$index}}-freq">
               <input type="hidden">
               <div class="default text"> Weekly </div>
               <i class="dropdown icon"></i>
@@ -64,7 +71,7 @@
               </div>
             </div>
           </div>
-          <div class="ui five wide center aligned column rvalue"> $ {{(vm.ranges[$index].value * vm.ranges[$index].freq).toLocaleString()}} </div>
+          <div class="ui five wide center aligned column rvalue"> $ {{(vm.otherEarnings[$index].value * vm.otherEarnings[$index].freq).toLocaleString()}} </div>
         </div>
 
       </div>
@@ -102,5 +109,5 @@
 
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="central" class="ui button submit"> Done </button>
+  <button ui-sref="central" class="ui button submit" ng-click="vm.done()"> Done </button>
 </div>

@@ -3,12 +3,8 @@
     <img class="ui intro" ng-src="assets/icons/titles/reserve_intro.svg">
   </p>
 
-  <h1 class="ui header"> RESERVE </h1>
-  <p>
-    What 3 goals would you like to achieve within the next 5 years?
-  </p>
   <p class="ui header">
-    How soon do you plan to achieve them and how much will you need?
+    Select 3 goals to achieve within 5 years.
   </p>
 </div>
 
@@ -60,7 +56,7 @@
 </div>
 
 <div class="ui center aligned vertical segment" ng-if="!vm.gameData.bossValues.hasDebt">
-  <button class="ui button submit" ng-click="vm.gameData.bossValues.hasDebt=true"> Add Debt </button>
+  <button class="ui button submit" ng-click="vm.gameData.bossValues.hasDebt=true"> Add debt </button>
 </div>
 
 <div class="ui segment nopadding" ng-show="vm.gameData.bossValues.hasDebt">
@@ -95,7 +91,7 @@
 </div>
 
 <div class="ui center aligned segment nomargin">
-  <p class="ui header">How much you have got saved up and what interest rate do you earn on your deposits?</p>
+  <p class="ui header">How much have you got saved up and what interest rate do you earn on your deposits?</p>
 </div>
 
 <div class="ui segment nopadding">
@@ -130,8 +126,5 @@
 </div>
 
 <div class="ui center aligned vertical segment">
-  <p>
-    Once you are clear about your objectives, it is easy to see what it takes to achieve them.
-  </p>
-  <button ui-sref="central" class="ui button submit" ng-disabled="!vm.fulfilled()"> SHOW ME </button>
+  <button ui-sref="central" class="ui button submit" ng-disabled="!vm.fulfilled()"> Done </button>
 </div>

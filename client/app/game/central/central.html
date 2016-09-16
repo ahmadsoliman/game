@@ -5,7 +5,7 @@
 
 <div class="ui relative">
   <img ng-src="assets/central/bg1.png" class="ui central bg bg1"/>
-  <button class="ui central goals submit button" ui-sref="goals">Set Your Goals</button>
+  <button class="ui central goals submit button" ui-sref="goals">Set your goals</button>
 </div>
 
 <div class="ui relative">
@@ -14,7 +14,7 @@
     <div class="ui central value reserve" ng-if="!vm.flags.reserve">$ __</div>
     <div class="ui central value reserve" ng-if="vm.flags.reserve">
       $ {{vm.gameData.getEarnings().toLocaleString("en-IN", {"maximumFractionDigits": 0})}}
-      <span class="ui central span">/Week</span>
+      <span class="ui central span">/week</span>
     </div>
     <div class="ui central nreserve">Earnings</div>
   </a>
@@ -25,8 +25,8 @@
     <img ng-src="assets/central/bg3.png" class="ui central bg"/>
     <div class="ui central value discretion" ng-if="!vm.flags.discretion">$ __</div>
     <div class="ui central value discretion" ng-if="vm.flags.discretion">
-      $ {{vm.gameResults.DSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}
-      <span class="ui central span">/Week</span>
+      $({{vm.gameResults.DSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
+      <span class="ui central span">/week</span>
     </div>
     <div class="ui central ndiscretion">Habits</div>
   </a>
@@ -38,8 +38,8 @@
     <img ng-src="assets/central/bg4.png" class="ui central bg"/>
     <div class="ui central value suspense" ng-if="!vm.flags.suspense">$ __</div>
     <div class="ui central value suspense" ng-if="vm.flags.suspense">
-      $ {{vm.gameResults.SSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}
-      <span class="ui central span">/Week</span>
+      $({{vm.gameResults.SSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
+      <span class="ui central span">/week</span>
     </div>
     <div class="ui central nsuspense">Commitments</div>
   </a>

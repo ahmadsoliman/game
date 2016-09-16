@@ -24,11 +24,10 @@ class CentralController {
           onChange: (val) => $timeout(() => {
             vm.timeSelected = val;
 
-
             vm.currentSavings = Math.round(vm.data.datasets[3].data[vm.timeSelected*2]);
             vm.currentDebt = Math.round(-1*vm.data.datasets[4].data[vm.timeSelected*2]);
             if(vm.currentSavings < 0) {
-              vm.currentDebt += vm.currentSavings;
+              vm.currentDebt -= vm.currentSavings;
               vm.currentSavings = 0;
             }
 
@@ -56,38 +55,38 @@ class CentralController {
     vm.series = [""];
     vm.data = {
       labels: [0,,1,,2,,3,,4,,5],
-      datasets: [{
+      datasets: [{ // goal 1
         type: 'bar',
         label: 'dataset 1',
         backgroundColor: "#607D8B",
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
         // borderColor: 'white'
-      }, {
+      }, { // goal 2
         type: 'bar',
         label: 'dataset 2',
         backgroundColor: "#607D8B",
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
         // borderColor: 'white'
-      }, {
+      }, { // goal 3
         type: 'bar',
         label: 'dataset 3',
         backgroundColor: "#607D8B",
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
         // borderColor: 'white'
-      }, {
+      }, { //savings graph
         type: 'line',
         label: 'CR values',
         data: [],
-        backgroundColor: 'rgba(255,255,255,0.5)',
-      }, {
+        backgroundColor: '#494949',
+      }, { // debt graph
         type: 'line',
         label: 'Closing balance values',
-        backgroundColor: 'rgba(255,0,0,0.6)',
+        backgroundColor: '#780800',
         data: []
       }, {
-        type: 'bar',
+        type: 'bar', //debt
         label: 'loan',
-        backgroundColor: 'rgba(255,0,0,0.6)',
+        backgroundColor: '#B70D00',
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
         // borderColor: 'white'
       }]
@@ -123,8 +122,14 @@ class CentralController {
         subtractedVal += vm.sortedTargets[j].budget;
         j++;
       }
+      // savings
       vm.data.datasets[3].data[i] = vm.gameData.calcCR(26 * i) - subtractedVal;
+      // debt
       vm.data.datasets[4].data[i] = vm.gameData.closingBalance[i*26];
+      if(vm.data.datasets[3].data[i] < 0) {
+        vm.data.datasets[4].data[i] += vm.data.datasets[3].data[i];
+        vm.data.datasets[3].data[i] = 0;
+      }
     }
 
     // init graph
@@ -150,7 +155,7 @@ class CentralController {
             gridLines: {
               display: true,
               offsetGridLines: false,
-              color: 'rgba(255,255,255,0.6)'
+              color: 'rgba(255,255,255,0)'
             }
           }],
           yAxes: [{
@@ -165,7 +170,7 @@ class CentralController {
             gridLines: {
               display: true,
               offsetGridLines: true,
-              color: 'rgba(255,255,255,0.6)'
+              color: 'rgba(255,255,255,0)'
             }
           }]
         }

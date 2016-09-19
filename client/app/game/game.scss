@@ -157,22 +157,22 @@
 
 .ui.central.value {
   position: absolute;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
   color: black;
   width: 37%;
 }
 .ui.central.reserve {
   top: 19%;
-  left: 25%;
+  left: 19%;
 }
 .ui.central.discretion {
   top: 8%;
-  left: 25%;
+  left: 19%;
 }
 .ui.central.suspense {
   top: 5%;
-  left: 25%;
+  left: 19%;
 }
 .ui.central.span {
   float: right;
@@ -181,49 +181,54 @@
   color: grey;
 }
 
-.ui.central.nreserve {
+.ui.central.note {
   position: absolute;
-  top: 52%;
-  left: 25%;
-  font-size: 1.2em;
+  font-size: 1.0em;
   color: rgba(0, 0, 0, 0.45);
+}
+
+.ui.central.nreserve {
+  top: 52%;
+  left: 19%;
 }
 .ui.central.ndiscretion {
-  position: absolute;
   top: 48%;
-  left: 25%;
-  font-size: 1.2em;
-  color: rgba(0, 0, 0, 0.45);
+  left: 19%;
 }
 .ui.central.nsuspense {
-  position: absolute;
   top: 46%;
-  left: 25%;
-  font-size: 1.2em;
-  color: rgba(0, 0, 0, 0.45);
+  left: 19%;
 }
 
 .ui.central.graph {
   position: absolute;
-  bottom: 62px;
-  left: 8%;
-  width: 70%;
+  bottom: 80px;
+  left: 12%;
+  width: 75%;
 }
 
 .ui.central.hider {
   position: absolute;
-  bottom: 27%;
-  right: 22%;
+  bottom: 31%;
+  right: 12%;
   width: 70%;
-  height: 65%;
+  height: 60%;
   background: black;
   border-left: white solid 3px;
 }
 
+.ui.central.lresults {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  color: white;
+  z-index: 100;
+}
+
 .ui.central.results {
   position: absolute;
-  top: 22%;
-  right: 25%;
+  top: 15%;
+  right: 14%;
   color: white;
   z-index: 100;
   text-align: right;
@@ -238,11 +243,19 @@
   color: #FF6E6E;
 }
 
+.ui.central.year-selection {
+  position: absolute;
+  color: ghostwhite;
+  bottom: 19%;
+  left: 34%;
+  font-size: 1.3em;
+}
+
 .ui.central.range {
   position: absolute;
-  bottom: 3.75%;
-  left: 12%;
-  width: 66%;
+  bottom: 9%;
+  left: 17%;
+  width: 68%;
 }
 
 // ---------------------------------------------------------------------------------- //

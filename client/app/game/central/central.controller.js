@@ -10,10 +10,11 @@ class CentralController {
     vm.gameData.calcAll();
     vm.gameResults = vm.gameData.testAllTargets();
     vm.gameResults.total = vm.gameResults.R + vm.gameResults.DSum + vm.gameResults.SSum;
-
+    vm.gameResults.R = Math.round(vm.gameResults.R);
+    
     vm.flags = vm.gameData.centralFlags;
 
-    vm.timeSelected = 2;
+    vm.timeSelected = 2.5;
 
     $timeout(() => {
       $('#time-range').range({
@@ -33,16 +34,16 @@ class CentralController {
 
             let width = 0;
             switch(vm.timeSelected) {
-              case 0: width = '65%'; break;
-              case 0.5: width = '57%'; break;
-              case 1: width = '51%'; break;
-              case 1.5: width = '45%'; break;
-              case 2: width = '39%'; break;
-              case 2.5: width = '32%'; break;
-              case 3: width = '26%'; break;
-              case 3.5: width = '20%'; break;
-              case 4: width = '14%'; break;
-              case 4.5: width = '7%'; break;
+              case 0: width = '70%'; break;
+              case 0.5: width = '64%'; break;
+              case 1: width = '57%'; break;
+              case 1.5: width = '50%'; break;
+              case 2: width = '43%'; break;
+              case 2.5: width = '36%'; break;
+              case 3: width = '29%'; break;
+              case 3.5: width = '22.5%'; break;
+              case 4: width = '16%'; break;
+              case 4.5: width = '9%'; break;
               case 5: width = '0%'; break;
             }
             $('#time-hider').width(width);
@@ -89,6 +90,12 @@ class CentralController {
         backgroundColor: '#B70D00',
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
         // borderColor: 'white'
+      }, {
+        type: 'bar', //savings bar
+        label: 'savings',
+        backgroundColor: '#607D8B',
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        // borderColor: 'white'
       }]
     };
 
@@ -117,6 +124,7 @@ class CentralController {
 
     // set line chart data
     vm.data.datasets[5].data[0] = -1*vm.gameData.bossValues.BPV;
+    vm.data.datasets[6].data[0] = vm.gameData.calcCR(0);
     for(let i=0, j=0, subtractedVal=0; i<=10; i++) {
       if(j<vm.sortedTargets.length && i*26 == vm.sortedTargets[j].time) {
         subtractedVal += vm.sortedTargets[j].budget;

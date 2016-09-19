@@ -5,30 +5,33 @@
 
 <div class="ui relative">
   <img ng-src="assets/central/bg1.png" class="ui central bg bg1"/>
-  <button class="ui central goals submit button" ui-sref="goals">Set your goals</button>
+  <button class="ui central goals submit button" ui-sref="goals">
+    <!-- <img ng-src="assets/icons/goals/other.svg" class="ui central"/> -->
+    Set your goals
+  </button>
 </div>
 
 <div class="ui relative">
   <a ui-sref="income">
     <img ng-src="assets/central/bg2.png" class="ui central bg"/>
-    <div class="ui central value reserve" ng-if="!vm.flags.reserve">$ __</div>
+    <div class="ui central value reserve" ng-if="!vm.flags.reserve">$__</div>
     <div class="ui central value reserve" ng-if="vm.flags.reserve">
-      $ {{vm.gameData.getEarnings().toLocaleString("en-IN", {"maximumFractionDigits": 0})}}
+      ${{vm.gameData.getEarnings().toLocaleString("en-IN", {"maximumFractionDigits": 0})}}
       <span class="ui central span">/week</span>
     </div>
-    <div class="ui central nreserve">Earnings</div>
+    <div class="ui central note nreserve">Earnings</div>
   </a>
 </div>
 
 <div class="ui relative">
   <a ui-sref="discretion">
     <img ng-src="assets/central/bg3.png" class="ui central bg"/>
-    <div class="ui central value discretion" ng-if="!vm.flags.discretion">$ __</div>
+    <div class="ui central value discretion" ng-if="!vm.flags.discretion">$__</div>
     <div class="ui central value discretion" ng-if="vm.flags.discretion">
       $({{vm.gameResults.DSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
       <span class="ui central span">/week</span>
     </div>
-    <div class="ui central ndiscretion">Habits</div>
+    <div class="ui central note ndiscretion">Habits</div>
   </a>
   <!-- <div class="ui central ndiscretion">{{(100 * vm.gameResults.DSum / vm.gameResults.total).toLocaleString()}}%</div> -->
 </div>
@@ -36,12 +39,12 @@
 <div class="ui relative">
   <a ui-sref="suspense">
     <img ng-src="assets/central/bg4.png" class="ui central bg"/>
-    <div class="ui central value suspense" ng-if="!vm.flags.suspense">$ __</div>
+    <div class="ui central value suspense" ng-if="!vm.flags.suspense">$__</div>
     <div class="ui central value suspense" ng-if="vm.flags.suspense">
       $({{vm.gameResults.SSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
       <span class="ui central span">/week</span>
     </div>
-    <div class="ui central nsuspense">Commitments</div>
+    <div class="ui central note nsuspense">Commitments</div>
   </a>
   <!-- <div class="ui central nsuspense">{{(100 * vm.gameResults.SSum / vm.gameResults.total).toLocaleString()}}%</div> -->
 </div>
@@ -51,12 +54,17 @@
   <div class="ui central graph">
     <canvas id="canvas" width="280" height="210"></canvas>
   </div>
+  <div class="ui central lresults">
+    <p class="ui central resnote nomargin">Profit /week</p>
+    <p class="ui central resvalue nomargin">${{vm.gameResults.R.toLocaleString()}}</p>
+  </div>
   <div class="ui central results">
     <p class="ui central resnote nomargin">Savings</p>
-    <p class="ui central resvalue nomargin">$ {{vm.currentSavings.toLocaleString()}}</p>
+    <p class="ui central resvalue nomargin">${{vm.currentSavings.toLocaleString()}}</p>
     <p class="ui central resnote redt nomargin">Debt</p>
-    <p class="ui central resvalue redt nomargin">$ {{vm.currentDebt.toLocaleString()}}</p>
+    <p class="ui central resvalue redt nomargin">${{vm.currentDebt.toLocaleString()}}</p>
   </div>
+  <div class="ui central year-selection">Year selection</div>
   <div class="ui central hider" id="time-hider"></div>
   <div class="ui central range game alone" id="time-range"></div>
 </div>

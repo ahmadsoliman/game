@@ -137,7 +137,7 @@ angular.module('gameApp')
     }
 
     function calcR() {
-      $localStorage.R = $localStorage.AB - $localStorage.DSum - $localStorage.SSum; // - $localStorage.BP; // the old email description changed to match the spreadsheet
+      $localStorage.R = $localStorage.AB - $localStorage.DSum - $localStorage.SSum;
       return $localStorage.R;
     }
 

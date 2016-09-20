@@ -151,8 +151,16 @@
 .ui.central.goals {
   position: absolute;
   top: 30%;
-  left: 10px;
-  width: 55%;
+  left: 0px;
+  width: 67%;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 4%;
+}
+.ui.central.middle-align {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 10px;
 }
 
 .ui.central.value {
@@ -245,10 +253,10 @@
 
 .ui.central.year-selection {
   position: absolute;
-  color: ghostwhite;
+  color: white;
   bottom: 19%;
-  left: 34%;
-  font-size: 1.3em;
+  left: 42%;
+  font-size: 1.0em;
 }
 
 .ui.central.range {

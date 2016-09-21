@@ -11,7 +11,7 @@ class CentralController {
     vm.gameResults = vm.gameData.testAllTargets();
     vm.gameResults.total = vm.gameResults.R + vm.gameResults.DSum + vm.gameResults.SSum;
     vm.gameResults.R = Math.round(vm.gameResults.R);
-    
+
     vm.flags = vm.gameData.centralFlags;
 
     vm.timeSelected = 2.5;
@@ -124,14 +124,14 @@ class CentralController {
 
     // set line chart data
     vm.data.datasets[5].data[0] = -1*vm.gameData.bossValues.BPV;
-    vm.data.datasets[6].data[0] = vm.gameData.calcCR(0);
+    vm.data.datasets[6].data[0] = vm.gameData.savingsBalance[0];
     for(let i=0, j=0, subtractedVal=0; i<=10; i++) {
-      if(j<vm.sortedTargets.length && i*26 == vm.sortedTargets[j].time) {
+      while(j<vm.sortedTargets.length && i*26 == vm.sortedTargets[j].time) {
         subtractedVal += vm.sortedTargets[j].budget;
         j++;
       }
       // savings
-      vm.data.datasets[3].data[i] = vm.gameData.calcCR(26 * i) - subtractedVal;
+      vm.data.datasets[3].data[i] = vm.gameData.savingsBalance[26 * i] - subtractedVal;
       // debt
       vm.data.datasets[4].data[i] = vm.gameData.closingBalance[i*26];
       if(vm.data.datasets[3].data[i] < 0) {

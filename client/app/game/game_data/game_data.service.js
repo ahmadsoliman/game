@@ -57,6 +57,7 @@ angular.module('gameApp')
         BNPER: 260, // TODO admin setting
       },
       closingBalance: [],
+      savingsBalance: [],
       BP: 20000,
       armoryRanges: [
         {name: 'cash', text: 'Cash Savings', code: 'A1', min:0, max: 40000, step: 500, value: 10000},
@@ -89,6 +90,7 @@ angular.module('gameApp')
       incomeRanges: $localStorage.incomeRanges,
       otherEarnings: $localStorage.otherEarnings,
       closingBalance: $localStorage.closingBalance,
+      savingsBalance: $localStorage.savingsBalance,
       calcAll: calcAll,
       calcCR: calcCR,
       testAllTargets: testAllTargets,
@@ -116,7 +118,7 @@ angular.module('gameApp')
     function calcBP() {
       var bv = $localStorage.bossValues;
       var weeklyInterest = bv.BRATE/5200.0;
-      $localStorage.BP = (weeklyInterest * bv.BPV) / (1 - Math.pow(1+bv.BRATE/5200.0, -1 * (bv.BNPER)));
+      $localStorage.BP = (weeklyInterest * bv.BPV) / (1 - Math.pow(1+weeklyInterest, -1 * (bv.BNPER)));
 
       $localStorage.closingBalance[0] = -1*bv.BPV;
       for(let i=1; i<=bv.BNPER; i++) {
@@ -141,16 +143,27 @@ angular.module('gameApp')
       return $localStorage.R;
     }
 
+    function calcSavings() {
+      $localStorage.savingsBalance[0] = $localStorage.AA;
+      for(let i=1; i<=$localStorage.bossValues.BNPER; i++) {
+        $localStorage.savingsBalance[i] = $localStorage.savingsBalance[i-1] +
+          $localStorage.R - $localStorage.BP +
+          ($localStorage.savingsBalance[i-1] * $localStorage.armoryRanges[4].value / 5200);
+      }
+    }
+
     function calcAll() {
       calcSSum();
       calcDSum();
       calcBP();
       calcArmory();
       calcR();
+      calcSavings();
     }
 
     function calcCR(y) {
-      return $localStorage.AA + (y * $localStorage.R);
+      calcSavings();
+      return $localStorage.savingsBalance[y];
     }
 
     function testTarget(t, subtractedVal) {

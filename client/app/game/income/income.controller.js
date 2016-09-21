@@ -41,7 +41,7 @@ class IncomeController {
 
   addEarning() {
     var ind = this.otherEarnings.length;
-    this.otherEarnings.push({code: -1, value: 500, freq: 1});
+    this.otherEarnings.push({code: -1, value: 0, freq: 1});
 
     this.$timeout(() => {
       this.initDropdown(this.otherEarnings[ind], ind);

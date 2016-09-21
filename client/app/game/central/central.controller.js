@@ -14,7 +14,7 @@ class CentralController {
 
     vm.flags = vm.gameData.centralFlags;
 
-    vm.timeSelected = 2.5;
+    vm.timeSelected = 0;
 
     $timeout(() => {
       $('#time-range').range({

@@ -25,23 +25,23 @@ angular.module('gameApp')
         { code: 0, name: 'house', time: 4*52, budget: 15000}
       ],
       suspenseRanges: [
-        {name: 'rent', text: 'Rent / Mortgage', code: 'S1', min: 0, max: 1000, value: 500, step: 50, freq: 1},
-        {name: 'mobile', text: 'Mobile / Internet', code: 'S2', min: 0, max: 100, value: 30, step: 5, freq: 1},
-        {name: 'utilities', text: 'Rates / Power / Other Utilities', code: 'S3', min: 0, max: 100, value: 50, step: 5, freq: 1},
-        {name: 'health', text: 'Car / Health / Other Insurance', code: 'S4', min: 0, max: 100, value: 50, step: 5, freq: 1},
-        {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 0, max: 200, value: 50, step: 10, freq: 1}
+        {name: 'rent', text: 'Rent / Mortgage', code: 'S1', min: 0, max: 1000, value: 0, step: 50, freq: 1},
+        {name: 'mobile', text: 'Mobile / Internet', code: 'S2', min: 0, max: 100, value: 0, step: 5, freq: 1},
+        {name: 'utilities', text: 'Rates / Power / Other Utilities', code: 'S3', min: 0, max: 100, value: 0, step: 5, freq: 1},
+        {name: 'health', text: 'Car / Health / Other Insurance', code: 'S4', min: 0, max: 100, value: 0, step: 5, freq: 1},
+        {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 0, max: 200, value: 0, step: 10, freq: 1}
       ],
-      SSum: 90,
+      SSum: 0,
       discretionRanges: [
-        {name: 'entertainment', text: 'Entertainment', code: 'D1', min: 0, max: 400, value: 200, step: 25},
-        {name: 'groceries', text: 'Groceries', code: 'D2', min: 0, max: 300, value: 100, step: 25},
-        {name: 'transport', text: 'Transport', code: 'D3', min: 0, max: 200, value: 100, step: 10},
-        {name: 'personal', text: 'Personal / Sports / Health / Cosmetics', code: 'D4', min: 0, max: 200, value: 50, step: 10},
-        {name: 'household', text: 'Household / Family / Pets', code: 'D5', min: 0, max: 200, value: 50, step: 10},
-        {name: 'clothing', text: 'Clothing / Shoes / Accessories', code: 'D6', min: 0, max: 200, value: 50, step: 10},
-        {name: 'work', text: 'Work / Coffees / Lunches / Study', code: 'D7', min: 0, max: 200, value: 50, step: 10}
+        {name: 'entertainment', text: 'Entertainment', code: 'D1', min: 0, max: 400, value: 0, step: 25},
+        {name: 'groceries', text: 'Groceries', code: 'D2', min: 0, max: 300, value: 0, step: 25},
+        {name: 'transport', text: 'Transport', code: 'D3', min: 0, max: 200, value: 0, step: 10},
+        {name: 'personal', text: 'Personal / Sports / Health / Cosmetics', code: 'D4', min: 0, max: 200, value: 0, step: 10},
+        {name: 'household', text: 'Household / Family / Pets', code: 'D5', min: 0, max: 200, value: 0, step: 10},
+        {name: 'clothing', text: 'Clothing / Shoes / Accessories', code: 'D6', min: 0, max: 200, value: 0, step: 10},
+        {name: 'work', text: 'Work / Coffees / Lunches / Study', code: 'D7', min: 0, max: 200, value: 0, step: 10}
       ],
-      DSum: 1750,
+      DSum: 0,
       incomeRanges: [
         {name: 'job', text: 'Other job'},
         {name: 'tax', text: 'Tax refund'},
@@ -52,22 +52,22 @@ angular.module('gameApp')
       ],
       otherEarnings: [],
       bossValues: {
-        BPV: 20000,
-        BRATE: 12,
+        BPV: 0,
+        BRATE: 5,
         BNPER: 260, // TODO admin setting
       },
       closingBalance: [],
       savingsBalance: [],
-      BP: 20000,
+      BP: 0,
       armoryRanges: [
-        {name: 'cash', text: 'Cash Savings', code: 'A1', min:0, max: 40000, step: 500, value: 10000},
+        {name: 'cash', text: 'Cash Savings', code: 'A1', min:0, max: 40000, step: 500, value: 0},
         {name: 'assets', text: 'Other Financial Assets', code: 'A2', min:0, max: 40000, step: 500, value: 0},
-        {name: 'earning', text: 'Earning Capacity per Week', code: 'A3', min:0, max: 2000, step: 100, value: 1000},
+        {name: 'earning', text: 'Earning Capacity per Week', code: 'A3', min:0, max: 2000, step: 100, value: 0},
         {name: 'other', text: 'Other Earnings per year', code: 'A4', min:0, max: 40000, step: 500, value: 0},
         {name: 'savings-interest', text: 'Cash Savings Interest', code: 'A5', min:0, max: 25, step: 1, value: 0},
       ],
-      AA: 25000,
-      AB: 1100,
+      AA: 0,
+      AB: 0,
       R: 0,
       centralFlags: {},
     };

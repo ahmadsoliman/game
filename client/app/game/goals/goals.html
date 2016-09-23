@@ -4,7 +4,7 @@
   </p>
 
   <p class="ui header">
-    Select 3 goals to achieve within 5 years.
+    Select the goals to achieve within 5 years.
   </p>
 </div>
 
@@ -47,7 +47,8 @@
   </div>
 </div>
 
-<div class="ui center aligned vertical segment" ng-if="!vm.fulfilled()">
+<!--  ng-if="!vm.fulfilled()"> -->
+<div class="ui center aligned vertical segment">
   <button class="ui button submit" ng-click="vm.addGoal()"> Add another goal </button>
 </div>
 
@@ -126,5 +127,6 @@
 </div>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="central" class="ui button submit" ng-disabled="!vm.fulfilled()"> Done </button>
+  <!-- ng-disabled="!vm.fulfilled()" -->
+  <button ui-sref="central" class="ui button submit"> Done </button>
 </div>

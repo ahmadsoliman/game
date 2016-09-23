@@ -25,8 +25,8 @@ class CentralController {
           onChange: (val) => $timeout(() => {
             vm.timeSelected = val;
 
-            vm.currentSavings = Math.round(vm.data.datasets[3].data[vm.timeSelected*2]);
-            vm.currentDebt = Math.round(-1*vm.data.datasets[4].data[vm.timeSelected*2]);
+            vm.currentSavings = Math.round(vm.data.datasets[2].data[vm.timeSelected*2]);
+            vm.currentDebt = Math.round(-1*vm.data.datasets[3].data[vm.timeSelected*2]);
             if(vm.currentSavings < 0) {
               vm.currentDebt -= vm.currentSavings;
               vm.currentSavings = 0;
@@ -56,24 +56,16 @@ class CentralController {
     vm.series = [""];
     vm.data = {
       labels: [0,,1,,2,,3,,4,,5],
-      datasets: [{ // goal 1
-        type: 'bar',
-        label: 'dataset 1',
-        backgroundColor: "#607D8B",
+      datasets: [{
+        type: 'bar', //debt
+        label: 'loan',
+        backgroundColor: '#B70D00',
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
-        // borderColor: 'white'
-      }, { // goal 2
-        type: 'bar',
-        label: 'dataset 2',
-        backgroundColor: "#607D8B",
+      }, {
+        type: 'bar', //savings bar
+        label: 'savings',
+        backgroundColor: '#607D8B',
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
-        // borderColor: 'white'
-      }, { // goal 3
-        type: 'bar',
-        label: 'dataset 3',
-        backgroundColor: "#607D8B",
-        data: [0,0,0,0,0,0,0,0,0,0,0,0],
-        // borderColor: 'white'
       }, { //savings graph
         type: 'line',
         label: 'CR values',
@@ -82,22 +74,19 @@ class CentralController {
       }, { // debt graph
         type: 'line',
         label: 'Closing balance values',
-        backgroundColor: '#780800',
+        backgroundColor: 'rgba(124,10,2,0.5)',//'#780800',
         data: []
-      }, {
-        type: 'bar', //debt
-        label: 'loan',
-        backgroundColor: '#B70D00',
-        data: [0,0,0,0,0,0,0,0,0,0,0,0],
-        // borderColor: 'white'
-      }, {
-        type: 'bar', //savings bar
-        label: 'savings',
-        backgroundColor: '#607D8B',
-        data: [0,0,0,0,0,0,0,0,0,0,0,0],
-        // borderColor: 'white'
       }]
     };
+
+    vm.gameData.targets.forEach(() => vm.data.datasets.push(
+      { // goal
+        type: 'bar',
+        label: 'dataset 1',
+        backgroundColor: "#607D8B",
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+      }
+    ));
 
     vm.sortedTargets = angular.copy(vm.gameData.targets);
 
@@ -115,28 +104,28 @@ class CentralController {
 
     // set bar chart data, change datasets to include more targets if needed
     for(let i=0, j=0; i<vm.sortedTargets.length; i++) {
-      while(vm.data.datasets[j].data[vm.sortedTargets[i].time/26] != 0) {
+      while(vm.data.datasets[4+j].data[vm.sortedTargets[i].time/26] != 0) {
         j++;
       }
-      vm.data.datasets[j].data[vm.sortedTargets[i].time/26] = -1*vm.sortedTargets[i].budget;
+      vm.data.datasets[4+j].data[vm.sortedTargets[i].time/26] = -1*vm.sortedTargets[i].budget;
       j=0;
     }
 
     // set line chart data
-    vm.data.datasets[5].data[0] = -1*vm.gameData.bossValues.BPV;
-    vm.data.datasets[6].data[0] = vm.gameData.savingsBalance[0];
+    vm.data.datasets[0].data[0] = -1*vm.gameData.bossValues.BPV;
+    vm.data.datasets[1].data[0] = vm.gameData.savingsBalance[0];
     for(let i=0, j=0, subtractedVal=0; i<=10; i++) {
       while(j<vm.sortedTargets.length && i*26 == vm.sortedTargets[j].time) {
         subtractedVal += vm.sortedTargets[j].budget;
         j++;
       }
       // savings
-      vm.data.datasets[3].data[i] = vm.gameData.savingsBalance[26 * i] - subtractedVal;
+      vm.data.datasets[2].data[i] = vm.gameData.savingsBalance[26 * i] - subtractedVal;
       // debt
-      vm.data.datasets[4].data[i] = vm.gameData.closingBalance[i*26];
-      if(vm.data.datasets[3].data[i] < 0) {
-        vm.data.datasets[4].data[i] += vm.data.datasets[3].data[i];
-        vm.data.datasets[3].data[i] = 0;
+      vm.data.datasets[3].data[i] = vm.gameData.closingBalance[i*26];
+      if(vm.data.datasets[2].data[i] < 0) {
+        vm.data.datasets[3].data[i] += vm.data.datasets[3].data[i];
+        vm.data.datasets[2].data[i] = 0;
       }
     }
 

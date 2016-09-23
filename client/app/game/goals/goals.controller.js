@@ -101,7 +101,7 @@ class GoalsController {
   }
 
   addGoal() {
-    if(this.fulfilled()) return;
+    // if(this.fulfilled()) return;
     this.targets.push({ code: 0, name: 'house', time: 8*52, budget: 40000});
     this.$timeout(() => {
       let i = this.targets.length-1;

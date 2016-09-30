@@ -57,8 +57,10 @@
     <canvas id="canvas" width="280" height="210"></canvas>
   </div>
   <div class="ui central lresults">
-    <p class="ui central resnote nomargin">PROFIT /week</p>
+    <p class="ui central resnote nomargin">SAVINGS /week</p>
     <p class="ui central resvalue nomargin">${{vm.gameResults.R.toLocaleString()}}</p>
+    <p class="ui central resnote redt nomargin">DEBT /week</p>
+    <p class="ui central resvalue redt nomargin">${{vm.gameData.getBP().toLocaleString()}}</p>
   </div>
   <div class="ui central results">
     <p class="ui central resnote nomargin">SAVINGS</p>

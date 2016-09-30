@@ -82,6 +82,7 @@ angular.module('gameApp')
       calcSSum: calcSSum,
       discretionRanges: $localStorage.discretionRanges,
       calcDSum: calcDSum,
+      getBP: getBP,
       calcR: calcR,
       bossValues: $localStorage.bossValues,
       armoryRanges: $localStorage.armoryRanges,
@@ -125,6 +126,10 @@ angular.module('gameApp')
         $localStorage.closingBalance[i] = $localStorage.closingBalance[i-1] +
           $localStorage.closingBalance[i-1]*weeklyInterest + $localStorage.BP;
       }
+      return $localStorage.BP;
+    }
+
+    function getBP() {
       return $localStorage.BP;
     }
 

@@ -79,5 +79,36 @@
      compares to our average, we ask you to complete a quick survey.
   </p>
   <p class="ui central footnote"> We want to understand what you think of your bank. </p>
-  <button ui-sref="signup" class="ui button submit"> SAVE & COMPARE </button>
+  <a href="#survey"><button ng-click="vm.startSurvey()" class="ui button submit"> SAVE & COMPARE </button></a>
+</div>
+
+<!-- Survey Questions -->
+<div class="ui servey form center aligned segment" ng-show="vm.gameData.startedSurvey.state" id="survey">
+  <div class="grouped fields">
+    <div ng-repeat="q in vm.surveyQuestions" ng-init="qIndex = $index" class="ui survey question-container">
+      <div class="ui survey question">{{q.question}}</div>
+      <div class="ui divider"></div>
+      <div class="ui survey field" ng-repeat="o in q.options">
+        <div>
+          <input ng-if="q.type === 'radio'" type="radio" name="question-{{qIndex}}" ng-model="q.answer" ng-value="$index" class="">
+          <input ng-if="q.type === 'checkbox'" type="checkbox" name="question-{{qIndex}}" ng-model="q.answer[$index]" class="survey-checkbox">
+          <label class="ui servey option servey-label">{{o}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui divider"></div>
+
+  <p class="ui central footnote">Submit to receive your BLANK google sheet comparison.</p>
+
+  <div class="ui input">
+    <input type="email" placeholder="Email">
+  </div>
+  <br><br>
+  <div class="ui input">
+    <input type="tel" placeholder="Phone Number">
+  </div>
+  <br><br>
+  <button class="ui button submit">SUBMIT</button>
 </div>

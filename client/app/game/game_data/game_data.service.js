@@ -70,6 +70,60 @@ angular.module('gameApp')
       AB: 0,
       R: 0,
       centralFlags: {},
+      startedSurvey: {state: false},
+      surveyQuestions: [
+        {
+          question: 'Who do you bank with?',
+          options: ['ANZ', 'CBA', 'NAB', 'WBC', 'Credit Unions', 'Other Institutions'],
+          type: "radio",
+          answer: []
+        }, {
+          question: 'What are your bank’s top 3 priorities?',
+          options: ['Help me achieve my goals',
+            'Help me grow my deposits',
+            'Help me understand my money',
+            'Sell me credit cards and other debt',
+            'Sell me investments and other products',
+            'Help me make payments and store money.'
+          ],
+          type: "checkbox",
+          answer: []
+        }, {
+          question: 'What is your relationship with debt?',
+          options: ['I don’t have an active credit card or other debt?',
+            'I have a credit card and pay less than $50 interest p.a.',
+            'I have some debt but it doesn’t concern me very much.',
+            'Paying off my debt is my first priority'],
+          type: "radio",
+          answer: []
+        }, {
+          question: 'Have you used any of these websites, apps, or services in the last 12 months:',
+          options: ['iSelect', 'Pocketbook', 'Accountant', 'Compare the Market', 'Xero', 'MyBudget', 'Wealth Advisor', 'Mortgage Broker'],
+          type: "checkbox",
+          answer: []
+        }, {
+          question: 'Select all that apply about you.',
+          options: ['Aged below 20',
+            'Aged 20-34',
+            'Aged over 34',
+            'Student –local',
+            'Student –international',
+            'Working part time or full time',
+            'Freelancer or business owner'],
+          type: "checkbox",
+          answer: []
+        }, {
+          question: 'Select all statements that are correct:',
+          options: ['I have a clear picture of my financial position and performance to the nearest dollar.',
+            'I know the balances of all my savings accounts, credit card, and loans to a $200 margin of error.',
+            'I know the balances of all my savings accounts, credit card, and loans with a higher than $200 margin of error.',
+            'I have an up to date budget and track my actual expenditure to the nearest dollar.',
+            'I have an up to date budget and track my expenditure to a small margin of error.',
+            'I have an up to date budget and mentally track my expenditure.',
+            'I do not have an up to date budget.'],
+          type: "checkbox",
+          answer: []
+      }]
     };
     $localStorage.$default(defaults);
 
@@ -87,6 +141,7 @@ angular.module('gameApp')
       bossValues: $localStorage.bossValues,
       armoryRanges: $localStorage.armoryRanges,
       centralFlags: $localStorage.centralFlags,
+      startedSurvey: $localStorage.startedSurvey,
       getEarnings: getEarnings,
       incomeRanges: $localStorage.incomeRanges,
       otherEarnings: $localStorage.otherEarnings,
@@ -96,6 +151,7 @@ angular.module('gameApp')
       calcCR: calcCR,
       testAllTargets: testAllTargets,
       reset: reset,
+      surveyQuestions: $localStorage.surveyQuestions
     };
 
     function calcSSum() {

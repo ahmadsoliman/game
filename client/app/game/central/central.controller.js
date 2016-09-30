@@ -14,6 +14,8 @@ class CentralController {
 
     vm.flags = vm.gameData.centralFlags;
 
+    vm.surveyQuestions = vm.gameData.surveyQuestions;
+
     vm.timeSelected = 0;
 
     $timeout(() => {
@@ -53,7 +55,7 @@ class CentralController {
 
     // graph
 
-    vm.series = [""];
+    vm.series = [''];
     vm.data = {
       labels: [0,,1,,2,,3,,4,,5],
       datasets: [{
@@ -83,7 +85,7 @@ class CentralController {
       { // goal
         type: 'bar',
         label: 'dataset 1',
-        backgroundColor: "#607D8B",
+        backgroundColor: '#607D8B',
         data: [0,0,0,0,0,0,0,0,0,0,0,0],
       }
     ));
@@ -130,7 +132,7 @@ class CentralController {
     }
 
     // init graph
-    var ctx = document.getElementById("canvas").getContext("2d");
+    var ctx = document.getElementById('canvas').getContext('2d');
     vm.chart = new Chart(ctx, {
       type: 'bar',
       data: vm.data,
@@ -174,6 +176,10 @@ class CentralController {
       }
     });
 
+  }
+
+  startSurvey() {
+    this.gameData.startedSurvey.state = true;
   }
 
 }

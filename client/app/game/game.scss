@@ -108,6 +108,7 @@
 .ui.button.submit {
   border-radius: 0;
   font-size: 1.3em;
+  font-family: helvetica neue;
   width: 70%;
   background: black;
   color: white;
@@ -125,7 +126,7 @@
 
 .ui.central.bg {
   width: 105%;
-  margin-top: -5px;
+  margin-top: -6px;
   margin-left: -4px;
 }
 
@@ -142,7 +143,7 @@
 .ui.central.intro {
   width: 95%;
   line-height: 23px;
-  font-size: 16px;
+  font-size: 17px;
   margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 0px;
@@ -152,7 +153,7 @@
   position: absolute;
   top: 30%;
   left: 0px;
-  width: 67%;
+  width: 58%;
   padding-bottom: 8px;
   padding-top: 8px;
   padding-left: 4%;
@@ -165,7 +166,7 @@
 
 .ui.central.value {
   position: absolute;
-  font-size: 1.3em;
+  font-size: 1.5em;
   font-weight: bold;
   color: black;
   width: 37%;
@@ -245,7 +246,8 @@
   font-size: 19px;
 }
 .ui.central.resvalue {
-  font-size: 26px;
+  font-size: 29px;
+  font-weight: bold;
 }
 .ui.central.redt {
   color: #FF6E6E;
@@ -253,9 +255,9 @@
 
 .ui.central.year-selection {
   position: absolute;
-  color: white;
-  bottom: 19%;
-  left: 42%;
+  color: grey;
+  bottom: 18%;
+  left: 37%;
   font-size: 1.0em;
 }
 
@@ -264,6 +266,11 @@
   bottom: 9%;
   left: 17%;
   width: 68%;
+}
+
+.ui.central.footnote {
+  font-size: 17px;
+  font-family: helvetica neue;
 }
 
 // ---------------------------------------------------------------------------------- //

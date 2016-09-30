@@ -12,6 +12,7 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
   overflow: hidden;
   padding-left: 0!important;
   padding-right: 0!important;
+  font-family: helvetica neue;
 }
 
 .blank-symbol {
@@ -25,8 +26,16 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
   color: white;
   font-size: 1.6rem;
   height: 50px;
-  margin: 0;
   padding: 10px!important;
+  max-width: 425px;
+  margin: 0 auto;
+}
+.blank-title-text {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  font-weight: bold;
+  font-family: helvetica;
 }
 
 .navbar {

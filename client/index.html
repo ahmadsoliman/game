@@ -30,15 +30,18 @@
 
     <!-- Add your site or application content here -->
     <!-- <navbar></navbar> -->
-    <div class="ui grid padded left aligned">
+    <div class="ui padded left aligned one column grid">
 
       <div class="blank-title row">
-        <!-- <navbar class="navbar"></navbar> -->
-        <img class="blank-symbol" ng-src="assets/icons/titles/blank_symbol.png"/>
-        <p class="nomargin">Do you know your money?</p>
+        <div class="column">
+          <!-- <navbar class="navbar"></navbar> -->
+          <img class="blank-symbol" ng-src="assets/icons/titles/blank_symbol.png"/>
+          <p class="blank-title-text nomargin">BLANK BUDGET</p>
+        </div>
       </div>
-
-      <div ui-view="" class="uiview"></div>
+      <div class="column nopadding">
+        <div ui-view="" class="uiview"></div>
+      </div>
     </div>
 
     <!-- <footer></footer> -->

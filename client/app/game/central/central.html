@@ -1,6 +1,6 @@
 <!-- <h1 class="ui central title">Do you know your money?</h1> -->
 <p class="ui central intro">
-  Find out what it would take to achieve your goals and be debt free within 5 years -it will take 2 minutes
+  Find out what it would take to achieve your goals and be debt free within 5 years. It takes 3 minutes.
 </p>
 
 <div class="ui relative">
@@ -21,7 +21,7 @@
       ${{vm.gameData.getEarnings().toLocaleString("en-IN", {"maximumFractionDigits": 0})}}
       <span class="ui central span">/week</span>
     </div>
-    <div class="ui central note nreserve">Earnings</div>
+    <div class="ui central note nreserve">EARNINGS</div>
   </a>
 </div>
 
@@ -33,7 +33,7 @@
       $({{vm.gameResults.DSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
       <span class="ui central span">/week</span>
     </div>
-    <div class="ui central note ndiscretion">Habits</div>
+    <div class="ui central note ndiscretion">HABITS</div>
   </a>
   <!-- <div class="ui central ndiscretion">{{(100 * vm.gameResults.DSum / vm.gameResults.total).toLocaleString()}}%</div> -->
 </div>
@@ -46,7 +46,7 @@
       $({{vm.gameResults.SSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
       <span class="ui central span">/week</span>
     </div>
-    <div class="ui central note nsuspense">Commitments</div>
+    <div class="ui central note nsuspense">COMMITMENTS</div>
   </a>
   <!-- <div class="ui central nsuspense">{{(100 * vm.gameResults.SSum / vm.gameResults.total).toLocaleString()}}%</div> -->
 </div>
@@ -57,22 +57,25 @@
     <canvas id="canvas" width="280" height="210"></canvas>
   </div>
   <div class="ui central lresults">
-    <p class="ui central resnote nomargin">Profit /week</p>
+    <p class="ui central resnote nomargin">PROFIT /week</p>
     <p class="ui central resvalue nomargin">${{vm.gameResults.R.toLocaleString()}}</p>
   </div>
   <div class="ui central results">
-    <p class="ui central resnote nomargin">Savings</p>
+    <p class="ui central resnote nomargin">SAVINGS</p>
     <p class="ui central resvalue nomargin">${{vm.currentSavings.toLocaleString()}}</p>
-    <p class="ui central resnote redt nomargin">Debt</p>
+    <p class="ui central resnote redt nomargin">DEBT</p>
     <p class="ui central resvalue redt nomargin">${{vm.currentDebt.toLocaleString()}}</p>
   </div>
-  <div class="ui central year-selection">Year selection</div>
+  <div class="ui central year-selection">YEAR SELECTION</div>
   <div class="ui central hider" id="time-hider"></div>
   <div class="ui central range game alone" id="time-range"></div>
 </div>
 
 <div class="ui center aligned vertical segment">
-  <p>
+  <p class="ui central footnote">
+     If you would like to save your results for later or see how your budget
+     compares to our average, we ask you to complete a quick survey.
   </p>
-  <button ui-sref="signup" class="ui button submit"> Sign Up </button>
+  <p class="ui central footnote"> We want to understand what you think of your bank. </p>
+  <button ui-sref="signup" class="ui button submit"> SAVE & COMPARE </button>
 </div>

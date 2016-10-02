@@ -16,9 +16,9 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 }
 
 .blank-symbol {
-  width: 50px;
-  height: 50px;
-  margin-top: -10px;
+  width: 40px;
+  height: 40px;
+  margin-top: -4px;
   margin-left: -10px;
 }
 .blank-title {
@@ -32,10 +32,11 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 }
 .blank-title-text {
   position: absolute;
-  right: 20px;
+  right: 15px;
   top: 0;
   font-weight: bold;
   font-family: helvetica;
+  font-size: 26px;
 }
 
 .navbar {

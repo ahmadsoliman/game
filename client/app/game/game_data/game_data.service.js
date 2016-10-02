@@ -22,7 +22,7 @@ angular.module('gameApp')
       ],
       // default values for targets
       targets: [
-        { code: 0, name: 'house', time: 4*52, budget: 15000}
+        // { code: 0, name: 'house', time: 4*52, budget: 15000}
       ],
       suspenseRanges: [
         {name: 'rent', text: 'Rent / Mortgage', code: 'S1', min: 0, max: 1000, value: 0, step: 50, freq: 1},

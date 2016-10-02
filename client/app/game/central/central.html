@@ -1,6 +1,7 @@
 <!-- <h1 class="ui central title">Do you know your money?</h1> -->
 <p class="ui central intro">
-  Find out what it would take to achieve your goals and be debt free within 5 years. It takes 3 minutes.
+  Find out what it takes to achieve your goals and be debt free within 5 years. <br>
+  It takes 3 minutes.
 </p>
 
 <div class="ui relative">
@@ -35,7 +36,6 @@
     </div>
     <div class="ui central note ndiscretion">HABITS</div>
   </a>
-  <!-- <div class="ui central ndiscretion">{{(100 * vm.gameResults.DSum / vm.gameResults.total).toLocaleString()}}%</div> -->
 </div>
 
 <div class="ui relative">
@@ -48,7 +48,6 @@
     </div>
     <div class="ui central note nsuspense">COMMITMENTS</div>
   </a>
-  <!-- <div class="ui central nsuspense">{{(100 * vm.gameResults.SSum / vm.gameResults.total).toLocaleString()}}%</div> -->
 </div>
 
 <div class="ui relative">
@@ -58,22 +57,22 @@
   </div>
   <div class="ui central lresults">
     <p class="ui central resnote nomargin">SAVINGS /week</p>
-    <p class="ui central resvalue nomargin">${{vm.gameResults.R.toLocaleString()}}</p>
+    <p class="ui central resvalue nomargin">${{vm.gameResults.R.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
     <p class="ui central resnote redt nomargin">DEBT /week</p>
-    <p class="ui central resvalue redt nomargin">${{vm.gameData.getBP().toLocaleString()}}</p>
+    <p class="ui central resvalue redt nomargin">${{vm.gameData.getBP().toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
   </div>
   <div class="ui central results">
     <p class="ui central resnote nomargin">SAVINGS</p>
-    <p class="ui central resvalue nomargin">${{vm.currentSavings.toLocaleString()}}</p>
+    <p class="ui central resvalue nomargin">${{vm.currentSavings.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
     <p class="ui central resnote redt nomargin">DEBT</p>
-    <p class="ui central resvalue redt nomargin">${{vm.currentDebt.toLocaleString()}}</p>
+    <p class="ui central resvalue redt nomargin">${{vm.currentDebt.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
   </div>
   <div class="ui central year-selection">YEAR SELECTION</div>
   <div class="ui central hider" id="time-hider"></div>
   <div class="ui central range game alone" id="time-range"></div>
 </div>
 
-<div class="ui center aligned vertical segment">
+<div class="ui center aligned vertical segment central footnote-container">
   <p class="ui central footnote">
      If you would like to save your results for later or see how your budget
      compares to our average, we ask you to complete a quick survey.
@@ -83,16 +82,17 @@
 </div>
 
 <!-- Survey Questions -->
-<div class="ui servey form center aligned segment" ng-show="vm.gameData.startedSurvey.state" id="survey">
+<div class="ui servey form center aligned segment nomargin" ng-show="vm.gameData.startedSurvey.state" id="survey">
   <div class="grouped fields">
     <div ng-repeat="q in vm.surveyQuestions" ng-init="qIndex = $index" class="ui survey question-container">
       <div class="ui survey question">{{q.question}}</div>
       <div class="ui divider"></div>
       <div class="ui survey field" ng-repeat="o in q.options">
         <div>
-          <input ng-if="q.type === 'radio'" type="radio" name="question-{{qIndex}}" ng-model="q.answer" ng-value="$index" class="">
-          <input ng-if="q.type === 'checkbox'" type="checkbox" name="question-{{qIndex}}" ng-model="q.answer[$index]" class="survey-checkbox">
-          <label class="ui servey option servey-label">{{o}}</label>
+          <input ng-if="q.type === 'radio'" type="radio" name="question-{{qIndex}}" id="q{{qIndex}}o{{$index}}" ng-model="q.answer" ng-value="$index" class="ui survey checkbox">
+          <input ng-if="q.type === 'checkbox'" type="checkbox" name="question-{{qIndex}}" id="q{{qIndex}}o{{$index}}" ng-model="q.answer[$index]" class="ui survey checkbox">
+          <label for="q{{qIndex}}o{{$index}}"></label>
+          <div class="ui servey option">{{o}}</div>
         </div>
       </div>
     </div>

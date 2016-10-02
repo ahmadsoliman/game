@@ -268,9 +268,15 @@
   width: 68%;
 }
 
+.ui.central.footnote-container {
+  background: black;
+  color: white;
+  padding: 20px;
+}
 .ui.central.footnote {
   font-size: 17px;
   font-family: helvetica neue;
+  text-align: left;
 }
 
 // ---------------------------------------------------------------------------------- //
@@ -294,13 +300,34 @@
   text-align: left;
   padding-bottom: 10px !important;
 }
-.ui.survey.radio {
+
+label {
+	display: inline;
 }
 .ui.survey.checkbox {
+	display: none;
+}
+.ui.survey.checkbox + label {
+  background-color: white;
+  border: 1px solid black;
+  padding: 9px;
+  border-radius: 0px;
+  display: inline-block;
+  position: relative;
+}
+.ui.survey.checkbox:checked + label {
+	background-color: black;
 }
 
 .ui.servey.option {
+  display: inline;
   font-size: 17px;
+  vertical-align: middle;
+  padding-left: 10px;
+  color: grey;
+}
+.ui.survey.checkbox:checked ~ .ui.servey.option {
+  color: black;
 }
 
 // ---------------------------------------------------------------------------------- //

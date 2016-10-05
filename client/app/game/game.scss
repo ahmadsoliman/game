@@ -141,19 +141,20 @@
 }
 
 .ui.central.intro {
-  width: 95%;
+  width: 100%;
   line-height: 23px;
   font-size: 17px;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 0px;
+  background: black;
+  color: white;
+  margin: 0;
+  padding: 5px 10px;
 }
 
 .ui.central.goals {
   position: absolute;
-  top: 30%;
-  left: 0px;
-  width: 58%;
+  top: 21%;
+  left: 2px;
+  width: 57%;
   padding-bottom: 8px;
   padding-top: 8px;
   padding-left: 4%;
@@ -272,6 +273,7 @@
   background: black;
   color: white;
   padding: 20px;
+  margin-top: -5px;
 }
 .ui.central.footnote {
   font-size: 17px;

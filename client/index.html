@@ -30,12 +30,18 @@
 
     <!-- Add your site or application content here -->
     <!-- <navbar></navbar> -->
-    <div class="ui grid padded center aligned">
-      <div class="row nopadding">
-        <navbar class="navbar"></navbar>
-      </div>
+    <div class="ui padded left aligned one column grid">
 
-      <div ui-view="" class="uiview"></div>
+      <div class="blank-title row">
+        <div class="column">
+          <!-- <navbar class="navbar"></navbar> -->
+          <img class="blank-symbol" ng-src="assets/icons/titles/blank_symbol.png"/>
+          <p class="blank-title-text nomargin">BLANK BUDGET</p>
+        </div>
+      </div>
+      <div class="column nopadding">
+        <div ui-view="" class="uiview"></div>
+      </div>
     </div>
 
     <!-- <footer></footer> -->
@@ -86,10 +92,12 @@
       <script src="app/admin/admin.router.js"></script>
       <script src="app/app.constant.js"></script>
       <script src="app/game/battle/battle.controller.js"></script>
+      <script src="app/game/central/central.controller.js"></script>
       <script src="app/game/discretion/discretion.controller.js"></script>
       <script src="app/game/game.js"></script>
       <script src="app/game/game_data/game_data.service.js"></script>
       <script src="app/game/goals/goals.controller.js"></script>
+      <script src="app/game/income/income.controller.js"></script>
       <script src="app/game/ready/ready.controller.js"></script>
       <script src="app/game/results/results.controller.js"></script>
       <script src="app/game/suspense/suspense.controller.js"></script>

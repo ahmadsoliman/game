@@ -22,42 +22,108 @@ angular.module('gameApp')
       ],
       // default values for targets
       targets: [
-        { code: 0, name: 'house', time: 4*52, budget: 15000}
+        // { code: 0, name: 'house', time: 4*52, budget: 15000}
       ],
       suspenseRanges: [
-        {name: 'rent', text: 'Rent / Mortgage', code: 'S1', min: 0, max: 1000, value: 500, step: 50, freq: 1},
-        {name: 'mobile', text: 'Mobile / Internet', code: 'S2', min: 0, max: 100, value: 30, step: 5, freq: 1},
-        {name: 'utilities', text: 'Rates / Power / Other Utilities', code: 'S3', min: 0, max: 100, value: 50, step: 5, freq: 1},
-        {name: 'health', text: 'Car / Health / Other Insurance', code: 'S4', min: 0, max: 100, value: 50, step: 5, freq: 1},
-        {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 0, max: 200, value: 50, step: 10, freq: 1}
+        {name: 'rent', text: 'Rent / Mortgage', code: 'S1', min: 0, max: 1000, value: 0, step: 50, freq: 1},
+        {name: 'mobile', text: 'Mobile / Internet', code: 'S2', min: 0, max: 100, value: 0, step: 5, freq: 1},
+        {name: 'utilities', text: 'Rates / Power / Other Utilities', code: 'S3', min: 0, max: 100, value: 0, step: 5, freq: 1},
+        {name: 'health', text: 'Car / Health / Other Insurance', code: 'S4', min: 0, max: 100, value: 0, step: 5, freq: 1},
+        {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 0, max: 200, value: 0, step: 10, freq: 1}
       ],
-      SSum: 90,
+      SSum: 0,
       discretionRanges: [
-        {name: 'entertainment', text: 'Entertainment', code: 'D1', min: 0, max: 400, value: 200, step: 25},
-        {name: 'groceries', text: 'Groceries', code: 'D2', min: 0, max: 300, value: 100, step: 25},
-        {name: 'transport', text: 'Transport', code: 'D3', min: 0, max: 200, value: 100, step: 10},
-        {name: 'personal', text: 'Personal / Sports / Health / Cosmetics', code: 'D4', min: 0, max: 200, value: 50, step: 10},
-        {name: 'household', text: 'Household / Family / Pets', code: 'D5', min: 0, max: 200, value: 50, step: 10},
-        {name: 'clothing', text: 'Clothing / Shoes / Accessories', code: 'D6', min: 0, max: 200, value: 50, step: 10},
-        {name: 'work', text: 'Work / Coffees / Lunches / Study', code: 'D7', min: 0, max: 200, value: 50, step: 10}
+        {name: 'entertainment', text: 'Entertainment', code: 'D1', min: 0, max: 400, value: 0, step: 25},
+        {name: 'groceries', text: 'Groceries', code: 'D2', min: 0, max: 300, value: 0, step: 25},
+        {name: 'transport', text: 'Transport', code: 'D3', min: 0, max: 200, value: 0, step: 10},
+        {name: 'personal', text: 'Personal / Sports / Health / Cosmetics', code: 'D4', min: 0, max: 200, value: 0, step: 10},
+        {name: 'household', text: 'Household / Family / Pets', code: 'D5', min: 0, max: 200, value: 0, step: 10},
+        {name: 'clothing', text: 'Clothing / Shoes / Accessories', code: 'D6', min: 0, max: 200, value: 0, step: 10},
+        {name: 'work', text: 'Work / Coffees / Lunches / Study', code: 'D7', min: 0, max: 200, value: 0, step: 10}
       ],
-      DSum: 1750,
+      DSum: 0,
+      incomeRanges: [
+        {name: 'job', text: 'Other job'},
+        {name: 'tax', text: 'Tax refund'},
+        {name: 'gifts', text: 'Gifts from family'},
+        {name: 'freelance', text: 'Freelance income'},
+        {name: 'investments', text: 'Income from investments'},
+        {name: 'other', text: 'Other'},
+      ],
+      otherEarnings: [],
       bossValues: {
-        BPV: 20000,
-        BRATE: 12,
+        BPV: 0,
+        BRATE: 5,
         BNPER: 260, // TODO admin setting
       },
       closingBalance: [],
-      BP: 20000,
+      savingsBalance: [],
+      BP: 0,
       armoryRanges: [
-        {name: 'cash', text: 'Cash Savings', code: 'A1', min:0, max: 40000, step: 500, value: 10000},
+        {name: 'cash', text: 'Cash Savings', code: 'A1', min:0, max: 40000, step: 500, value: 0},
         {name: 'assets', text: 'Other Financial Assets', code: 'A2', min:0, max: 40000, step: 500, value: 0},
-        {name: 'earning', text: 'Earning Capacity per Week', code: 'A3', min:0, max: 2000, step: 100, value: 1000},
+        {name: 'earning', text: 'Earning Capacity per Week', code: 'A3', min:0, max: 2000, step: 100, value: 0},
         {name: 'other', text: 'Other Earnings per year', code: 'A4', min:0, max: 40000, step: 500, value: 0},
+        {name: 'savings-interest', text: 'Cash Savings Interest', code: 'A5', min:0, max: 25, step: 1, value: 0},
       ],
-      AA: 25000,
-      AB: 1100,
+      AA: 0,
+      AB: 0,
       R: 0,
+      centralFlags: {},
+      startedSurvey: {state: false},
+      surveyQuestions: [
+        {
+          question: 'Who do you bank with?',
+          options: ['ANZ', 'CBA', 'NAB', 'WBC', 'Credit Unions', 'Other Institutions'],
+          type: "radio",
+          answer: []
+        }, {
+          question: 'What are your bank’s top 3 priorities?',
+          options: ['Help me achieve my goals',
+            'Help me grow my deposits',
+            'Help me understand my money',
+            'Sell me credit cards and other debt',
+            'Sell me investments and other products',
+            'Help me make payments and store money.'
+          ],
+          type: "checkbox",
+          answer: []
+        }, {
+          question: 'What is your relationship with debt?',
+          options: ['I don’t have an active credit card or other debt?',
+            'I have a credit card and pay less than $50 interest p.a.',
+            'I have some debt but it doesn’t concern me very much.',
+            'Paying off my debt is my first priority'],
+          type: "radio",
+          answer: []
+        }, {
+          question: 'Have you used any of these websites, apps, or services in the last 12 months:',
+          options: ['iSelect', 'Pocketbook', 'Accountant', 'Compare the Market', 'Xero', 'MyBudget', 'Wealth Advisor', 'Mortgage Broker'],
+          type: "checkbox",
+          answer: []
+        }, {
+          question: 'Select all that apply about you.',
+          options: ['Aged below 20',
+            'Aged 20-34',
+            'Aged over 34',
+            'Student –local',
+            'Student –international',
+            'Working part time or full time',
+            'Freelancer or business owner'],
+          type: "checkbox",
+          answer: []
+        }, {
+          question: 'Select all statements that are correct:',
+          options: ['I have a clear picture of my financial position and performance to the nearest dollar.',
+            'I know the balances of all my savings accounts, credit card, and loans to a $200 margin of error.',
+            'I know the balances of all my savings accounts, credit card, and loans with a higher than $200 margin of error.',
+            'I have an up to date budget and track my actual expenditure to the nearest dollar.',
+            'I have an up to date budget and track my expenditure to a small margin of error.',
+            'I have an up to date budget and mentally track my expenditure.',
+            'I do not have an up to date budget.'],
+          type: "checkbox",
+          answer: []
+      }]
     };
     $localStorage.$default(defaults);
 
@@ -70,14 +136,22 @@ angular.module('gameApp')
       calcSSum: calcSSum,
       discretionRanges: $localStorage.discretionRanges,
       calcDSum: calcDSum,
+      getBP: getBP,
       calcR: calcR,
       bossValues: $localStorage.bossValues,
       armoryRanges: $localStorage.armoryRanges,
+      centralFlags: $localStorage.centralFlags,
+      startedSurvey: $localStorage.startedSurvey,
+      getEarnings: getEarnings,
+      incomeRanges: $localStorage.incomeRanges,
+      otherEarnings: $localStorage.otherEarnings,
       closingBalance: $localStorage.closingBalance,
+      savingsBalance: $localStorage.savingsBalance,
       calcAll: calcAll,
       calcCR: calcCR,
       testAllTargets: testAllTargets,
       reset: reset,
+      surveyQuestions: $localStorage.surveyQuestions
     };
 
     function calcSSum() {
@@ -101,7 +175,7 @@ angular.module('gameApp')
     function calcBP() {
       var bv = $localStorage.bossValues;
       var weeklyInterest = bv.BRATE/5200.0;
-      $localStorage.BP = (weeklyInterest * bv.BPV) / (1 - Math.pow(1+bv.BRATE/5200.0, -1 * (bv.BNPER)));
+      $localStorage.BP = (weeklyInterest * bv.BPV) / (1 - Math.pow(1+weeklyInterest, -1 * (bv.BNPER)));
 
       $localStorage.closingBalance[0] = -1*bv.BPV;
       for(let i=1; i<=bv.BNPER; i++) {
@@ -111,15 +185,32 @@ angular.module('gameApp')
       return $localStorage.BP;
     }
 
+    function getBP() {
+      return $localStorage.BP;
+    }
+
     function calcArmory() {
       $localStorage.AA = $localStorage.armoryRanges[0].value + $localStorage.armoryRanges[1].value;
       $localStorage.AB = $localStorage.armoryRanges[2].value + ($localStorage.armoryRanges[3].value / 52);
       return {AA: $localStorage.AA, AB: $localStorage.AB};
     }
 
+    function getEarnings() {
+      return $localStorage.AB;
+    }
+
     function calcR() {
-      $localStorage.R = $localStorage.AB - $localStorage.DSum - $localStorage.SSum; // - $localStorage.BP; // the old email description changed to match the spreadsheet
+      $localStorage.R = $localStorage.AB - $localStorage.DSum - $localStorage.SSum;
       return $localStorage.R;
+    }
+
+    function calcSavings() {
+      $localStorage.savingsBalance[0] = $localStorage.AA;
+      for(let i=1; i<=$localStorage.bossValues.BNPER; i++) {
+        $localStorage.savingsBalance[i] = $localStorage.savingsBalance[i-1] +
+          $localStorage.R - $localStorage.BP +
+          ($localStorage.savingsBalance[i-1] * $localStorage.armoryRanges[4].value / 5200);
+      }
     }
 
     function calcAll() {
@@ -128,10 +219,12 @@ angular.module('gameApp')
       calcBP();
       calcArmory();
       calcR();
+      calcSavings();
     }
 
     function calcCR(y) {
-      return $localStorage.AA + (y * $localStorage.R);
+      calcSavings();
+      return $localStorage.savingsBalance[y];
     }
 
     function testTarget(t, subtractedVal) {

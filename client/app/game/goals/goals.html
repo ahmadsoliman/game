@@ -3,12 +3,8 @@
     <img class="ui intro" ng-src="assets/icons/titles/reserve_intro.svg">
   </p>
 
-  <h1 class="ui header"> RESERVE </h1>
-  <p>
-    The first step to understand your money is to be clear about how you intend to reserve it.
-  </p>
   <p class="ui header">
-    What 3 goals would you like to achieve within the next 5 years?
+    Select the goals to achieve within 5 years.
   </p>
 </div>
 
@@ -40,7 +36,7 @@
         </div>
 
         <div class="ui grid rgrid">
-          <div class="ui five wide center aligned column rvalue"> $ {{t.budget.toLocaleString()}} </div>
+          <div class="ui five wide center aligned column rvalue"> ${{t.budget.toLocaleString()}} </div>
           <div class="ui eleven wide column rbox">
             <div class="ui range game" id="brange-{{$index}}"></div>
           </div>
@@ -51,22 +47,27 @@
   </div>
 </div>
 
-<div class="ui center aligned vertical segment" ng-if="!vm.fulfilled()">
+<!--  ng-if="!vm.fulfilled()"> -->
+<div class="ui center aligned vertical segment">
   <button class="ui button submit" ng-click="vm.addGoal()"> Add another goal </button>
 </div>
 
-<div class="ui center aligned segment">
-  <p class="ui header">Do you need to pay off any personal loans or credit card debt?</p>
+<div class="ui center aligned segment nomargin">
+  <p class="ui header">Do you have any credit card or other personal debt?</p>
 </div>
 
-<div class="ui segment nopadding">
+<div class="ui center aligned vertical segment" ng-if="!vm.gameData.bossValues.hasDebt">
+  <button class="ui button submit" ng-click="vm.gameData.bossValues.hasDebt=true"> Add debt </button>
+</div>
+
+<div class="ui segment nopadding" ng-show="vm.gameData.bossValues.hasDebt">
   <div class="ui items">
     <div class="item">
       <div class="ui vertical segment full">
-        <div class="ui header"> Loan </div>
+        <!-- <div class="ui header"> Loan </div> -->
 
         <div class="ui grid rgrid">
-          <div class="ui five wide center aligned column rvalue"> $ {{vm.gameData.bossValues.BPV.toLocaleString()}} </div>
+          <div class="ui five wide center aligned column rvalue"> ${{vm.gameData.bossValues.BPV.toLocaleString()}} </div>
           <div class="ui eleven wide column rbox">
             <div class="ui range game" id="loan-range"></div>
           </div>
@@ -76,7 +77,7 @@
     </div>
     <div class="item">
       <div class="ui vertical segment full">
-        <div class="ui header"> Interest </div>
+        <!-- <div class="ui header"> Interest </div> -->
 
         <div class="ui grid rgrid">
           <div class="ui five wide center aligned column rvalue"> {{vm.gameData.bossValues.BRATE}} % </div>
@@ -90,9 +91,42 @@
   </div>
 </div>
 
+<div class="ui center aligned segment nomargin">
+  <p class="ui header">How much have you got saved up and what interest rate do you earn on your deposits?</p>
+</div>
+
+<div class="ui segment nopadding">
+  <div class="ui items">
+    <div class="item">
+      <div class="ui vertical segment full">
+        <!-- <div class="ui header"> Current Cash Savings </div> -->
+
+        <div class="ui grid rgrid">
+          <div class="ui five wide center aligned column rvalue"> ${{vm.gameData.armoryRanges[0].value.toLocaleString()}} </div>
+          <div class="ui eleven wide column rbox">
+            <div class="ui range game" id="savings-range"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="item">
+      <div class="ui vertical segment full">
+        <!-- <div class="ui header"> Current Cash Savings </div> -->
+
+        <div class="ui grid rgrid">
+          <div class="ui five wide center aligned column rvalue"> {{vm.gameData.armoryRanges[4].value}} %</div>
+          <div class="ui eleven wide column rbox">
+            <div class="ui range game" id="savings-interest-range"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div class="ui center aligned vertical segment">
-  <p>
-    Once you are clear about your objectives, it is easy to see what it takes to achieve them.
-  </p>
-  <button ui-sref="ready" class="ui button submit" ng-disabled="!vm.fulfilled()"> SHOW ME </button>
+  <!-- ng-disabled="!vm.fulfilled()" -->
+  <button ui-sref="central" class="ui button submit"> Done </button>
 </div>

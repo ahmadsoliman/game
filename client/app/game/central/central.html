@@ -1,0 +1,114 @@
+<!-- <h1 class="ui central title">Do you know your money?</h1> -->
+<p class="ui central intro">
+  Find out what it takes to achieve your goals and be debt free within 5 years. <br>
+  It takes 3 minutes.
+</p>
+
+<div class="ui relative">
+  <img ng-src="assets/central/bg1.png" class="ui central bg bg1"/>
+  <button class="ui central goals submit button" ui-sref="goals">
+    <div class="ui central middle-align"><img ng-src="assets/central/goal_icon.svg"/></div>
+    <div class="ui central middle-align">
+      Set your goals
+    </div>
+  </button>
+</div>
+
+<div class="ui relative">
+  <a ui-sref="income">
+    <img ng-src="assets/central/bg2.png" class="ui central bg"/>
+    <div class="ui central value reserve" ng-if="!vm.flags.reserve">$__</div>
+    <div class="ui central value reserve" ng-if="vm.flags.reserve">
+      ${{vm.gameData.getEarnings().toLocaleString("en-IN", {"maximumFractionDigits": 0})}}
+      <span class="ui central span">/week</span>
+    </div>
+    <div class="ui central note nreserve">EARNINGS</div>
+  </a>
+</div>
+
+<div class="ui relative">
+  <a ui-sref="discretion">
+    <img ng-src="assets/central/bg3.png" class="ui central bg"/>
+    <div class="ui central value discretion" ng-if="!vm.flags.discretion">$__</div>
+    <div class="ui central value discretion" ng-if="vm.flags.discretion">
+      $({{vm.gameResults.DSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
+      <span class="ui central span">/week</span>
+    </div>
+    <div class="ui central note ndiscretion">HABITS</div>
+  </a>
+</div>
+
+<div class="ui relative">
+  <a ui-sref="suspense">
+    <img ng-src="assets/central/bg4.png" class="ui central bg"/>
+    <div class="ui central value suspense" ng-if="!vm.flags.suspense">$__</div>
+    <div class="ui central value suspense" ng-if="vm.flags.suspense">
+      $({{vm.gameResults.SSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
+      <span class="ui central span">/week</span>
+    </div>
+    <div class="ui central note nsuspense">COMMITMENTS</div>
+  </a>
+</div>
+
+<div class="ui relative">
+  <img ng-src="assets/central/bg5.png" class="ui central bg"/>
+  <div class="ui central graph">
+    <canvas id="canvas" width="280" height="210"></canvas>
+  </div>
+  <div class="ui central lresults">
+    <p class="ui central resnote nomargin">SAVINGS /week</p>
+    <p class="ui central resvalue nomargin">${{vm.gameResults.R.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
+    <p class="ui central resnote redt nomargin">DEBT /week</p>
+    <p class="ui central resvalue redt nomargin">$({{vm.gameData.getBP().toLocaleString("en-IN", {"maximumFractionDigits": 0})}})</p>
+  </div>
+  <div class="ui central results">
+    <p class="ui central resnote nomargin">SAVINGS</p>
+    <p class="ui central resvalue nomargin">${{vm.currentSavings.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
+    <p class="ui central resnote redt nomargin">DEBT</p>
+    <p class="ui central resvalue redt nomargin">$({{vm.currentDebt.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})</p>
+  </div>
+  <div class="ui central year-selection">YEAR SELECTION</div>
+  <div class="ui central hider" id="time-hider"></div>
+  <div class="ui central range game alone" id="time-range"></div>
+</div>
+
+<div class="ui center aligned vertical segment central footnote-container">
+  <p class="ui central footnote">
+     If you would like to save your results for later or see how your budget
+     compares to our average, we ask you to complete a quick survey.
+  </p>
+  <p class="ui central footnote"> We want to understand what you think of your bank. </p>
+  <a href="#survey"><button ng-click="vm.startSurvey()" class="ui button submit"> SAVE & COMPARE </button></a>
+</div>
+
+<!-- Survey Questions -->
+<div class="ui servey form center aligned segment nomargin" ng-show="vm.gameData.startedSurvey.state" id="survey">
+  <div class="grouped fields">
+    <div ng-repeat="q in vm.surveyQuestions" ng-init="qIndex = $index" class="ui survey question-container">
+      <div class="ui survey question">{{q.question}}</div>
+      <div class="ui divider"></div>
+      <div class="ui survey field" ng-repeat="o in q.options">
+        <div>
+          <input ng-if="q.type === 'radio'" type="radio" name="question-{{qIndex}}" id="q{{qIndex}}o{{$index}}" ng-model="q.answer" ng-value="$index" class="ui survey checkbox">
+          <input ng-if="q.type === 'checkbox'" type="checkbox" name="question-{{qIndex}}" id="q{{qIndex}}o{{$index}}" ng-model="q.answer[$index]" class="ui survey checkbox">
+          <label for="q{{qIndex}}o{{$index}}"></label>
+          <div class="ui servey option">{{o}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui divider"></div>
+
+  <p class="ui central footnote">Submit to receive your BLANK google sheet comparison.</p>
+
+  <div class="ui input">
+    <input type="email" placeholder="Email">
+  </div>
+  <br><br>
+  <div class="ui input">
+    <input type="tel" placeholder="Phone Number">
+  </div>
+  <br><br>
+  <button class="ui button submit">SUBMIT</button>
+</div>

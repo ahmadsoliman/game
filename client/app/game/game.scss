@@ -108,6 +108,7 @@
 .ui.button.submit {
   border-radius: 0;
   font-size: 1.3em;
+  font-family: helvetica neue;
   width: 70%;
   background: black;
   color: white;
@@ -117,6 +118,221 @@
 
 // ---------------------------------------------------------------------------------- //
 
+// central
+
+.ui.relative {
+  position: relative;
+}
+
+.ui.central.bg {
+  width: 105%;
+  margin-top: -6px;
+  margin-left: -4px;
+}
+
+.ui.central.bg1 {
+  margin-top: 0;
+}
+
+.ui.central.title {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+.ui.central.intro {
+  width: 100%;
+  line-height: 23px;
+  font-size: 17px;
+  background: black;
+  color: white;
+  margin: 0;
+  padding: 5px 10px;
+}
+
+.ui.central.goals {
+  position: absolute;
+  top: 21%;
+  left: 2px;
+  width: 57%;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 4%;
+}
+.ui.central.middle-align {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+.ui.central.value {
+  position: absolute;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
+  width: 37%;
+}
+.ui.central.reserve {
+  top: 19%;
+  left: 19%;
+}
+.ui.central.discretion {
+  top: 8%;
+  left: 19%;
+}
+.ui.central.suspense {
+  top: 5%;
+  left: 19%;
+}
+.ui.central.span {
+  float: right;
+  font-size: 0.7em;
+  font-weight: normal;
+  color: grey;
+}
+
+.ui.central.note {
+  position: absolute;
+  font-size: 1.0em;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.ui.central.nreserve {
+  top: 52%;
+  left: 19%;
+}
+.ui.central.ndiscretion {
+  top: 48%;
+  left: 19%;
+}
+.ui.central.nsuspense {
+  top: 46%;
+  left: 19%;
+}
+
+.ui.central.graph {
+  position: absolute;
+  bottom: 80px;
+  left: 12%;
+  width: 75%;
+}
+
+.ui.central.hider {
+  position: absolute;
+  bottom: 31%;
+  right: 12%;
+  width: 70%;
+  height: 60%;
+  background: black;
+  border-left: white solid 3px;
+}
+
+.ui.central.lresults {
+  position: absolute;
+  top: 15%;
+  left: 22%;
+  color: white;
+  z-index: 100;
+}
+
+.ui.central.results {
+  position: absolute;
+  top: 15%;
+  right: 14%;
+  color: white;
+  z-index: 100;
+  text-align: right;
+}
+.ui.central.resnote {
+  font-size: 17px;
+}
+.ui.central.resvalue {
+  font-size: 28px;
+  font-weight: bold;
+}
+.ui.central.redt {
+  color: #FF6E6E;
+}
+
+.ui.central.year-selection {
+  position: absolute;
+  color: grey;
+  bottom: 18%;
+  left: 37%;
+  font-size: 1.0em;
+}
+
+.ui.central.range {
+  position: absolute;
+  bottom: 9%;
+  left: 17%;
+  width: 68%;
+}
+
+.ui.central.footnote-container {
+  background: black;
+  color: white;
+  padding: 20px;
+  margin-top: -5px;
+}
+.ui.central.footnote {
+  font-size: 17px;
+  font-family: helvetica neue;
+  text-align: left;
+}
+
+// ---------------------------------------------------------------------------------- //
+// Survey
+
+.ui.servey.form {
+  background: #eaeaea;
+}
+.ui.survey.question-container {
+  background-color: rgb(243, 243, 243);
+  margin: 15px 0;
+}
+.ui.survey.question {
+  font-size: 20px;
+  padding: 15px;
+  padding-bottom: 0;
+  font-weight: bold;
+}
+.ui.survey.field {
+  margin: 0 20px !important;
+  text-align: left;
+  padding-bottom: 10px !important;
+}
+
+label {
+	display: inline;
+}
+.ui.survey.checkbox {
+	display: none;
+}
+.ui.survey.checkbox + label {
+  background-color: white;
+  border: 1px solid black;
+  padding: 9px;
+  border-radius: 0px;
+  display: inline-block;
+  position: relative;
+}
+.ui.survey.checkbox:checked + label {
+	background-color: black;
+}
+
+.ui.servey.option {
+  display: inline;
+  font-size: 17px;
+  vertical-align: middle;
+  padding-left: 10px;
+  color: grey;
+}
+.ui.survey.checkbox:checked ~ .ui.servey.option {
+  color: black;
+}
+
+// ---------------------------------------------------------------------------------- //
 .ui.goal {
   background-color: white;
   max-height: 2.6em!important;

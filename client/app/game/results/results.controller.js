@@ -78,7 +78,6 @@ class ResultsController {
     }
 
     vm.sortedTargets.sort(compareTargets);
-    window.lol = vm.sortedTargets;
 
     // set bar chart data, change datasets to include more targets if needed
     for(let i=0, j=0; i<vm.sortedTargets.length; i++) {

@@ -1,15 +1,8 @@
 <div class="ui center aligned segment">
   <img class="ui intro" ng-src="assets/icons/titles/suspense_intro.svg">
 
-  <h1 class="ui header"> SUSPENSE </h1>
-  <p>
-    The next step is to put all your regular commitments on <strong> suspense. </strong>
-  </p>
   <p class="ui header">
-    What do you pay on a schedule/contract?
-  </p>
-  <p>
-    You must allocate all your recurring payments into the 5 categories below. Do not include personal loans or credit card repayments.
+    What are your regular commitments?
   </p>
 </div>
 
@@ -41,19 +34,19 @@
               </div>
             </div>
           </div>
-          <div class="ui five wide center aligned column rvalue"> $ {{(vm.ranges[$index].value * vm.ranges[$index].freq).toLocaleString()}} </div>
+          <div class="ui five wide center aligned column rvalue"> ${{(vm.ranges[$index].value * vm.ranges[$index].freq).toLocaleString()}} </div>
         </div>
 
       </div>
     </div>
     <div class="ui item">
       <div class="ui center aligned vertical segment full">
-        <p class="ui header">Total per week: &nbsp; $ {{vm.getSum().toLocaleString()}}</p>
+        <p class="ui header">Total per week: &nbsp; ${{vm.getSum().toLocaleString()}}</p>
       </div>
     </div>
   </div>
 </div>
 
 <div class="ui center aligned vertical segment">
-  <button ui-sref="discretion" class="ui button submit"> Next </button>
+  <button ui-sref="central" class="ui button submit"> Done </button>
 </div>

@@ -60,24 +60,36 @@ class GoalsController {
       angular.forEach(vm.targets, (t, i) => {
         vm.initRanges(t, i);
         vm.initDropdown(t, i);
-
-        $('#loan-range').range({
-            min: 0,
-            max: 40000,
-            start: vm.gameData.bossValues.BPV,
-            step: 500,
-            onChange: (val) => { $timeout(() => vm.gameData.bossValues.BPV = val); }
-        });
-        $('#interest-range').range({
-            min: 5,
-            max: 25,
-            start: vm.gameData.bossValues.BRATE,
-            step: 1,
-            onChange: (val) => { $timeout(() => vm.gameData.bossValues.BRATE = val); }
-        });
+      });
+      $('#loan-range').range({
+          min: 0,
+          max: 40000,
+          start: vm.gameData.bossValues.BPV,
+          step: 500,
+          onChange: (val) => { $timeout(() => vm.gameData.bossValues.BPV = val); }
+      });
+      $('#interest-range').range({
+          min: 5,
+          max: 25,
+          start: vm.gameData.bossValues.BRATE,
+          step: 1,
+          onChange: (val) => { $timeout(() => vm.gameData.bossValues.BRATE = val); }
+      });
+      $('#savings-range').range({
+          min: vm.gameData.armoryRanges[0].min,
+          max: vm.gameData.armoryRanges[0].max,
+          start: vm.gameData.armoryRanges[0].value,
+          step: vm.gameData.armoryRanges[0].step,
+          onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[0].value = val); }
+      });
+      $('#savings-interest-range').range({
+          min: vm.gameData.armoryRanges[4].min,
+          max: vm.gameData.armoryRanges[4].max,
+          start: vm.gameData.armoryRanges[4].value,
+          step: vm.gameData.armoryRanges[4].step,
+          onChange: (val) => { $timeout(() => vm.gameData.armoryRanges[4].value = val); }
       });
     });
-
   }
 
   fulfilled() {
@@ -85,7 +97,7 @@ class GoalsController {
   }
 
   addGoal() {
-    if(this.fulfilled()) return;
+    // if(this.fulfilled()) return;
     this.targets.push({ code: 0, name: 'house', time: 8*52, budget: 40000});
     this.$timeout(() => {
       let i = this.targets.length-1;

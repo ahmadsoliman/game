@@ -1,0 +1,113 @@
+<div class="ui center aligned segment">
+  <img class="ui intro" ng-src="assets/icons/titles/income_intro.svg">
+</div>
+
+<div class="ui center aligned segment nopadding">
+  <p class="ui header">What’s your take-home pay from your main occupation?</p>
+
+  <div class="ui items">
+    <div class="item">
+      <div class="ui vertical segment full">
+        <div class="ui range game alone" id="earning-range"></div>
+        <br>
+
+        <div class="ui grid rgrid">
+          <div class="ui eleven wide column dropbox">
+            <div class="ui selection dropdown basic" id="earning-freq">
+              <input type="hidden">
+              <div class="default text"> Weekly </div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="1"> Weekly </div>
+                <div class="item" data-value="2"> Fortnightly </div>
+                <div class="item" data-value="4"> Monthly </div>
+                <div class="item" data-value="13"> Quarterly </div>
+                <div class="item" data-value="52"> Yearly </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui five wide center aligned column rvalue"> ${{(vm.earning.value*vm.earning.freq).toLocaleString()}} </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="ui segment center aligned nopadding">
+  <p class="ui header">
+    Any other earnings?
+  </p>
+  <div class="ui items">
+    <div class="item" ng-repeat="e in vm.otherEarnings">
+      <div class="ui vertical segment full">
+
+        <div class="ui selection segment dropdown basic" id="earning-{{$index}}">
+          <input type="hidden" name="earning-{{$index}}">
+          <i class="dropdown icon"></i>
+          <div class="default text">Select earning type</div>
+          <div class="menu">
+            <div class="item" ng-repeat="g in vm.ranges" data-value="{{$index}}">
+              {{g.text}}
+            </div>
+          </div>
+        </div>
+
+        <div class="ui range game alone" id="earnings-{{$index}}-range"></div>
+        <br>
+
+        <div class="ui grid rgrid">
+          <div class="ui eleven wide column dropbox">
+            <div class="ui selection dropdown basic" id="earnings-{{$index}}-freq">
+              <input type="hidden">
+              <div class="default text"> Weekly </div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="1"> Weekly </div>
+                <div class="item" data-value="2"> Fortnightly </div>
+                <div class="item" data-value="4"> Monthly </div>
+                <div class="item" data-value="13"> Quarterly </div>
+                <div class="item" data-value="52"> Yearly </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui five wide center aligned column rvalue"> ${{(vm.otherEarnings[$index].value * vm.otherEarnings[$index].freq).toLocaleString()}} </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- <div class="ui item">
+      <div class="ui center aligned vertical segment full">
+        <p class="ui header">Total per week: &nbsp; ${{vm.getSum().toLocaleString()}}</p>
+      </div>
+    </div> -->
+  </div>
+  <button class="ui button submit" ng-click="vm.addEarning()"> Add Earnings </button>
+</div>
+
+<!-- <div class="ui center aligned segment nopadding">
+  <p class="ui header">Any other regular cash receipts?</p>
+  <p class="ui header">
+    Any other earnings?
+  </p>
+
+  <div class="ui items">
+    <div class="item">
+      <div class="ui vertical segment full">
+        <div class="ui header"> Other Earnings per year </div>
+
+        <div class="ui grid rgrid">
+          <div class="ui five wide center aligned column rvalue"> ${{vm.gameData.armoryRanges[3].value.toLocaleString()}} </div>
+          <div class="ui eleven wide column rbox">
+            <div class="ui range game" id="other-range"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="ui center aligned vertical segment">
+  <button ui-sref="central" class="ui button submit" ng-click="vm.done()"> Done </button>
+</div>

@@ -60,25 +60,21 @@ class GoalsController {
       angular.forEach(vm.targets, (t, i) => {
         vm.initRanges(t, i);
         vm.initDropdown(t, i);
-
-        $('#loan-range').range({
-            min: 0,
-            max: 40000,
-            start: vm.gameData.bossValues.BPV,
-            step: 500,
-            onChange: (val) => { $timeout(() => vm.gameData.bossValues.BPV = val); }
-        });
-        $('#interest-range').range({
-            min: 5,
-            max: 25,
-            start: vm.gameData.bossValues.BRATE,
-            step: 1,
-            onChange: (val) => { $timeout(() => vm.gameData.bossValues.BRATE = val); }
-        });
       });
-    });
-
-    $timeout(() => {
+      $('#loan-range').range({
+          min: 0,
+          max: 40000,
+          start: vm.gameData.bossValues.BPV,
+          step: 500,
+          onChange: (val) => { $timeout(() => vm.gameData.bossValues.BPV = val); }
+      });
+      $('#interest-range').range({
+          min: 5,
+          max: 25,
+          start: vm.gameData.bossValues.BRATE,
+          step: 1,
+          onChange: (val) => { $timeout(() => vm.gameData.bossValues.BRATE = val); }
+      });
       $('#savings-range').range({
           min: vm.gameData.armoryRanges[0].min,
           max: vm.gameData.armoryRanges[0].max,

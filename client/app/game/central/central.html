@@ -59,13 +59,13 @@
     <p class="ui central resnote nomargin">SAVINGS /week</p>
     <p class="ui central resvalue nomargin">${{vm.gameResults.R.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
     <p class="ui central resnote redt nomargin">DEBT /week</p>
-    <p class="ui central resvalue redt nomargin">${{vm.gameData.getBP().toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
+    <p class="ui central resvalue redt nomargin">$({{vm.gameData.getBP().toLocaleString("en-IN", {"maximumFractionDigits": 0})}})</p>
   </div>
   <div class="ui central results">
     <p class="ui central resnote nomargin">SAVINGS</p>
     <p class="ui central resvalue nomargin">${{vm.currentSavings.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
     <p class="ui central resnote redt nomargin">DEBT</p>
-    <p class="ui central resvalue redt nomargin">${{vm.currentDebt.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
+    <p class="ui central resvalue redt nomargin">$({{vm.currentDebt.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})</p>
   </div>
   <div class="ui central year-selection">YEAR SELECTION</div>
   <div class="ui central hider" id="time-hider"></div>

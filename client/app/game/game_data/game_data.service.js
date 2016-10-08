@@ -151,7 +151,8 @@ angular.module('gameApp')
       calcCR: calcCR,
       testAllTargets: testAllTargets,
       reset: reset,
-      surveyQuestions: $localStorage.surveyQuestions
+      surveyQuestions: $localStorage.surveyQuestions,
+      saveToDatabase: saveToDatabase
     };
 
     function calcSSum() {
@@ -256,14 +257,24 @@ angular.module('gameApp')
       return results;
     }
 
+    function saveToDatabase() {
+      firebase.database().ref('results').push({
+        targets: $localStorage.targets,
+        suspenseRanges: $localStorage.suspenseRanges,
+        discretionRanges: $localStorage.discretionRanges,
+        otherEarnings: $localStorage.otherEarnings,
+        bossValues: $localStorage.bossValues,
+        armoryRanges: $localStorage.armoryRanges,
+      });
+    }
+
     function reset() {
-      console.log($localStorage.targets);
+      // console.log($localStorage.targets);
       $localStorage.$reset();
-      console.log($localStorage);
+      // console.log($localStorage);
       $localStorage.$default(defaults);
-      console.log($localStorage.targets);
+      // console.log($localStorage.targets);
       $location.path('/main');
       $window.location.reload();
-
     }
   });

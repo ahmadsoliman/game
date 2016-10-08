@@ -179,6 +179,7 @@ class CentralController {
   }
 
   startSurvey() {
+    this.gameData.saveToDatabase();
     this.gameData.startedSurvey.state = true;
   }
 

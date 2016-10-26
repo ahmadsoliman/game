@@ -123,6 +123,16 @@ angular.module('gameApp')
             'I do not have an up to date budget.'],
           type: "checkbox",
           answer: [false,false,false,false,false,false,false]
+      }, {
+        question: 'Would you consider having an everyday transactions account with a technology company, if it helped you understand your money better?',
+        options: ['Yes', 'No', 'Maybe'],
+        type: "radio",
+        answer: 0
+      }, {
+        question: 'Would you like to register your interest as a beta tester?',
+        options: ['Yes', 'No'],
+        type: "radio",
+        answer: 0
       }]
     };
     $localStorage.$default(defaults);

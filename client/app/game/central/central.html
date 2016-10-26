@@ -9,7 +9,7 @@
   <button class="ui central goals submit button" ui-sref="goals">
     <div class="ui central middle-align"><img ng-src="assets/central/goal_icon.svg"/></div>
     <div class="ui central middle-align">
-      Set your goals
+      Set goals
     </div>
   </button>
 </div>
@@ -19,7 +19,7 @@
     <img ng-src="assets/central/bg2.png" class="ui central bg"/>
     <div class="ui central value reserve" ng-if="!vm.flags.reserve">$__</div>
     <div class="ui central value reserve" ng-if="vm.flags.reserve">
-      ${{vm.gameData.getEarnings().toLocaleString("en-IN", {"maximumFractionDigits": 0})}}
+      ${{vm.gameData.getEarnings() | number:0}}
       <span class="ui central span">/week</span>
     </div>
     <div class="ui central note nreserve">EARNINGS</div>
@@ -31,7 +31,7 @@
     <img ng-src="assets/central/bg3.png" class="ui central bg"/>
     <div class="ui central value discretion" ng-if="!vm.flags.discretion">$__</div>
     <div class="ui central value discretion" ng-if="vm.flags.discretion">
-      $({{vm.gameResults.DSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
+      $({{vm.gameResults.DSum | number:0}})
       <span class="ui central span">/week</span>
     </div>
     <div class="ui central note ndiscretion">HABITS</div>
@@ -43,7 +43,7 @@
     <img ng-src="assets/central/bg4.png" class="ui central bg"/>
     <div class="ui central value suspense" ng-if="!vm.flags.suspense">$__</div>
     <div class="ui central value suspense" ng-if="vm.flags.suspense">
-      $({{vm.gameResults.SSum.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})
+      $({{vm.gameResults.SSum | number:0}})
       <span class="ui central span">/week</span>
     </div>
     <div class="ui central note nsuspense">COMMITMENTS</div>
@@ -57,15 +57,15 @@
   </div>
   <div class="ui central lresults">
     <p class="ui central resnote nomargin">SAVINGS /week</p>
-    <p class="ui central resvalue nomargin">${{vm.gameResults.R.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
+    <p class="ui central resvalue nomargin">${{vm.gameResults.R | number:0}}</p>
     <p class="ui central resnote redt nomargin">DEBT /week</p>
-    <p class="ui central resvalue redt nomargin">$({{vm.gameData.getBP().toLocaleString("en-IN", {"maximumFractionDigits": 0})}})</p>
+    <p class="ui central resvalue redt nomargin">$({{vm.gameData.getBP() | number:0}})</p>
   </div>
   <div class="ui central results">
     <p class="ui central resnote nomargin">SAVINGS</p>
-    <p class="ui central resvalue nomargin">${{vm.currentSavings.toLocaleString("en-IN", {"maximumFractionDigits": 0})}}</p>
+    <p class="ui central resvalue nomargin">${{vm.currentSavings | number:0}}</p>
     <p class="ui central resnote redt nomargin">DEBT</p>
-    <p class="ui central resvalue redt nomargin">$({{vm.currentDebt.toLocaleString("en-IN", {"maximumFractionDigits": 0})}})</p>
+    <p class="ui central resvalue redt nomargin">$({{vm.currentDebt | number:0}})</p>
   </div>
   <div class="ui central year-selection">YEAR SELECTION</div>
   <div class="ui central hider" id="time-hider"></div>
@@ -74,11 +74,10 @@
 
 <div class="ui center aligned vertical segment central footnote-container">
   <p class="ui central footnote">
-     If you would like to save your results for later or see how your budget
-     compares to our average, we ask you to complete a quick survey.
+     To save your results for the next time you come to blankbudget.com, please complete our beta tester survey.
   </p>
   <p class="ui central footnote"> We want to understand what you think of your bank. </p>
-  <a href="#survey"><button ng-click="vm.startSurvey()" class="ui button submit"> SAVE & COMPARE </button></a>
+  <a href="#survey"><button ng-click="vm.startSurvey()" class="ui button submit"> Save your results </button></a>
 </div>
 
 <!-- Survey Questions -->
@@ -106,9 +105,9 @@
     <input type="email" placeholder="Email" ng-model="vm.gameData.user.email">
   </div>
   <br><br>
-  <div class="ui input">
+  <!-- <div class="ui input">
     <input type="tel" placeholder="Phone Number" ng-model="vm.gameData.user.phone">
   </div>
-  <br><br>
+  <br><br> -->
   <button class="ui button submit" ng-click="vm.submitSurvey()">SUBMIT</button>
 </div>

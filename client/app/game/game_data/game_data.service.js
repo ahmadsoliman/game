@@ -76,7 +76,7 @@ angular.module('gameApp')
           question: 'Who do you bank with?',
           options: ['ANZ', 'CBA', 'NAB', 'WBC', 'Credit Unions', 'Other Institutions'],
           type: "radio",
-          answer: []
+          answer: 0
         }, {
           question: 'What are your bank’s top 3 priorities?',
           options: ['Help me achieve my goals',
@@ -87,7 +87,7 @@ angular.module('gameApp')
             'Help me make payments and store money.'
           ],
           type: "checkbox",
-          answer: []
+          answer: [false,false,false,false,false]
         }, {
           question: 'What is your relationship with debt?',
           options: ['I don’t have an active credit card or other debt?',
@@ -95,12 +95,12 @@ angular.module('gameApp')
             'I have some debt but it doesn’t concern me very much.',
             'Paying off my debt is my first priority'],
           type: "radio",
-          answer: []
+          answer: 0
         }, {
           question: 'Have you used any of these websites, apps, or services in the last 12 months:',
           options: ['iSelect', 'Pocketbook', 'Accountant', 'Compare the Market', 'Xero', 'MyBudget', 'Wealth Advisor', 'Mortgage Broker'],
           type: "checkbox",
-          answer: []
+          answer: [false,false,false,false,false,false,false,false]
         }, {
           question: 'Select all that apply about you.',
           options: ['Aged below 20',
@@ -111,7 +111,7 @@ angular.module('gameApp')
             'Working part time or full time',
             'Freelancer or business owner'],
           type: "checkbox",
-          answer: []
+          answer: [false,false,false,false,false,false,false]
         }, {
           question: 'Select all statements that are correct:',
           options: ['I have a clear picture of my financial position and performance to the nearest dollar.',
@@ -122,7 +122,7 @@ angular.module('gameApp')
             'I have an up to date budget and mentally track my expenditure.',
             'I do not have an up to date budget.'],
           type: "checkbox",
-          answer: []
+          answer: [false,false,false,false,false,false,false]
       }]
     };
     $localStorage.$default(defaults);
@@ -152,7 +152,9 @@ angular.module('gameApp')
       testAllTargets: testAllTargets,
       reset: reset,
       surveyQuestions: $localStorage.surveyQuestions,
-      saveToDatabase: saveToDatabase
+      saveToDatabase: saveToDatabase,
+      saveSurveyToDatabase: saveSurveyToDatabase,
+      saveUser: saveUser
     };
 
     function calcSSum() {
@@ -258,14 +260,22 @@ angular.module('gameApp')
     }
 
     function saveToDatabase() {
-      firebase.database().ref('results').push({
+      $localStorage.user.results_record = firebase.database().ref('results').push(angular.copy({
         targets: $localStorage.targets,
         suspenseRanges: $localStorage.suspenseRanges,
         discretionRanges: $localStorage.discretionRanges,
         otherEarnings: $localStorage.otherEarnings,
         bossValues: $localStorage.bossValues,
         armoryRanges: $localStorage.armoryRanges,
-      });
+      })).path.o;
+    }
+
+    function saveSurveyToDatabase() {
+      $localStorage.user.survey_record = firebase.database().ref('survey_answers').push(angular.copy($localStorage.surveyQuestions)).path.o;
+    }
+
+    function saveUser() {
+      $localStorage.user_record = firebase.database().ref('users').push(angular.copy($localStorage.user)).path.o;
     }
 
     function reset() {

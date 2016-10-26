@@ -103,12 +103,12 @@
   <p class="ui central footnote">Submit to receive your BLANK google sheet comparison.</p>
 
   <div class="ui input">
-    <input type="email" placeholder="Email">
+    <input type="email" placeholder="Email" ng-model="vm.gameData.user.email">
   </div>
   <br><br>
   <div class="ui input">
-    <input type="tel" placeholder="Phone Number">
+    <input type="tel" placeholder="Phone Number" ng-model="vm.gameData.user.phone">
   </div>
   <br><br>
-  <button class="ui button submit">SUBMIT</button>
+  <button class="ui button submit" ng-click="vm.submitSurvey()">SUBMIT</button>
 </div>

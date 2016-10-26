@@ -183,6 +183,11 @@ class CentralController {
     this.gameData.startedSurvey.state = true;
   }
 
+  submitSurvey() {
+    this.gameData.saveSurveyToDatabase();
+    this.gameData.saveUser();
+  }
+
 }
 
 angular.module('gameApp')

@@ -55,7 +55,14 @@ class IncomeController {
       .dropdown({
         action: 'activate',
         onChange: function(ind, text, $selectedItem) {
+          if(t.code === ind) return;
+          t.value = 0;
           t.code = ind;
+          vm.initRanges(t, i);
+          t.freq = vm.ranges[ind].freq;
+          vm.$timeout(() => {
+            $('#earnings-' + i + '-freq').dropdown('set selected', '' + t.freq);
+          });
         }
       })
     ;
@@ -66,11 +73,15 @@ class IncomeController {
 
   initRanges(r, i) {
     var vm = this;
+    var income_range = vm.ranges[5];
+    if(r.code > -1)
+      income_range = vm.ranges[r.code];
+
     $('#earnings-' + i + '-range').range({
-        min: 0,
-        max: 1000,
+        min: income_range.min,
+        max: income_range.max,
         start: r.value,
-        step: 50,
+        step: income_range.step,
         onChange: (val) => { vm.$timeout(() => vm.otherEarnings[i].value = val); }
     });
 

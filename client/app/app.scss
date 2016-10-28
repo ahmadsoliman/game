@@ -9,6 +9,10 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
   display: none;
 }
 
+.app-content {
+  width: 100%;
+}
+
 @media screen and (min-width: 430px) {
     .mobile-outline {
       display: block;
@@ -20,6 +24,7 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
       top: 169px;
       left: 74px;
       height: 765px;
+      width: 430px;
       overflow-y: scroll;
     }
     .app-content::-webkit-scrollbar-track {

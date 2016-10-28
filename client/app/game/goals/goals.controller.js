@@ -106,6 +106,10 @@ class GoalsController {
     });
   }
 
+  deleteGoal(ind) {
+    this.targets.splice(ind, 1);
+  }
+
   getSum() {
     var sum = 0;
     this.targets.forEach(function(t){

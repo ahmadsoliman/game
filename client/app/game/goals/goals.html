@@ -13,6 +13,7 @@
     <div class="item" ng-repeat="t in vm.targets">
 
       <div class="ui center aligned vertical segment full">
+        <i class="delete icon" ng-click="vm.deleteGoal($index)"></i>
 
         <div class="ui selection segment dropdown basic iconed" id="target-{{$index}}">
           <input type="hidden" name="target-{{$index}}">

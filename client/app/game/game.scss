@@ -376,3 +376,14 @@ label {
 .boldr {
   border-right-color: black!important;
 }
+
+.delete.icon {
+  z-index: 100;
+  position: absolute;
+  right: -5px;
+  top: 5px;
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-size: 25px;
+}

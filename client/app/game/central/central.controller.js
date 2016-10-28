@@ -179,13 +179,15 @@ class CentralController {
   }
 
   startSurvey() {
-    this.gameData.saveToDatabase();
-    this.gameData.startedSurvey.state = true;
+    if(this.gameData.saveToDatabase())
+      this.gameData.startedSurvey.state = true;
+    else v
+
   }
 
   submitSurvey() {
-    this.gameData.saveSurveyToDatabase();
-    this.gameData.saveUser();
+    if(!this.gameData.saveSurveyToDatabase() || !this.gameData.saveUser())
+      $('.ui.modal.nointernet').modal('show');
   }
 
 }

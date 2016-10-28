@@ -26,9 +26,9 @@ angular.module('gameApp')
       ],
       suspenseRanges: [
         {name: 'rent', text: 'Rent / Mortgage', code: 'S1', min: 0, max: 1000, value: 0, step: 50, freq: 1},
-        {name: 'mobile', text: 'Mobile / Internet', code: 'S2', min: 0, max: 100, value: 0, step: 5, freq: 1},
-        {name: 'utilities', text: 'Rates / Power / Other Utilities', code: 'S3', min: 0, max: 100, value: 0, step: 5, freq: 1},
-        {name: 'health', text: 'Car / Health / Other Insurance', code: 'S4', min: 0, max: 100, value: 0, step: 5, freq: 1},
+        {name: 'mobile', text: 'Mobile / Internet', code: 'S2', min: 0, max: 100, value: 0, step: 5, freq: 4},
+        {name: 'utilities', text: 'Rates / Power / Other Utilities', code: 'S3', min: 0, max: 100, value: 0, step: 5, freq: 13},
+        {name: 'health', text: 'Car / Health / Other Insurance', code: 'S4', min: 0, max: 100, value: 0, step: 5, freq: 52},
         {name: 'commitments', text: 'Other Regular Commitments', code: 'S5', min: 0, max: 200, value: 0, step: 10, freq: 1}
       ],
       SSum: 0,
@@ -270,6 +270,7 @@ angular.module('gameApp')
     }
 
     function saveToDatabase() {
+      if(typeof firebase === 'undefined' || firebase == 0) return 0;
       $localStorage.user.results_record = firebase.database().ref('results').push(angular.copy({
         targets: $localStorage.targets,
         suspenseRanges: $localStorage.suspenseRanges,
@@ -278,10 +279,13 @@ angular.module('gameApp')
         bossValues: $localStorage.bossValues,
         armoryRanges: $localStorage.armoryRanges,
       })).path.o;
+      return 1;
     }
 
     function saveSurveyToDatabase() {
+      if(typeof firebase === 'undefined' || firebase == 0) return 0;
       $localStorage.user.survey_record = firebase.database().ref('survey_answers').push(angular.copy($localStorage.surveyQuestions)).path.o;
+      return 1;
     }
 
     function saveUser() {

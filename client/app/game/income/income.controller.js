@@ -93,6 +93,10 @@ class IncomeController {
     });
   }
 
+  deleteEarning(ind) {
+    this.otherEarnings.splice(ind,1);
+  }
+
   done() {
     var vm = this;
     vm.gameData.armoryRanges[2].value = vm.earning.value;

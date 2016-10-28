@@ -31,16 +31,18 @@
     <!-- Add your site or application content here -->
     <!-- <navbar></navbar> -->
     <div class="ui padded left aligned one column grid">
-
-      <div class="blank-title row">
-        <div class="column">
-          <!-- <navbar class="navbar"></navbar> -->
-          <img class="blank-symbol" ng-src="assets/icons/titles/blank_symbol.png"/>
-          <p class="blank-title-text nomargin">BLANK BUDGET</p>
+      <img class="mobile-outline" ng-src="assets/images/iphone-outline.png"/>
+      <div class="app-content nopadding">
+        <div class="blank-title row">
+          <div class="column">
+            <!-- <navbar class="navbar"></navbar> -->
+            <img class="blank-symbol" ng-src="assets/icons/titles/blank_symbol.png"/>
+            <p class="blank-title-text nomargin">BLANK BUDGET</p>
+          </div>
         </div>
-      </div>
-      <div class="column nopadding">
-        <div ui-view="" class="uiview"></div>
+        <div class="column nopadding">
+          <div ui-view="" class="uiview"></div>
+        </div>
       </div>
     </div>
 
@@ -128,7 +130,7 @@
           storageBucket: "blankft-teaser-app.appspot.com",
           messagingSenderId: "977785831008"
         };
-        firebase.initializeApp(config);
+        if(typeof firebase !== 'undefined' && firebase) firebase.initializeApp(config);
       </script>
     <!-- endfirebase -->
   </body>

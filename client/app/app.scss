@@ -20,7 +20,7 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
       height: 100%;
     }
     .app-content {
-      width: initial;
+      width: 428px;
       position: absolute;
       top: 169px;
       left: 74px;
@@ -123,45 +123,89 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 
 /* ANIMATIONS
 ============================================================================= */
-
-/* leaving animations ----------------------------------------- */
-/* rotate and fall */
-@keyframes rotateFall {
-    0%      { transform: rotateZ(0deg); }
-    20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
-    40%     { transform: rotateZ(17deg); }
-    60%     { transform: rotateZ(16deg); }
-    100%    { transform: translateY(100%) rotateZ(17deg); }
-}
+//
+// /* leaving animations ----------------------------------------- */
+// /* rotate and fall */
+// @keyframes rotateFall {
+//     0%      { transform: rotateZ(0deg); }
+//     20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+//     40%     { transform: rotateZ(17deg); }
+//     60%     { transform: rotateZ(16deg); }
+//     100%    { transform: translateY(100%) rotateZ(17deg); }
+// }
 
 /* slide in from the bottom */
-@keyframes slideOutLeft {
-    to      { transform: translateX(-100%); }
-}
+// @keyframes slideOutLeft {
+//     to      { transform: translateX(-100%); }
+// }
 
-/* rotate out newspaper */
-@keyframes rotateOutNewspaper {
-    to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
-}
-
-/* entering animations --------------------------------------- */
-/* scale up */
-@keyframes scaleUp {
-    from    { opacity: 0.3; -webkit-transform: scale(0.8); }
-}
+// /* rotate out newspaper */
+// @keyframes rotateOutNewspaper {
+//     to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+// }
+//
+// /* entering animations --------------------------------------- */
+// /* scale up */
+// @keyframes scaleUp {
+//     from    { opacity: 0.3; -webkit-transform: scale(0.8); }
+// }
 
 /* slide in from the right */
 @keyframes slideInRight {
-    from    { transform:translateX(100%); }
-    to      { transform: translateX(0); }
+    from {
+      ms-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+    to {
+      mstransform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      transform: translateX(0);
+    }
+
+}
+/* slide out to the right */
+@keyframes slideOutRight {
+    to {
+      ms-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      transform: translateX(100%);
+    }
 }
 
-/* slide in from the bottom */
-@keyframes slideInUp {
-    from    { transform:translateY(100%); }
-    to      { transform: translateY(0); }
+/* slide out to the right Fade Out*/
+@keyframes slideOutRightAndFadeOut {
+    to {
+      ms-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      transform: translateX(100%);
+      opacity: 0;
+    }
 }
 
+// /* slide in from the bottom */
+// @keyframes slideInUp {
+//     from    { transform:translateY(100%); }
+//     to      { transform: translateY(0); }
+// }
 
-.ng-enter { animation: slideInRight 0.5s both ease-in; z-index: 8888; }
-.ng-leave { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }
+/* fade in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* fade out */
+@keyframes fadeOut {
+    to { opacity: 0; }
+}
+
+.ng-enter { animation: slideInRight 0.1s both ease-in; z-index: 88}
+.ng-leave { animation: slideOutRightAndFadeOut 0.3s both ease-in; z-index: 88}
+
+.uiview.ng-enter { animation: fadeIn 0.5s; z-index: 100; position: absolute;}
+.uiview.ng-leave { animation: fadeOut 0.5s; z-index: 99;}

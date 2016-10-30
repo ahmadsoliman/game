@@ -51,9 +51,9 @@ angular.module('gameApp')
         controllerAs: 'vm'
       });
   })
-  .run(function($rootScope) {
+  .run(function($rootScope, $timeout) {
     $rootScope.$on('$stateChangeSuccess', function() {
-       document.body.scrollTop = document.documentElement.scrollTop = 0;
+       $timeout(() => document.body.scrollTop = document.documentElement.scrollTop = 0, 350);
     });
     // $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
     //   if (next.name === 'logout' && current && current.name && !current.authenticate) {

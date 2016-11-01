@@ -5,6 +5,7 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
  * App-wide Styles
  */
 
+
 .mobile-outline {
   display: none;
 }
@@ -13,35 +14,40 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
   width: 100%;
 }
 
-@media screen and (min-width: 430px) {
-    .mobile-outline {
-      display: block;
-      width: 577px;
-      height: 100%;
-    }
-    .app-content {
-      position: absolute;
-      top: 169px;
-      left: 74px;
-      height: 765px;
-      width: 430px;
-      overflow-y: scroll;
-    }
-    .app-content::-webkit-scrollbar-track {
-    	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    	background-color: #F5F5F5;
-    }
-    .app-content::-webkit-scrollbar {
-    	width: 6px;
-    	background-color: #F5F5F5;
-    }
-    .app-content::-webkit-scrollbar-thumb {
-    	background-color: #000000;
-    }
+@media screen and (min-width: 577px) {
+  #app {
+    margin: auto!important;
+    width: 577px;
+    position: relative;
+  }
+  .mobile-outline {
+    display: block;
+    width: 577px;
+    height: 100%;
+  }
+  .app-content {
+    width: 428px;
+    position: absolute;
+    top: 169px;
+    left: 74px;
+    height: 765px;
+    overflow-y: scroll;
+  }
+  .app-content::-webkit-scrollbar-track {
+  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  	background-color: #F5F5F5;
+  }
+  .app-content::-webkit-scrollbar {
+  	width: 6px;
+  	background-color: #F5F5F5;
+  }
+  .app-content::-webkit-scrollbar-thumb {
+  	background-color: #000000;
+  }
 
-    .ui.central.bg {
-      margin-top: -7px;
-    }
+  .ui.central.bg {
+    margin-top: -7px;
+  }
 }
 
 .uiview {
@@ -119,3 +125,93 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 @import '../components/navbar/navbar';
 @import '../components/oauth-buttons/oauth-buttons';
 /* endinject */
+
+
+/* ANIMATIONS
+============================================================================= */
+//
+// /* leaving animations ----------------------------------------- */
+// /* rotate and fall */
+// @keyframes rotateFall {
+//     0%      { transform: rotateZ(0deg); }
+//     20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+//     40%     { transform: rotateZ(17deg); }
+//     60%     { transform: rotateZ(16deg); }
+//     100%    { transform: translateY(100%) rotateZ(17deg); }
+// }
+
+/* slide in from the bottom */
+// @keyframes slideOutLeft {
+//     to      { transform: translateX(-100%); }
+// }
+
+// /* rotate out newspaper */
+// @keyframes rotateOutNewspaper {
+//     to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+// }
+//
+// /* entering animations --------------------------------------- */
+// /* scale up */
+// @keyframes scaleUp {
+//     from    { opacity: 0.3; -webkit-transform: scale(0.8); }
+// }
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from {
+      ms-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+    to {
+      mstransform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      transform: translateX(0);
+    }
+
+}
+/* slide out to the right */
+@keyframes slideOutRight {
+    to {
+      ms-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+}
+
+/* slide out to the right Fade Out*/
+@keyframes slideOutRightAndFadeOut {
+    to {
+      ms-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      transform: translateX(100%);
+      opacity: 0;
+    }
+}
+
+// /* slide in from the bottom */
+// @keyframes slideInUp {
+//     from    { transform:translateY(100%); }
+//     to      { transform: translateY(0); }
+// }
+
+/* fade in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* fade out */
+@keyframes fadeOut {
+    to { opacity: 0; }
+}
+
+.ng-enter { animation: slideInRight 0.1s both ease-in; z-index: 88}
+.ng-leave { animation: slideOutRightAndFadeOut 0.3s both ease-in; z-index: 88}
+
+.uiview.ng-enter { animation: fadeIn 0.5s; z-index: 100; position: absolute;}
+.uiview.ng-leave { animation: fadeOut 0.5s; z-index: 99;}

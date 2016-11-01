@@ -41,7 +41,7 @@
   <div class="ui items">
     <div class="item" ng-repeat="e in vm.otherEarnings">
       <div class="ui vertical segment full">
-        <i class="delete icon" ng-click="vm.deleteEarning($index)"></i>
+        <i class="remove circle icon" ng-click="vm.deleteEarning($index)"></i>
 
         <div class="ui selection segment dropdown basic" id="earning-{{$index}}">
           <input type="hidden" name="earning-{{$index}}">

@@ -30,16 +30,16 @@
 
     <!-- Add your site or application content here -->
     <!-- <navbar></navbar> -->
-    <div class="ui padded left aligned one column grid">
+    <div class="ui padded left aligned one column grid" id="app">
       <img class="mobile-outline" ng-src="assets/images/iphone-outline.png"/>
       <div class="app-content nopadding">
-        <div class="blank-title row">
+        <!-- <div class="blank-title row">
           <div class="column">
-            <!-- <navbar class="navbar"></navbar> -->
+            <navbar class="navbar"></navbar>
             <img class="blank-symbol" ng-src="assets/icons/titles/blank_symbol.png"/>
             <p class="blank-title-text nomargin">BLANK BUDGET</p>
           </div>
-        </div>
+        </div> -->
         <div class="column nopadding">
           <div ui-view="" class="uiview"></div>
         </div>
@@ -78,6 +78,7 @@
       <script src="bower_components/Chart.js/dist/Chart.js"></script>
       <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
       <script src="bower_components/ngstorage/ngStorage.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->

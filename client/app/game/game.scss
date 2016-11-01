@@ -144,10 +144,14 @@
   width: 100%;
   line-height: 23px;
   font-size: 17px;
-  background: black;
-  color: white;
+  background-color: #eaeaea;
+  color: black;
   margin: 0;
   padding: 5px 10px;
+}
+.ui.central.intro .title {
+  line-height: 35px;
+  font-size: 24px;
 }
 
 .ui.central.goals {
@@ -270,8 +274,8 @@
 }
 
 .ui.central.footnote-container {
-  background: black;
-  color: white;
+  background-color: #eaeaea;
+  color: black;
   padding: 20px;
   margin-top: -5px;
 }
@@ -377,10 +381,10 @@ label {
   border-right-color: black!important;
 }
 
-.delete.icon {
+.remove.circle.icon {
   z-index: 100;
   position: absolute;
-  right: -5px;
+  right: -3px;
   top: 5px;
   margin: 0;
   padding: 0;

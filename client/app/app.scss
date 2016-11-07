@@ -6,8 +6,10 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
  */
 
 
-.mobile-outline {
-  display: none;
+@media screen and (max-width: 577px) {
+  .mobile-outline {
+    display: none;
+  }
 }
 
 .app-content {
